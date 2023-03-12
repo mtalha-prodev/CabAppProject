@@ -9,4 +9,11 @@ export const themeColor = {
   txtColor: '#ccd0f6',
   // btn text color
   btnTxtColor: '#fff',
+  titleColor: '#000',
+};
+export const fontSize = {
+  title: 27,
+  txt: 17,
+  btnTxt: 18,
+  bold: 700,
 };

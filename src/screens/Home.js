@@ -1,46 +1,41 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
+import {Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 import React from 'react';
 import {themeColor} from './../constant';
+import LinearGradient from 'react-native-linear-gradient';
+import {StackActions, useNavigation} from '@react-navigation/native';
+
+const {bgColor, bgColorOne, btnBgColor, btnBgColorTwo, btnTxtColor} =
+  themeColor;
 
 const Home = () => {
-  const {
-    bgColor,
-    bgColorOne,
-    bgColorTwo,
-    btnBgColor,
-    btnBgColorTwo,
-    txtColor,
-    btnTxtColor,
-  } = themeColor;
+  const navigation = useNavigation();
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: bgColor,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <StatusBar backgroundColor={bgColor} barStyle={'dark-content'} />
-      <TouchableOpacity style={{backgroundColor: btnBgColor, width: '100%'}}>
-        <Text>Users</Text>
+    <LinearGradient
+      colors={[bgColorOne, bgColor]}
+      locations={[0.3, 1]}
+      start={{x: 0, y: 0}}
+      end={{x: 1, y: 1}}
+      style={style.container}>
+      <StatusBar backgroundColor={bgColorOne} barStyle={'defualt'} />
+      <TouchableOpacity
+        style={[
+          style.btn,
+          {backgroundColor: btnBgColorTwo, borderColor: btnBgColor},
+        ]}>
+        <Text style={[{color: btnTxtColor}, style.btnTxt]}>Driver</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{backgroundColor: btnBgColorTwo, width: '100%'}}>
-        <Text>Driver</Text>
+      <TouchableOpacity
+        style={[
+          {backgroundColor: btnBgColor, borderColor: btnBgColorTwo},
+          style.btn,
+        ]}
+        onPress={() =>
+          navigation.dispatch(StackActions.replace('UserWelcome'))
+        }>
+        <Text style={[{color: btnTxtColor}, style.btnTxt]}>Users</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{backgroundColor: bgColorOne, width: '100%'}}>
-        <Text>Users</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={{backgroundColor: bgColorTwo, width: '100%'}}>
-        <Text>Driver</Text>
-      </TouchableOpacity>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -49,6 +44,18 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  btn: {
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '90%',
+    borderRadius: 30,
+    marginVertical: 15,
+  },
+  btnTxt: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
