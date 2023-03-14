@@ -131,5 +131,7 @@ dist
 build
 .keystore
 debug.keystore
+local.properties
+.idea
 
 

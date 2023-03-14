@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   UserDetails,
   UserLogin,
+  UserMainScreen,
   UserPassword,
   UserPhone,
   UserWelcome,
@@ -57,6 +58,11 @@ const Navigation = () => {
         <Stack.Screen
           name="UserDetails"
           component={UserDetails}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserMainScreen"
+          component={UserMainScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

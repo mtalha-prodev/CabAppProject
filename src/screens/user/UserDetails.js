@@ -22,7 +22,7 @@ const UserDetails = () => {
 
   const handleDetails = () => {
     try {
-      navigation.dispatch(StackActions.replace('MainScreen'));
+      navigation.dispatch(StackActions.replace('UserMainScreen'));
     } catch (error) {}
   };
 
