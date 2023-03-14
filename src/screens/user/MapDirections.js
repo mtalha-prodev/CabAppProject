@@ -1,57 +1,50 @@
-import {StyleSheet, View} from 'react-native';
-import React, {useRef, useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
 import {fontSize, themeColor} from '../../constant';
-import MapView, {Marker} from 'react-native-maps';
-import MapViewDirections from 'react-native-maps-directions';
-import {GOOGLE_MAPS_APIKEY} from '../../utils';
+import PriceCard from '../../components/PriceCard';
+import Map from '../../components/Map';
+import {useNavigation} from '@react-navigation/native';
 
 const MapDirections = () => {
-  const [location, setLocation] = useState({
-    pickupCords: {
-      latitude: 31.4545,
-      longitude: 74.351,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    },
-    dropLocationCords: {
-      latitude: 31.4758,
-      longitude: 74.3426,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    },
-  });
-  const mapRef = useRef();
-
-  const {pickupCords, dropLocationCords} = location;
-
+  const navigation = useNavigation();
   return (
     <View style={{flex: 1}}>
-      <MapView
-        style={StyleSheet.absoluteFill}
-        ref={mapRef}
-        initialRegion={pickupCords}>
-        <Marker coordinate={pickupCords} />
-        <Marker coordinate={dropLocationCords} />
-        <MapViewDirections
-          origin={pickupCords}
-          destination={dropLocationCords}
-          apikey={GOOGLE_MAPS_APIKEY}
-          strokeWidth={3}
-          strokeColor="red"
-          optimizeWaypoints={true}
-          // splitWaypoints={true}
-          onReady={result => {
-            mapRef.current.fitToCoordinates(result.coordinates, {
-              edgePadding: {
-                right: 30,
-                bottom: 200,
-                right: 30,
-                top: 100,
-              },
-            });
+      <View style={{flex: 2}}>
+        <Map />
+      </View>
+      <View
+        style={{
+          flex: 1.4,
+          justifyContent: 'space-evenly',
+          alignItems: 'center',
+          backgroundColor: '#f3f3f3',
+        }}>
+        {/* Price Card */}
+
+        <PriceCard />
+        <PriceCard />
+        <PriceCard />
+
+        <TouchableOpacity
+          style={{
+            backgroundColor: themeColor.btnBgColorTwo,
+            width: '80%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 10,
+            borderRadius: 20,
           }}
-        />
-      </MapView>
+          onPress={() => navigation.navigate('ConfirmRaide')}>
+          <Text
+            style={{
+              fontSize: fontSize.btnTxt,
+              fontWeight: fontSize.bold,
+              color: themeColor.btnTxtColor,
+            }}>
+            Confirm Raide E-Drive
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

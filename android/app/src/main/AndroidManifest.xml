@@ -1,4 +1,3 @@
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -22,6 +21,9 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-      <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBVe-9o7ukhkUBl8hhdNo150Z0eip4EFbw"/>
+      <!-- FREE MAP API KEY -->
+      <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDfKXLt9G6V5tpNtT5dY9GbhZS-FC60xXU"/>
+      <!-- PAID MAP API KEY -->
+      <!-- <meta-data android:name="com.google.android.geo.API_KEY" android:value=""/> -->
     </application>
 </manifest>

@@ -2,6 +2,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
+  ChatScreen,
+  ConfirmRaide,
   MapDirections,
   SearchLocation,
   UserDetails,
@@ -75,6 +77,16 @@ const Navigation = () => {
         <Stack.Screen
           name="MapDirections"
           component={MapDirections}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ConfirmRaide"
+          component={ConfirmRaide}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
