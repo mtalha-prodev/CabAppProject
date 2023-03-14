@@ -10,10 +10,9 @@ import {
 import MapView, {Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyDfKXLt9G6V5tpNtT5dY9GbhZS-FC60xXU';
-
 import React, {useRef, useState} from 'react';
 import {fontSize, themeColor} from '../../constant';
+import {useNavigation} from '@react-navigation/native';
 
 const {width} = Dimensions.get('screen');
 const UserMainScreen = () => {
@@ -34,6 +33,8 @@ const UserMainScreen = () => {
   const mapRef = useRef();
 
   const {pickupCords, dropLocationCords} = location;
+
+  const navigation = useNavigation();
 
   return (
     <View style={style.container}>
@@ -136,7 +137,8 @@ const UserMainScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 20,
-          }}>
+          }}
+          onPress={() => navigation.navigate('SearchLocation')}>
           <Text style={{fontSize: fontSize.btnTxt, fontWeight: fontSize.bold}}>
             Where to Go
           </Text>
@@ -157,16 +159,6 @@ const UserMainScreen = () => {
           Around You
         </Text>
         <View style={{flex: 1}}>
-          {/* <MapView
-            style={[StyleSheet.absoluteFill, {borderRadius: 20}]}
-            initialRegion={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.0922,
-              longitudeDelta: 0.0421,
-            }}
-          /> */}
-
           <MapView
             style={StyleSheet.absoluteFill}
             ref={mapRef}

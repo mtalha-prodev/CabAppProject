@@ -2,6 +2,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
+  MapDirections,
+  SearchLocation,
   UserDetails,
   UserLogin,
   UserMainScreen,
@@ -63,6 +65,16 @@ const Navigation = () => {
         <Stack.Screen
           name="UserMainScreen"
           component={UserMainScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SearchLocation"
+          component={SearchLocation}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MapDirections"
+          component={MapDirections}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

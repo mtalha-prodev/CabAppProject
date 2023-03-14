@@ -134,4 +134,7 @@ debug.keystore
 local.properties
 .idea
 
+# paid map api
+utils.js
+
 
