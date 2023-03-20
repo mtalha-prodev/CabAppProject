@@ -4,27 +4,14 @@ import BackButton from '../../../components/BackButton';
 import {fontSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
+import UserProfileHeader from '../../../components/UserProfileHeader';
 
 const PaymentMethod = () => {
   const navigation = useNavigation();
   return (
     <View style={style.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginLeft: 20,
-        }}>
-        <BackButton />
-        <Text
-          style={{
-            fontSize: fontSize.normalTitle,
-            fontWeight: fontSize.bold,
-            color: themeColor.titleColor,
-          }}>
-          Add Payment Methods
-        </Text>
-      </View>
+      {/* profile header component */}
+      <UserProfileHeader title="Add Payment Methods" />
       {/*  */}
 
       <View style={style.card}>

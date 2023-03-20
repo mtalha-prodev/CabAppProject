@@ -25,6 +25,7 @@ import {
   UserSetting,
   UserHelp,
   UserContact,
+  RateUs,
 } from '../screens/ComanScreens/userScreens';
 import Splash from '../screens/ComanScreens/Splash';
 import Home from '../screens/ComanScreens/Home';
@@ -160,6 +161,11 @@ const Navigation = () => {
         <Stack.Screen
           name="UserContact"
           component={UserContact}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RateUs"
+          component={RateUs}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

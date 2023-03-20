@@ -5,6 +5,7 @@ import {fontSize, themeColor} from '../../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
+import UserProfileHeader from '../../../components/UserProfileHeader';
 
 const Card = ({title, name, icon, type, onPress}) => {
   const navigation = useNavigation();
@@ -48,22 +49,9 @@ const Card = ({title, name, icon, type, onPress}) => {
 const Wallet = () => {
   return (
     <View style={style.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginLeft: 20,
-        }}>
-        <BackButton />
-        <Text
-          style={{
-            fontSize: fontSize.normalTitle,
-            fontWeight: fontSize.bold,
-            color: themeColor.titleColor,
-          }}>
-          Wallet
-        </Text>
-      </View>
+      {/* profile header component */}
+      <UserProfileHeader title="wallet" />
+
       {/* bg color */}
       <LinearGradient
         colors={[

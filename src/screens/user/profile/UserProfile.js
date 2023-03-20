@@ -4,6 +4,7 @@ import {fontSize, themeColor} from '../../../constant';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
+import BackButton from '../../../components/BackButton';
 
 const Card = ({title, icon, onPress}) => {
   const navigation = useNavigation();
@@ -30,7 +31,12 @@ const Card = ({title, icon, onPress}) => {
             style={{fontSize: 32, color: themeColor.iconColor}}
             name={icon}
           />
-          <Text style={{marginLeft: 20, fontSize: fontSize.btnTxt}}>
+          <Text
+            style={{
+              marginLeft: 20,
+              fontSize: fontSize.btnTxt,
+              color: themeColor.txtColor,
+            }}>
             {title}
           </Text>
         </View>
@@ -52,7 +58,7 @@ const UserProfile = () => {
   return (
     <View style={style.container}>
       <View style={style.header}>
-        <Text>Back</Text>
+        <BackButton />
         <Text style={{color: themeColor.txtColor}}>M.Talha</Text>
         <TouchableOpacity
           style={{padding: 5}}
@@ -64,7 +70,9 @@ const UserProfile = () => {
         </TouchableOpacity>
       </View>
       <View style={style.cart}>
-        <TouchableOpacity style={style.btn}>
+        <TouchableOpacity
+          style={style.btn}
+          onPress={() => navigation.navigate('UserHelp')}>
           <Ionicons style={style.fontIcon} name={'help-buoy-outline'} />
           <Text>Help</Text>
         </TouchableOpacity>
@@ -74,7 +82,9 @@ const UserProfile = () => {
           <Ionicons style={style.fontIcon} name={'wallet-outline'} />
           <Text>Wallet</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={style.btn}>
+        <TouchableOpacity
+          style={style.btn}
+          onPress={() => navigation.navigate('UserTrips')}>
           <Ionicons style={style.fontIcon} name={'timer-outline'} />
           <Text>Trips</Text>
         </TouchableOpacity>

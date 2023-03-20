@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import BackButton from '../../../components/BackButton';
 import {useNavigation} from '@react-navigation/native';
 import {fontSize, themeColor} from '../../../constant';
+import UserProfileHeader from '../../../components/UserProfileHeader';
 
 const UserEdit = ({name, fieldName}) => {
   return (
@@ -35,17 +36,8 @@ const EditAccount = () => {
 
   return (
     <View style={style.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginLeft: 20,
-        }}>
-        <BackButton />
-        <Text style={{fontSize: fontSize.title, fontWeight: fontSize.bold}}>
-          EditAccount
-        </Text>
-      </View>
+      {/* profile header component */}
+      <UserProfileHeader title="Edit Account" />
 
       <View style={{height: 250}}>
         <Image

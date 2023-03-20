@@ -1,12 +1,30 @@
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
+import UserProfileHeader from '../../../components/UserProfileHeader';
+import Voucher from '../../../components/Voucher';
 
 const Trips = () => {
   return (
-    <View>
-      <Text>Trips</Text>
+    <View style={style.container}>
+      {/* user profile header */}
+      <UserProfileHeader title="Trips" />
+      {/* voucher  */}
+      <ScrollView style={style.scrollStyle}>
+        <Voucher />
+        <Voucher />
+      </ScrollView>
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingVertical: 15,
+  },
+  scrollStyle: {
+    marginVertical: 10,
+  },
+});
 
 export default Trips;
