@@ -10,6 +10,7 @@ import AddressPickup from '../../components/AddressPickup';
 import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-virtualized-view';
 import {fontSize, themeColor} from '../../constant';
+import UserProfileHeader from '../../components/UserProfileHeader';
 
 const SearchLocation = () => {
   const navigation = useNavigation();
@@ -24,6 +25,8 @@ const SearchLocation = () => {
 
   return (
     <View style={style.container}>
+      <UserProfileHeader title="Add Pickup & Drop Location" />
+
       <ScrollView keyboardShouldPersistTaps="handled" style={style.search}>
         <AddressPickup placeholderText={'Enter Pickup Location'} />
         <View style={{marginBottom: 15}}></View>
@@ -39,6 +42,7 @@ const SearchLocation = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    paddingVertical: 20,
   },
   search: {
     flex: 1,

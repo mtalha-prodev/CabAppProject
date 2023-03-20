@@ -4,12 +4,16 @@ import Map from '../../components/Map';
 import {fontSize, themeColor} from '../../constant';
 import PriceCard from '../../components/PriceCard';
 import {useNavigation} from '@react-navigation/native';
+import BackButton from '../../components/BackButton';
 
 const ConfirmRaide = () => {
   const navigation = useNavigation();
 
   return (
     <View style={style.container}>
+      <View style={{position: 'absolute', left: 25, top: 25, zIndex: 999}}>
+        <BackButton />
+      </View>
       <View style={{flex: 2}}>
         <Map />
       </View>

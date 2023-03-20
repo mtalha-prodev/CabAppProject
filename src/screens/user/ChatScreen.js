@@ -3,6 +3,7 @@ import React, {useState, useCallback, useEffect} from 'react';
 import {Bubble, GiftedChat, InputToolbar} from 'react-native-gifted-chat';
 import {useRoute} from '@react-navigation/native';
 import firestore, {firebase} from '@react-native-firebase/firestore';
+import BackButton from '../../components/BackButton';
 
 const ChatScreen = () => {
   // const route = useRoute();
@@ -92,6 +93,9 @@ const ChatScreen = () => {
 
   return (
     <View style={{flex: 1}}>
+      <View style={{position: 'absolute', left: 25, top: 25, zIndex: 999}}>
+        <BackButton />
+      </View>
       <GiftedChat
         messages={messages}
         onSend={text => onSend(text)}

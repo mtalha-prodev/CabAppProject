@@ -10,6 +10,7 @@ const UserProfileHeader = ({title}) => {
         flexDirection: 'row',
         alignItems: 'center',
         marginLeft: 20,
+        marginVertical: 10,
       }}>
       <BackButton />
       <Text

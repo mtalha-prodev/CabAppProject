@@ -4,11 +4,15 @@ import {fontSize, themeColor} from '../../constant';
 import PriceCard from '../../components/PriceCard';
 import Map from '../../components/Map';
 import {useNavigation} from '@react-navigation/native';
+import BackButton from '../../components/BackButton';
 
 const MapDirections = () => {
   const navigation = useNavigation();
   return (
     <View style={{flex: 1}}>
+      <View style={{position: 'absolute', left: 25, top: 25, zIndex: 999}}>
+        <BackButton />
+      </View>
       <View style={{flex: 2}}>
         <Map />
       </View>

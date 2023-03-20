@@ -10,6 +10,7 @@ const UserContact = () => {
     <View style={style.container}>
       {/* header */}
       <UserProfileHeader title="Contact Us" />
+      {/* contact section */}
       <View style={{width: '80%', alignSelf: 'center', paddingVertical: 20}}>
         <Ionicons
           name="call-outline"

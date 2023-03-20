@@ -26,6 +26,7 @@ import {
   UserHelp,
   UserContact,
   RateUs,
+  ShareApp,
 } from '../screens/ComanScreens/userScreens';
 import Splash from '../screens/ComanScreens/Splash';
 import Home from '../screens/ComanScreens/Home';
@@ -166,6 +167,11 @@ const Navigation = () => {
         <Stack.Screen
           name="RateUs"
           component={RateUs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SheraApp"
+          component={ShareApp}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
