@@ -1,8 +1,8 @@
 import {Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 import React from 'react';
-import {themeColor} from './../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import {themeColor} from '../../constant';
 
 const {bgColor, bgColorOne, btnBgColor, btnBgColorTwo, btnTxtColor} =
   themeColor;

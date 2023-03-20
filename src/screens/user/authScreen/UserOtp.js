@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {userContent} from '../UserContent';
-import {fontSize, themeColor} from '../../constant';
+import {fontSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
+import {userContent} from '../../ComanScreens/UserContent';
 
 const {width} = Dimensions.get('screen');
 const UserOtp = () => {

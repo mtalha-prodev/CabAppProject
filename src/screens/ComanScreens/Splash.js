@@ -2,7 +2,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import React, {useEffect} from 'react';
 import {StackActions, useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
-import {themeColor} from '../constant';
+import {themeColor} from '../../constant';
 
 const Splash = () => {
   const {bgColorOne, bgColor, bgColorTwo, txtColor} = themeColor;

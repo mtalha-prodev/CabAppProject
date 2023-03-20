@@ -6,11 +6,11 @@ import {
   Dimensions,
 } from 'react-native';
 import React from 'react';
-import Login from '../../components/Login';
-import Welcome from '../../components/Welcome';
+import Login from '../../../components/Login';
+import Welcome from '../../../components/Welcome';
 import {useNavigation} from '@react-navigation/native';
-import {userContent} from '../UserContent';
-import {fontSize, themeColor} from '../../constant';
+import {fontSize, themeColor} from '../../../constant';
+import {userContent} from '../../ComanScreens/UserContent';
 
 const {width} = Dimensions.get('screen');
 

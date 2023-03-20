@@ -12,10 +12,22 @@ import {
   UserPassword,
   UserPhone,
   UserWelcome,
-} from '../screens/userScreens';
-import Splash from '../screens/Splash';
-import Home from '../screens/Home';
-import UserOtp from '../screens/user/UserOtp';
+  UserProfile,
+  UserOtp,
+  EditAccount,
+  Wallet,
+  PaymentMethod,
+  PaymentDetails,
+  PaymentEdit,
+  Trips,
+  TripDetails,
+  UserNotification,
+  UserSetting,
+  UserHelp,
+  UserContact,
+} from '../screens/ComanScreens/userScreens';
+import Splash from '../screens/ComanScreens/Splash';
+import Home from '../screens/ComanScreens/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -87,6 +99,67 @@ const Navigation = () => {
         <Stack.Screen
           name="ChatScreen"
           component={ChatScreen}
+          options={{headerShown: false}}
+        />
+        {/* user Profile */}
+        <Stack.Screen
+          name="UserProfile"
+          component={UserProfile}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserEditAccount"
+          component={EditAccount}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserWallet"
+          component={Wallet}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="PaymentMethod"
+          component={PaymentMethod}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="PaymentDetails"
+          component={PaymentDetails}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="PaymentEdit"
+          component={PaymentEdit}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserTrips"
+          component={Trips}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserTripsDetail"
+          component={TripDetails}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserNotification"
+          component={UserNotification}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserSetting"
+          component={UserSetting}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserHelp"
+          component={UserHelp}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UserContact"
+          component={UserContact}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

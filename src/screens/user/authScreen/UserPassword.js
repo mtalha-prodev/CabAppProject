@@ -1,45 +1,40 @@
 import {
   View,
   Text,
+  TextInput,
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  TextInput,
 } from 'react-native';
-import React, {useState} from 'react';
-import {fontSize, themeColor} from '../../constant';
-import {userContent} from '../UserContent';
+import React from 'react';
+
 import {useNavigation} from '@react-navigation/native';
+import {fontSize, themeColor} from '../../../constant';
+import {userContent} from '../../ComanScreens/UserContent';
 
 const {width} = Dimensions.get('screen');
-
-const UserPhone = () => {
-  const [number, setNumber] = useState('');
+const UserPassword = () => {
   const navigation = useNavigation();
 
-  // sed number and otp
-  const handleNumber = async () => {
+  const handlePassword = () => {
     try {
-      navigation.navigate('UserOtp');
+      navigation.navigate('UserDetails');
     } catch (error) {}
   };
 
   return (
     <View style={style.container}>
-      <Text style={style.title}>{userContent.phoneTitle}</Text>
-      <Text style={style.text}>{userContent.phoneTxt}</Text>
+      <Text style={style.title}>{userContent.phonePass}</Text>
+      <Text style={style.text}>{userContent.phonePassTxt}</Text>
       <View>
         <TextInput
-          value={number}
-          onChangeText={val => setNumber(val)}
           placeholder="Enter Mobile Number ..."
           style={style.inputText}
-          keyboardType={'number-pad'}
         />
       </View>
       <View>
-        <TouchableOpacity style={style.btn} onPress={() => handleNumber()}>
-          <Text style={style.btnTxt}>Next</Text>
+        <TouchableOpacity style={style.btn} onPress={() => handlePassword()}>
+          <Text style={style.btnTxt}>Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -67,10 +62,11 @@ const style = StyleSheet.create({
   },
   inputText: {
     borderBottomWidth: 3,
-    marginVertical: 30,
+    marginTop: 30,
     width: width - 30,
     fontSize: fontSize.txt,
     borderBottomColor: themeColor.bgColor,
+    marginBottom: 10,
   },
   btn: {
     backgroundColor: themeColor.btnBgColor,
@@ -79,7 +75,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 20,
-    marginTop: 30,
+    marginTop: 40,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,
@@ -88,4 +84,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default UserPhone;
+export default UserPassword;

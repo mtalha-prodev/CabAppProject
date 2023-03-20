@@ -5,15 +5,19 @@ export const themeColor = {
   // button bg color
   btnBgColor: '#ad7ffb',
   btnBgColorTwo: '#f594b7',
+  bgCard: '#EDEDED',
   // text color
-  txtColor: '#ccd0f6',
+  txtColor: 'gray',
   // btn text color
   btnTxtColor: '#fff',
   titleColor: '#000',
+  // icon colors
+  iconColor: '#ad7ffb',
 };
 export const fontSize = {
   title: 27,
+  normalTitle: 24,
   txt: 17,
   btnTxt: 18,
-  bold: 700,
+  bold: 600,
 };

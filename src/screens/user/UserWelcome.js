@@ -7,9 +7,10 @@ import {
 } from 'react-native';
 import React from 'react';
 import Welcome from '../../components/Welcome';
-import {userContent} from '../UserContent';
+
 import {themeColor, fontSize} from '../../constant';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import {userContent} from '../ComanScreens/UserContent';
 
 const {width} = Dimensions.get('screen');
 const UserWelcome = () => {

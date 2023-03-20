@@ -7,9 +7,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import React, {useState} from 'react';
-import {userContent} from '../UserContent';
-import {fontSize, themeColor} from '../../constant';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import {userContent} from '../../ComanScreens/UserContent';
+import {fontSize, themeColor} from '../../../constant';
 
 const {width} = Dimensions.get('screen');
 const UserDetails = () => {

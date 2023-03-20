@@ -11,7 +11,7 @@ import MapView, {Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
 import React, {useRef, useState} from 'react';
-import {fontSize, themeColor} from '../../constant';
+import {fontSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 
 const {width} = Dimensions.get('screen');
@@ -40,12 +40,38 @@ const UserMainScreen = () => {
     <View style={style.container}>
       {/* top */}
       <View style={{width: '100%', alignItems: 'flex-end'}}>
-        <Text style={{marginVertical: 10, marginRight: 10, fontSize: 20}}>
-          User Name
-        </Text>
+        <View
+          style={{
+            marginRight: 5,
+            padding: 10,
+            width: '50%',
+          }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('UserProfile')}
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              width: '100%',
+              justifyContent: 'flex-end',
+              paddingHorizontal: 10,
+            }}>
+            <Text
+              style={{
+                marginRight: 10,
+                fontSize: 20,
+                fontWeight: fontSize.bold,
+              }}>
+              User Name
+            </Text>
+            <Image
+              source={require('../../../assets/img/profile.jpg')}
+              style={{width: 55, height: 55, borderRadius: 50}}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={{width: '100%'}}>
           <Image
-            source={require('../../assets/img/location.png')}
+            source={require('../../../assets/img/location.png')}
             style={{width: width, height: 250}}
           />
           <View
@@ -124,7 +150,7 @@ const UserMainScreen = () => {
             </Text>
           </View>
           <Image
-            source={require('../../assets/img/car.png')}
+            source={require('../../../assets/img/car.png')}
             style={{height: 110, width: 130, borderRadius: 20, marginLeft: 10}}
           />
         </View>
@@ -164,26 +190,6 @@ const UserMainScreen = () => {
             ref={mapRef}
             initialRegion={pickupCords}>
             <Marker coordinate={pickupCords} />
-            {/* <Marker coordinate={dropLocationCords} /> */}
-            {/* <MapViewDirections
-              origin={pickupCords}
-              destination={dropLocationCords}
-              apikey={GOOGLE_MAPS_APIKEY}
-              strokeWidth={3}
-              strokeColor="red"
-              optimizeWaypoints={true}
-              // splitWaypoints={true}
-              onReady={result => {
-                mapRef.current.fitToCoordinates(result.coordinates, {
-                  edgePadding: {
-                    right: 30,
-                    bottom: 200,
-                    right: 30,
-                    top: 100,
-                  },
-                });
-              }}
-            /> */}
           </MapView>
         </View>
       </View>
