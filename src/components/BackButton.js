@@ -23,6 +23,7 @@ const style = StyleSheet.create({
     borderRadius: 50,
     marginRight: 20,
     elevation: 4,
+    marginLeft: 25,
   },
   icon: {
     fontSize: 35,

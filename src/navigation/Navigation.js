@@ -30,6 +30,14 @@ import {
 } from '../screens/ComanScreens/userScreens';
 import Splash from '../screens/ComanScreens/Splash';
 import Home from '../screens/ComanScreens/Home';
+import {
+  DriverDetails,
+  DriverOtp,
+  DriverPassword,
+  DriverPhone,
+  DriverWelcome,
+  TermCondition,
+} from './driverScreens';
 
 const Stack = createNativeStackNavigator();
 
@@ -172,6 +180,38 @@ const Navigation = () => {
         <Stack.Screen
           name="SheraApp"
           component={ShareApp}
+          options={{headerShown: false}}
+        />
+
+        {/* driver navigation screens */}
+        <Stack.Screen
+          name="DriverWelcome"
+          component={DriverWelcome}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverPhone"
+          component={DriverPhone}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverOtp"
+          component={DriverOtp}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverPassword"
+          component={DriverPassword}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverDetails"
+          component={DriverDetails}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverTerms"
+          component={TermCondition}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

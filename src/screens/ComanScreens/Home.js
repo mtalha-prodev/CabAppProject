@@ -22,7 +22,8 @@ const Home = () => {
         style={[
           style.btn,
           {backgroundColor: btnBgColorTwo, borderColor: btnBgColor},
-        ]}>
+        ]}
+        onPress={() => navigation.navigate('DriverWelcome')}>
         <Text style={[{color: btnTxtColor}, style.btnTxt]}>Driver</Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -30,9 +31,7 @@ const Home = () => {
           {backgroundColor: btnBgColor, borderColor: btnBgColorTwo},
           style.btn,
         ]}
-        onPress={() =>
-          navigation.dispatch(StackActions.replace('UserWelcome'))
-        }>
+        onPress={() => navigation.navigate('UserWelcome')}>
         <Text style={[{color: btnTxtColor}, style.btnTxt]}>Users</Text>
       </TouchableOpacity>
     </LinearGradient>
