@@ -25,7 +25,7 @@ const SearchLocation = () => {
 
   return (
     <View style={style.container}>
-      <UserProfileHeader title="Add Pickup & Drop Location" />
+      <UserProfileHeader title="Pickup & Drop Location" />
 
       <ScrollView keyboardShouldPersistTaps="handled" style={style.search}>
         <AddressPickup placeholderText={'Enter Pickup Location'} />

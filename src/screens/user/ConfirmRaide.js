@@ -37,14 +37,15 @@ const ConfirmRaide = () => {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <Text style={{fontSize: fontSize.title, fontWeight: fontSize.bold}}>
-              Driver Name
-            </Text>
-            <Text style={{fontSize: fontSize.txt, fontWeight: fontSize.bold}}>
-              3 min Way
-            </Text>
+            <Text style={style.text}>Driver Name</Text>
+            <Text style={style.text}>3 min Way</Text>
           </View>
-          <Text style={{fontSize: fontSize.txt, alignSelf: 'flex-end'}}>
+          <Text
+            style={{
+              fontSize: fontSize.txt,
+              alignSelf: 'flex-end',
+              color: themeColor.txtColor,
+            }}>
             Car Number & Model
           </Text>
           <Image
@@ -86,6 +87,11 @@ const ConfirmRaide = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  text: {
+    fontSize: fontSize.normalTitle,
+
+    color: themeColor.titleColor,
   },
 });
 

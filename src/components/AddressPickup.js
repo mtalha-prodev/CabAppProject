@@ -2,6 +2,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from '../utils';
+import {themeColor} from '../constant';
 
 const AddressPickup = ({placeholderText}) => {
   //   console.log(GOOGLE_MAPS_APIKEY);
@@ -20,6 +21,9 @@ const AddressPickup = ({placeholderText}) => {
         styles={{
           textInputContainer: styles.inputContainer,
           textInput: styles.textInput,
+          predefinedPlacesDescription: {
+            color: 'black',
+          },
         }}
       />
     </View>
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     padding: 8,
-    color: '#000',
+    color: 'black',
     fontSize: 17,
     backgroundColor: '#f3f3f3',
   },

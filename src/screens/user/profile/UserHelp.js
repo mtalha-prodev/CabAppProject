@@ -34,7 +34,12 @@ const UserHelp = () => {
           style={{fontSize: fontSize.normalTitle, color: themeColor.iconColor}}>
           1914 translation by H. Rackham
         </Text>
-        <Text style={{fontSize: fontSize.btnTxt, marginVertical: 10}}>
+        <Text
+          style={{
+            fontSize: fontSize.btnTxt,
+            marginVertical: 10,
+            color: themeColor.txtColor,
+          }}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
           ab illo inventore veritatis et quasi architecto beatae vitae dicta

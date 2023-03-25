@@ -31,11 +31,17 @@ import {
 import Splash from '../screens/ComanScreens/Splash';
 import Home from '../screens/ComanScreens/Home';
 import {
+  BackCnic,
   DriverDetails,
   DriverOtp,
   DriverPassword,
   DriverPhone,
+  DriverPhoto,
   DriverWelcome,
+  FrontCnic,
+  RaidoChoose,
+  RequireSteps,
+  SetAll,
   TermCondition,
 } from './driverScreens';
 
@@ -212,6 +218,36 @@ const Navigation = () => {
         <Stack.Screen
           name="DriverTerms"
           component={TermCondition}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SetAll"
+          component={SetAll}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RaidoChoose"
+          component={RaidoChoose}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverRequired"
+          component={RequireSteps}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="FrontCnic"
+          component={FrontCnic}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="BackCnic"
+          component={BackCnic}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="DriverPhoto"
+          component={DriverPhoto}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

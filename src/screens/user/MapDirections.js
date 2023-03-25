@@ -25,9 +25,9 @@ const MapDirections = () => {
         }}>
         {/* Price Card */}
 
-        <PriceCard />
-        <PriceCard />
-        <PriceCard />
+        <PriceCard vehicle="E-Rickshaw" price="500" time="15" />
+        <PriceCard vehicle="Car E-Rickshaw" price="350" time="2" />
+        <PriceCard vehicle="Bick E-Rickshaw" price="400" time="9" />
 
         <TouchableOpacity
           style={{

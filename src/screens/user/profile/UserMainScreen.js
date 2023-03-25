@@ -60,8 +60,9 @@ const UserMainScreen = () => {
                 marginRight: 10,
                 fontSize: 20,
                 fontWeight: fontSize.bold,
+                color: themeColor.txtColor,
               }}>
-              User Name
+              Jone Sparow
             </Text>
             <Image
               source={require('../../../assets/img/profile.jpg')}
@@ -71,25 +72,29 @@ const UserMainScreen = () => {
         </View>
         <View style={{width: '100%'}}>
           <Image
-            source={require('../../../assets/img/location.png')}
+            source={require('../../../assets/img/taxi.jpg')}
             style={{width: width, height: 250}}
           />
           <View
             style={[
               StyleSheet.absoluteFill,
-              {justifyContent: 'center', width: width - 160, marginLeft: 20},
+              {
+                justifyContent: 'center',
+                width: width - 250,
+                marginLeft: 20,
+              },
             ]}>
             <Text
               style={{
                 fontSize: fontSize.title,
-                color: themeColor.btnBgColorTwo,
+                color: themeColor.bgCard,
               }}>
               Make your life much easier
             </Text>
             <Text
               style={{
                 fontSize: 18,
-                color: themeColor.bgColorOne,
+                color: themeColor.bgColor,
                 marginVertical: 15,
               }}>
               Order now & get 50% off of your first ride
@@ -142,7 +147,12 @@ const UserMainScreen = () => {
             borderRadius: 30,
           }}>
           <View style={{justifyContent: 'center'}}>
-            <Text style={{fontSize: fontSize.title, fontWeight: fontSize.bold}}>
+            <Text
+              style={{
+                fontSize: fontSize.title,
+                fontWeight: fontSize.bold,
+                color: themeColor.titleColor,
+              }}>
               Ride
             </Text>
             <Text style={{fontSize: fontSize.txt, color: 'gray'}}>
@@ -165,7 +175,12 @@ const UserMainScreen = () => {
             borderRadius: 20,
           }}
           onPress={() => navigation.navigate('SearchLocation')}>
-          <Text style={{fontSize: fontSize.btnTxt, fontWeight: fontSize.bold}}>
+          <Text
+            style={{
+              fontSize: fontSize.btnTxt,
+              fontWeight: fontSize.bold,
+              color: themeColor.titleColor,
+            }}>
             Where to Go
           </Text>
         </TouchableOpacity>

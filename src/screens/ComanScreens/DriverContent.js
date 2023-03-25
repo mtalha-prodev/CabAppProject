@@ -22,4 +22,12 @@ export const driverContent = {
   // user Details
   detailTitle: 'Enter your Details',
   detailTxt: 'Pleases enter the  following Credentials to proceed',
+  // set all
+  setAllTitle: `All Set!`,
+  setAllTxt: `you will be signed in to your account momentarily. If nothing happens, slick continue`,
+  // vichecle
+  chooseVehicleTitle: `Choose how you did like to earn with RAIDO`,
+  chooseRaidTitle: 'RAIDOGO',
+  chooseRaidtxt:
+    'You want to drive a four door Vehicle on the RAIDO E-RICKSHAW',
 };

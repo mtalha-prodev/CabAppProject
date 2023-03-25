@@ -1,7 +1,8 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, StatusBar} from 'react-native';
 import React from 'react';
 import Welcome from '../../components/Welcome';
 import {driverContent} from '../ComanScreens/DriverContent';
+import {themeColor} from '../../constant';
 
 const DriverWelcome = () => {
   return (

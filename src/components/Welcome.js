@@ -5,11 +5,13 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
 import {fontSize, themeColor} from '../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../screens/ComanScreens/UserContent';
+import BackButton from './BackButton';
 
 const {width} = Dimensions.get('screen');
 const Welcome = ({title, text, login}) => {
@@ -17,6 +19,13 @@ const Welcome = ({title, text, login}) => {
 
   return (
     <View style={style.container}>
+      <StatusBar
+        backgroundColor={themeColor.bgCard}
+        barStyle={'dark-content'}
+      />
+      {/* <View style={{marginVertical: 10}}>
+        <BackButton />
+      </View> */}
       <View
         style={{
           flex: 2.2,
@@ -54,8 +63,9 @@ const Welcome = ({title, text, login}) => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    // alignItems: 'center',
     width: width - 50,
+    paddingVertical: 20,
   },
   title: {
     fontSize: fontSize.title,
@@ -64,6 +74,7 @@ const style = StyleSheet.create({
   },
   text: {
     fontSize: fontSize.txt,
+    color: themeColor.txtColor,
   },
   btn: {
     justifyContent: 'center',

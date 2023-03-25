@@ -24,7 +24,7 @@ const DriverDetails = () => {
 
   const handleDetails = () => {
     try {
-      navigation.dispatch(StackActions.replace('DriverTerms'));
+      navigation.navigate('SetAll');
     } catch (error) {}
   };
 

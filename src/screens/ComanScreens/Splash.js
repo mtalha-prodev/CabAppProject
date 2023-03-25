@@ -23,11 +23,11 @@ const Splash = () => {
       style={style.container}>
       <Text
         style={{
-          color: txtColor,
+          color: '#fff',
           fontSize: 45,
           fontWeight: 'bold',
         }}>
-        RAIDO
+        React Native
       </Text>
     </LinearGradient>
   );

@@ -10,6 +10,7 @@ import React, {useState} from 'react';
 import {StackActions, useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
 import {fontSize, themeColor} from '../../../constant';
+import BackButton from '../../../components/BackButton';
 
 const {width} = Dimensions.get('screen');
 const UserDetails = () => {
@@ -28,7 +29,8 @@ const UserDetails = () => {
 
   return (
     <View style={style.container}>
-      <View style={{width: width - 30}}>
+      <BackButton />
+      <View style={{width: width - 30, alignSelf: 'center'}}>
         <Text style={style.title}>{userContent.detailTitle}</Text>
         <Text style={style.text}>{userContent.detailTxt}</Text>
         <View style={style.inputForm}>
@@ -45,6 +47,7 @@ const UserDetails = () => {
             onChangeText={val => setName(val)}
             placeholder="Enter Name ..."
             style={style.inputText}
+            placeholderTextColor={themeColor.txtColor}
           />
         </View>
         <View style={style.inputForm}>
@@ -61,6 +64,7 @@ const UserDetails = () => {
             onChangeText={val => setEmail(val)}
             placeholder="Enter E-mail ..."
             style={style.inputText}
+            placeholderTextColor={themeColor.txtColor}
           />
         </View>
         <View style={style.inputForm}>
@@ -77,6 +81,7 @@ const UserDetails = () => {
             onChangeText={val => setPassword(val)}
             placeholder="Enter Password ..."
             style={style.inputText}
+            placeholderTextColor={themeColor.txtColor}
           />
         </View>
         <View style={style.inputForm}>
@@ -93,6 +98,7 @@ const UserDetails = () => {
             onChangeText={val => setConfirmPass(val)}
             placeholder="Enter Password ..."
             style={style.inputText}
+            placeholderTextColor={themeColor.txtColor}
           />
         </View>
       </View>
@@ -108,8 +114,8 @@ const UserDetails = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    // alignItems: 'center',
+    // justifyContent: 'space-between',
     paddingVertical: 20,
   },
   title: {
@@ -122,6 +128,7 @@ const style = StyleSheet.create({
     fontSize: fontSize.txt,
     marginBottom: 30,
     alignSelf: 'flex-start',
+    color: themeColor.txtColor,
   },
   inputForm: {
     marginBottom: 10,
@@ -131,6 +138,7 @@ const style = StyleSheet.create({
     width: width - 30,
     fontSize: fontSize.txt,
     borderBottomColor: themeColor.btnBgColorTwo,
+    color: themeColor.txtColor,
   },
   btn: {
     backgroundColor: themeColor.btnBgColor,
@@ -139,7 +147,8 @@ const style = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 20,
-    marginTop: 40,
+    marginTop: 80,
+    alignSelf: 'center',
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

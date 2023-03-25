@@ -11,6 +11,7 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {fontSize, themeColor} from '../../../constant';
 import {userContent} from '../../ComanScreens/UserContent';
+import BackButton from '../../../components/BackButton';
 
 const {width} = Dimensions.get('screen');
 const UserPassword = () => {
@@ -24,18 +25,22 @@ const UserPassword = () => {
 
   return (
     <View style={style.container}>
-      <Text style={style.title}>{userContent.phonePass}</Text>
-      <Text style={style.text}>{userContent.phonePassTxt}</Text>
-      <View>
-        <TextInput
-          placeholder="Enter Mobile Number ..."
-          style={style.inputText}
-        />
-      </View>
-      <View>
-        <TouchableOpacity style={style.btn} onPress={() => handlePassword()}>
-          <Text style={style.btnTxt}>Sign In</Text>
-        </TouchableOpacity>
+      <BackButton />
+      <View style={{alignSelf: 'center'}}>
+        <Text style={style.title}>{userContent.phonePass}</Text>
+        <Text style={style.text}>{userContent.phonePassTxt}</Text>
+        <View>
+          <TextInput
+            placeholder="Enter Password ..."
+            style={style.inputText}
+            placeholderTextColor={themeColor.txtColor}
+          />
+        </View>
+        <View>
+          <TouchableOpacity style={style.btn} onPress={() => handlePassword()}>
+            <Text style={style.btnTxt}>Sign In</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -44,7 +49,6 @@ const UserPassword = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     paddingTop: 50,
   },
   title: {
@@ -52,30 +56,30 @@ const style = StyleSheet.create({
     marginVertical: 20,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
-    marginLeft: 20,
   },
   text: {
     fontSize: fontSize.txt,
     marginBottom: 10,
     alignSelf: 'flex-start',
-    marginLeft: 20,
+    color: themeColor.txtColor,
   },
   inputText: {
     borderBottomWidth: 3,
     marginTop: 30,
-    width: width - 30,
+    width: width - 50,
     fontSize: fontSize.txt,
     borderBottomColor: themeColor.bgColor,
     marginBottom: 10,
+    color: themeColor.txtColor,
   },
   btn: {
     backgroundColor: themeColor.btnBgColor,
-    width: width - 30,
+    width: width - 50,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
     borderRadius: 20,
-    marginTop: 40,
+    marginTop: 80,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,
