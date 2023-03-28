@@ -25,21 +25,40 @@ const RequireSteps = () => {
       </View>
 
       <ScrollView style={{paddingBottom: 20}}>
-        <CardButton name={'Terms and Condition'} fieldName={'Get Started'} />
-        <CardButton name={'CNIC Back Side'} fieldName={'Get Started'} />
-        <CardButton name={'CNIC Front Side '} fieldName={'Get Started'} />
-        <CardButton name={'Partner Photo'} fieldName={'Get Started'} />
+        <CardButton
+          name={'Terms and Condition'}
+          fieldName={'Get Started'}
+          onPress="DriverTerms"
+        />
+        <CardButton
+          name={'CNIC Front Side '}
+          fieldName={'Get Started'}
+          onPress="FrontCnic"
+        />
+        <CardButton
+          name={'CNIC Back Side'}
+          fieldName={'Get Started'}
+          onPress="BackCnic"
+        />
+        <CardButton
+          name={'Partner Photo'}
+          fieldName={'Get Started'}
+          onPress="DriverPhoto"
+        />
         <CardButton
           name={'Driving License Front Side'}
           fieldName={'Get Started'}
+          onPress="LicenseFront"
         />
         <CardButton
           name={'Driving License Back Side'}
           fieldName={'Get Started'}
+          onPress="LicenseBack"
         />
         <CardButton
           name={'Vehicle Registration Book/Card'}
           fieldName={'Get Started'}
+          onPress="VehicleBook"
         />
         <TouchableOpacity
           style={style.btnNext}
@@ -51,9 +70,12 @@ const RequireSteps = () => {
   );
 };
 
-const CardButton = ({name, fieldName}) => {
+const CardButton = ({name, fieldName, onPress}) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={style.btn}>
+    <TouchableOpacity
+      style={style.btn}
+      onPress={() => navigation.navigate(onPress)}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <Ionicons style={style.icon} name="document-attach-outline" />
         <View style={{marginLeft: 20}}>

@@ -1,18 +1,19 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import TakePhoto from '../../../components/driverComponents/TakePhoto';
 
-const LicenseBackSide = () => {
+const VechicleDocuments = () => {
   const handlePhoto = () => {
-    console.log('back photo');
+    console.log('vehicle decuments');
   };
   return (
     <View style={style.container}>
       <TakePhoto
-        title={driverContent.licenseTitle}
-        text={driverContent.licenseTxt}
+        title={driverContent.vehicleTitle}
+        text={driverContent.vehicleTxt}
         handlePhoto={handlePhoto}
+        vehicleForm={driverContent.vehicleTitleTwo}
       />
     </View>
   );
@@ -24,4 +25,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default LicenseBackSide;
+export default VechicleDocuments;

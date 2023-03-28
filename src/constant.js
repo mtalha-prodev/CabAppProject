@@ -13,6 +13,7 @@ export const themeColor = {
   titleColor: '#000',
   // icon colors
   iconColor: '#ad7ffb',
+  // iconColor: '#fff',
 };
 export const fontSize = {
   title: 27,

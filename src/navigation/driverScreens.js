@@ -49,8 +49,8 @@ export const {
 } = require('../screens/driver/driverVarification/LicenseFrontSide');
 
 export const {
-  default: VechicleDocuments,
-} = require('../screens/driver/driverVarification/VechicleDocuments');
+  default: VehicleDocuments,
+} = require('../screens/driver/driverVarification/VehicleDocuments');
 
 export const {
   default: DriverApproval,

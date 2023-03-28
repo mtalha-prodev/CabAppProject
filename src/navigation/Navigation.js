@@ -39,10 +39,13 @@ import {
   DriverPhoto,
   DriverWelcome,
   FrontCnic,
+  LicenseBackSide,
+  LicenseFrontSide,
   RaidoChoose,
   RequireSteps,
   SetAll,
   TermCondition,
+  VehicleDocuments,
 } from './driverScreens';
 
 const Stack = createNativeStackNavigator();
@@ -248,6 +251,21 @@ const Navigation = () => {
         <Stack.Screen
           name="DriverPhoto"
           component={DriverPhoto}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LicenseFront"
+          component={LicenseFrontSide}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LicenseBack"
+          component={LicenseBackSide}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="VehicleBook"
+          component={VehicleDocuments}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
