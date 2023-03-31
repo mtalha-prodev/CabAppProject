@@ -59,3 +59,27 @@ export const {
 export const {
   default: LicenseBackSide,
 } = require('../screens/driver/driverVarification/LicenseBackSide');
+
+// driver navigation
+export const {
+  default: DriverProfile,
+} = require('../screens/driver/driverProfile/DriverProfile');
+
+export const {
+  default: DriverEarning,
+} = require('../screens/driver/driverProfile/DriverEarning');
+export const {
+  default: DriverHelp,
+} = require('../screens/driver/driverProfile/DriverHelp');
+export const {
+  default: DriverNotification,
+} = require('../screens/driver/driverProfile/DriverNotification');
+export const {
+  default: DriverSetting,
+} = require('../screens/driver/driverProfile/DriverSetting');
+export const {
+  default: DriverTrips,
+} = require('../screens/driver/driverProfile/DriverTrips');
+export const {
+  default: DriverWallet,
+} = require('../screens/driver/driverProfile/DriverWallet');

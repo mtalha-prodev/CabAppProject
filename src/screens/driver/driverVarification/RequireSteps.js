@@ -62,7 +62,7 @@ const RequireSteps = () => {
         />
         <TouchableOpacity
           style={style.btnNext}
-          onPress={() => navigation.navigate('DriverRequired')}>
+          onPress={() => navigation.navigate('DriverApproval')}>
           <Text style={style.btnText}>Continue</Text>
         </TouchableOpacity>
       </ScrollView>
