@@ -100,7 +100,7 @@ const DrawerNavigation = () => {
           ),
         }}
       />
-      <Drawer.Screen name="Raide Complete" component={RaideComplete} />
+      {/* <Drawer.Screen name="Raide Complete" component={RaideComplete} /> */}
     </Drawer.Navigator>
   );
 };
