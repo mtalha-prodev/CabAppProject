@@ -1,11 +1,11 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import BackButton from '../../../components/BackButton';
 import {fontSize, themeColor} from '../../../constant';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import UserProfileHeader from '../../../components/UserProfileHeader';
+import AtmCard from '../../../components/AtmCard';
 
 const Card = ({title, name, icon, type, onPress}) => {
   const navigation = useNavigation();
@@ -53,51 +53,7 @@ const Wallet = () => {
       <UserProfileHeader title="wallet" />
 
       {/* bg color */}
-      <LinearGradient
-        colors={[
-          themeColor.bgColorTwo,
-          themeColor.bgColorOne,
-          themeColor.bgColor,
-        ]}
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
-        locations={[0.02, 0.6, 1]}
-        style={style.linearColor}>
-        <Text style={{fontSize: fontSize.btnTxt, color: themeColor.bgCard}}>
-          Raido Cash
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <Text style={{fontSize: 35, color: themeColor.bgCard}}>RS 0.00</Text>
-          <Ionicons
-            style={{fontSize: 35, color: themeColor.iconColor}}
-            name="chevron-forward-outline"
-          />
-        </View>
-        <Text style={{fontSize: fontSize.btnTxt, color: themeColor.bgCard}}>
-          Auto-refill is off
-        </Text>
-        <TouchableOpacity
-          style={{
-            width: 120,
-            padding: 4,
-            backgroundColor: themeColor.bgCard,
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            borderRadius: 30,
-          }}>
-          <Ionicons
-            style={{fontSize: 30, color: themeColor.iconColor}}
-            name="add-outline"
-          />
-          <Text style={{color: themeColor.txtColor}}>Add Founds</Text>
-        </TouchableOpacity>
-      </LinearGradient>
+      <AtmCard />
 
       {/* payment methods card */}
       <Card

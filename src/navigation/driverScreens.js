@@ -83,3 +83,6 @@ export const {
 export const {
   default: DriverWallet,
 } = require('../screens/driver/driverProfile/DriverWallet');
+export const {
+  default: BankDetails,
+} = require('../screens/driver/driverProfile/BankDetails');

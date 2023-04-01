@@ -32,6 +32,7 @@ import Splash from '../screens/ComanScreens/Splash';
 import Home from '../screens/ComanScreens/Home';
 import {
   BackCnic,
+  BankDetails,
   DriverApproval,
   DriverDetails,
   DriverMapOne,
@@ -107,6 +108,7 @@ const Navigation = () => {
         <Stack.Screen name="VehicleBook" component={VehicleDocuments} />
         <Stack.Screen name="DriverApproval" component={DriverApproval} />
         <Stack.Screen name="DriverProfile" component={DrawerNavigation} />
+        <Stack.Screen name="DriverBank" component={BankDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

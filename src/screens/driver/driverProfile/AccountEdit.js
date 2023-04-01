@@ -1,15 +1,15 @@
 import {View, Text} from 'react-native';
 import React from 'react';
+import ProfileEdit from '../../../components/ProfileEdit';
 import UserProfileHeader from '../../../components/UserProfileHeader';
-import Setting from '../../../components/Setting';
 
-const DriverSetting = () => {
+const AccountEdit = () => {
   return (
     <View style={{flex: 1, paddingVertical: 20}}>
-      <UserProfileHeader title={'Setting'} />
-      <Setting />
+      <UserProfileHeader title={'Profile'} />
+      <ProfileEdit />
     </View>
   );
 };
 
-export default DriverSetting;
+export default AccountEdit;

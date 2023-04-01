@@ -9,10 +9,6 @@ const DriverProfile = () => {
   const navigation = useNavigation();
   return (
     <View style={style.container}>
-      {/* <View style={{zIndex: 999}}> */}
-      {/* <DrawerNavigation /> */}
-      {/* </View> */}
-
       <View
         style={{
           zIndex: 99,
@@ -21,6 +17,7 @@ const DriverProfile = () => {
           alignItems: 'center',
           marginTop: 20,
         }}>
+        {/* drawer burger */}
         <TouchableOpacity
           style={style.menu}
           onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
@@ -31,7 +28,7 @@ const DriverProfile = () => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity style={[style.btn, {}]}>
+        <TouchableOpacity style={style.btn}>
           <Ionicons name={'close'} style={[style.icon, {marginRight: 10}]} />
           <Text style={style.btnText}>Online</Text>
         </TouchableOpacity>
