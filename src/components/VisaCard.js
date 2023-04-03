@@ -64,8 +64,8 @@ const style = StyleSheet.create({
   visaCard: {
     width: '90%',
     alignSelf: 'center',
-    paddingHorizontal: 23,
-    marginVertical: 25,
+    paddingHorizontal: 10,
+    marginVertical: 15,
   },
   linearColor: {
     height: 200,

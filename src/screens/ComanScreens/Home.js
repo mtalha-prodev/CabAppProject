@@ -2,7 +2,7 @@ import {Text, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {StackActions, useNavigation} from '@react-navigation/native';
-import {themeColor} from '../../constant';
+import {screenSize, themeColor} from '../../constant';
 
 const {bgColor, bgColorOne, btnBgColor, btnBgColorTwo, btnTxtColor} =
   themeColor;
@@ -28,11 +28,14 @@ const Home = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={[
-          {backgroundColor: btnBgColor, borderColor: btnBgColorTwo},
+          {
+            backgroundColor: themeColor.userBtnBgColor,
+            borderColor: btnBgColorTwo,
+          },
           style.btn,
         ]}
         onPress={() => navigation.navigate('UserWelcome')}>
-        <Text style={[{color: btnTxtColor}, style.btnTxt]}>Users</Text>
+        <Text style={[{color: btnTxtColor}, style.btnTxt]}>User</Text>
       </TouchableOpacity>
     </LinearGradient>
   );
@@ -45,12 +48,12 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    padding: 10,
+    padding: screenSize.btnPadding,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '90%',
-    borderRadius: 30,
-    marginVertical: 15,
+    width: screenSize.btnWidth,
+    borderRadius: screenSize.btnRadius,
+    marginVertical: screenSize.btnMarginVertical,
   },
   btnTxt: {
     fontSize: 18,

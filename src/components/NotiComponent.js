@@ -17,7 +17,7 @@ const NotiComponent = ({title, msg}) => {
 
 const style = StyleSheet.create({
   container: {
-    marginVertical: 20,
+    paddingVertical: 10,
     backgroundColor: themeColor.bgCard,
     elevation: 3,
     padding: 25,

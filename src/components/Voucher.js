@@ -39,28 +39,28 @@ const style = StyleSheet.create({
   container: {
     width: '90%',
     alignSelf: 'center',
-    marginVertical: 20,
+    marginVertical: 10,
     backgroundColor: themeColor.bgCard,
     elevation: 4,
     borderRadius: 20,
-    paddingVertical: 25,
+    paddingVertical: 10,
   },
   voucherBody: {
     justifyContent: 'space-between',
-    marginVertical: 10,
+    marginVertical: 5,
     borderBottomWidth: 1,
-    paddingVertical: 5,
+    paddingVertical: 3,
     borderBottomColor: themeColor.txtColor,
   },
   title: {
     fontSize: fontSize.btnTxt,
     color: themeColor.titleColor,
-    marginLeft: 20,
+    marginLeft: 15,
   },
   voucherTxt: {
     color: themeColor.txtColor,
     fontSize: fontSize.txt,
-    marginLeft: 20,
+    marginLeft: 15,
   },
 });
 

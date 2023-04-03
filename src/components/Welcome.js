@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../screens/ComanScreens/UserContent';
 import BackButton from './BackButton';
@@ -28,13 +28,13 @@ const Welcome = ({title, text, login}) => {
       </View> */}
       <View
         style={{
-          flex: 2.2,
-          justifyContent: 'space-between',
+          flex: 3,
+          // justifyContent: 'space-between',
           alignItems: 'center',
         }}>
         <Image
           source={require('../assets/img/userimg.png')}
-          style={{width: width, height: 300}}
+          style={style.img}
         />
         <View>
           <Text style={style.title}>{title}</Text>
@@ -63,14 +63,20 @@ const Welcome = ({title, text, login}) => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    width: width - 50,
-    paddingVertical: 20,
+    width: screenSize.wrapperWidth,
+  },
+
+  img: {
+    width: width,
+    height: 300,
+    borderBottomRightRadius: screenSize.imgRadius,
+    borderBottomLeftRadius: screenSize.imgRadius,
   },
   title: {
     fontSize: fontSize.title,
     color: themeColor.titleColor,
-    marginVertical: 10,
+    marginTop: screenSize.topMargin,
+    marginVertical: 6,
   },
   text: {
     fontSize: fontSize.txt,
@@ -79,11 +85,11 @@ const style = StyleSheet.create({
   btn: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.btnBgColor,
-    width: width - 60,
-    padding: 10,
-    borderRadius: 20,
-    marginVertical: 20,
+    backgroundColor: themeColor.userBtnBgColor,
+    width: screenSize.btnWidth,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
+    marginVertical: screenSize.btnMarginVertical,
   },
 
   btnTxt: {

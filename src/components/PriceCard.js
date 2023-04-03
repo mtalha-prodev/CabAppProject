@@ -29,7 +29,6 @@ const style = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     padding: 10,
-    // marginVertical: 2,
     elevation: 4,
   },
   img: {

@@ -90,7 +90,7 @@ const ProfileEdit = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   cameraIcon: {
     backgroundColor: themeColor.bgCard,

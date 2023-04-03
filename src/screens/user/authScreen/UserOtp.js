@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
 import BackButton from '../../../components/BackButton';
@@ -62,39 +62,37 @@ const UserOtp = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 20,
+    marginVertical: 10,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
-    marginLeft: 20,
   },
   text: {
     fontSize: fontSize.txt,
     marginBottom: 10,
     alignSelf: 'flex-start',
-    marginLeft: 20,
     color: themeColor.txtColor,
   },
   inputText: {
     borderBottomWidth: 3,
-    marginTop: 30,
-    width: width - 50,
+    width: screenSize.inputWidth,
     fontSize: fontSize.txt,
     borderBottomColor: themeColor.bgColor,
-    marginBottom: 10,
     color: themeColor.txtColor,
+    padding: screenSize.inputPadding,
+    marginVertical: screenSize.inputMarginVertical,
   },
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    width: width - 50,
+    backgroundColor: themeColor.userBtnBgColor,
+    width: screenSize.inputWidth,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
-    borderRadius: 20,
-    marginTop: 80,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
+    marginTop: 60,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

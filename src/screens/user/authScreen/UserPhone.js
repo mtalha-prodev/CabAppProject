@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 // import {fontSize, themeColor} from '../../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import BackButton from '../../../components/BackButton';
 
 const {width} = Dimensions.get('screen');
@@ -55,37 +55,35 @@ const UserPhone = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 20,
+    marginVertical: 10,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
-    marginLeft: 20,
   },
   text: {
     fontSize: fontSize.txt,
     color: themeColor.txtColor,
     marginBottom: 10,
     alignSelf: 'flex-start',
-    marginLeft: 20,
   },
   inputText: {
     borderBottomWidth: 3,
-    marginVertical: 30,
-    width: width - 50,
+    marginVertical: screenSize.inputMarginVertical,
+    width: screenSize.inputWidth,
     fontSize: fontSize.txt,
     color: themeColor.txtColor,
     borderBottomColor: themeColor.bgColor,
   },
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    width: width - 50,
+    backgroundColor: themeColor.userBtnBgColor,
+    width: screenSize.btnWidth,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
-    borderRadius: 20,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
     marginTop: 60,
   },
   btnTxt: {

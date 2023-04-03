@@ -9,8 +9,6 @@ const UserProfileHeader = ({title}) => {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        marginLeft: 20,
-        marginVertical: 10,
       }}>
       <BackButton />
       <Text
@@ -18,6 +16,7 @@ const UserProfileHeader = ({title}) => {
           fontSize: fontSize.normalTitle,
           fontWeight: fontSize.bold,
           color: themeColor.titleColor,
+          marginLeft: 10,
         }}>
         {title}
       </Text>

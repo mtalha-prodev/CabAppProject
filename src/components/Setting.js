@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const Setting = () => {
   return (
-    <View style={{flex: 1, paddingVertical: 20}}>
+    <View style={{flex: 1, paddingVertical: 10}}>
       {/* profile pic  */}
       <TouchableOpacity
         // onPress={() => navigation.navigate(onPress)}

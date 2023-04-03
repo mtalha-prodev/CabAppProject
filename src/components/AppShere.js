@@ -4,7 +4,7 @@ import {fontSize, themeColor} from '../constant';
 
 const AppShere = () => {
   return (
-    <View style={{flex: 1, paddingVertical: 20}}>
+    <View style={{flex: 1, paddingVertical: 10}}>
       <View style={{width: '85%', alignSelf: 'center', marginVertical: 20}}>
         <Text style={{fontSize: fontSize.title, color: themeColor.iconColor}}>
           Invite to Friends Easy Auto Paper

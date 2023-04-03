@@ -8,7 +8,7 @@ const BackButton = () => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity style={style.btn} onPress={() => navigation.goBack()}>
-      <Ionicons style={style.icon} name="arrow-undo-outline" />
+      <Ionicons style={style.icon} name="arrow-back-outline" />
     </TouchableOpacity>
   );
 };
@@ -21,13 +21,12 @@ const style = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50,
-    marginRight: 20,
     elevation: 4,
-    marginLeft: 25,
+    marginLeft: 15,
   },
   icon: {
     fontSize: 35,
-    color: themeColor.iconColor,
+    color: themeColor.userIconColor,
   },
 });
 

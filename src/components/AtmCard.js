@@ -6,7 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const AtmCard = () => {
   return (
-    <View style={{paddingVertical: 20}}>
+    <View style={{paddingVertical: 10}}>
       <LinearGradient
         colors={[
           themeColor.bgColorTwo,

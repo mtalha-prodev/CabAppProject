@@ -9,7 +9,7 @@ import React from 'react';
 import Login from '../../../components/Login';
 import Welcome from '../../../components/Welcome';
 import {useNavigation} from '@react-navigation/native';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {userContent} from '../../ComanScreens/UserContent';
 
 const {width} = Dimensions.get('screen');
@@ -63,11 +63,11 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    padding: 10,
-    backgroundColor: themeColor.btnBgColor,
-    width: width - 30,
+    padding: screenSize.btnPadding,
+    backgroundColor: themeColor.userBtnBgColor,
+    width: screenSize.btnWidth,
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: screenSize.btnRadius,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,
