@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import BackButton from '../../../components/BackButton';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import UserProfileHeader from '../../../components/UserProfileHeader';
@@ -19,7 +19,6 @@ const PaymentMethod = () => {
           style={{
             color: themeColor.txtColor,
             fontSize: fontSize.btnTxt,
-            marginLeft: 15,
           }}>
           Payment Methods
         </Text>
@@ -50,13 +49,12 @@ const style = StyleSheet.create({
   },
   card: {
     alignSelf: 'center',
-    width: '85%',
-    marginVertical: 30,
+    width: screenSize.wrapperWidth,
+    marginVertical: 10,
   },
   btn: {
     width: '100%',
     paddingVertical: 15,
-    paddingHorizontal: 10,
     borderBottomWidth: 1,
     borderBottomColor: themeColor.txtColor,
     marginVertical: 10,
@@ -65,7 +63,7 @@ const style = StyleSheet.create({
   },
   icon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.userIconColor,
   },
   text: {
     color: themeColor.txtColor,

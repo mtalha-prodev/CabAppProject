@@ -9,6 +9,8 @@ const UserProfileHeader = ({title}) => {
       style={{
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 15,
+        elevation: 2,
       }}>
       <BackButton />
       <Text

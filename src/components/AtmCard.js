@@ -1,12 +1,12 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const AtmCard = () => {
   return (
-    <View style={{paddingVertical: 10}}>
+    <View>
       <LinearGradient
         colors={[
           themeColor.bgColorTwo,
@@ -28,7 +28,7 @@ const AtmCard = () => {
           }}>
           <Text style={{fontSize: 35, color: themeColor.bgCard}}>RS 0.00</Text>
           <Ionicons
-            style={{fontSize: 35, color: themeColor.iconColor}}
+            style={{fontSize: 35, color: themeColor.userIconColor}}
             name="chevron-forward-outline"
           />
         </View>
@@ -46,7 +46,7 @@ const AtmCard = () => {
             borderRadius: 30,
           }}>
           <Ionicons
-            style={{fontSize: 30, color: themeColor.iconColor}}
+            style={{fontSize: 30, color: themeColor.userIconColor}}
             name="add-outline"
           />
           <Text style={{color: themeColor.txtColor}}>Add Founds</Text>
@@ -57,28 +57,23 @@ const AtmCard = () => {
 };
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 20,
-  },
   linearColor: {
-    width: '85%',
+    width: screenSize.wrapperWidth,
     height: 200,
     alignSelf: 'center',
-    marginVertical: 20,
-    borderRadius: 20,
+    borderRadius: 15,
     paddingHorizontal: 22,
     paddingVertical: 15,
     justifyContent: 'space-evenly',
   },
   card: {
-    width: '90%',
+    width: screenSize.wrapperWidth,
     backgroundColor: themeColor.bgCard,
     elevation: 3,
     alignSelf: 'center',
-    borderRadius: 20,
+    borderRadius: 15,
     paddingVertical: 15,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   title: {
     color: themeColor.titleColor,
@@ -95,7 +90,7 @@ const style = StyleSheet.create({
   },
   icon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.userIconColor,
   },
   txt: {color: themeColor.txtColor, fontSize: fontSize.btnTxt},
 });

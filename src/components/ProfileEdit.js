@@ -37,13 +37,12 @@ const ProfileEdit = () => {
           style={{
             width: '100%',
             height: '100%',
-            marginVertical: 20,
           }}
         />
         <TouchableOpacity
-          style={[style.cameraIcon, {top: 35, right: 20, zIndex: 999}]}>
+          style={[style.cameraIcon, {top: 15, right: 15, zIndex: 999}]}>
           <Ionicons
-            style={{fontSize: 30, color: themeColor.iconColor}}
+            style={{fontSize: 30, color: themeColor.userIconColor}}
             name="camera-outline"
           />
         </TouchableOpacity>
@@ -55,7 +54,7 @@ const ProfileEdit = () => {
               height: 90,
               borderRadius: 50,
               alignSelf: 'center',
-              bottom: -65,
+              bottom: -40,
             }}
           />
           <TouchableOpacity
@@ -63,20 +62,20 @@ const ProfileEdit = () => {
               style.cameraIcon,
               {
                 alignSelf: 'center',
-                bottom: -75,
+                bottom: -50,
                 left: '40%',
                 elevation: 3,
               },
             ]}>
             <Ionicons
-              style={{fontSize: 30, color: themeColor.iconColor}}
+              style={{fontSize: 30, color: themeColor.userIconColor}}
               name="camera-outline"
             />
           </TouchableOpacity>
         </View>
       </View>
 
-      <View style={{marginTop: 100}}>
+      <View style={{marginTop: 60}}>
         <UserEdit name="Daval Max" fieldName="first name" />
         <UserEdit name="Max" fieldName="surname" />
         <UserEdit name="talha@gmail.com" fieldName="email" />
@@ -90,7 +89,6 @@ const ProfileEdit = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 10,
   },
   cameraIcon: {
     backgroundColor: themeColor.bgCard,
@@ -114,7 +112,7 @@ const style = StyleSheet.create({
   },
   icon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.userIconColor,
   },
 });
 

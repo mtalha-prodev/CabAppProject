@@ -1,14 +1,21 @@
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 
 const Rateus = () => {
   return (
     <View style={style.container}>
-      <View>
+      <UserProfileHeader title="Rate Us" />
+      <ScrollView>
         {/* user profile header */}
-        <UserProfileHeader title="Rate Us" />
         {/*  section */}
         <View style={style.section}>
           <View style={{flexDirection: 'row'}}>
@@ -56,7 +63,7 @@ const Rateus = () => {
             </Text>
           </View>
         </View>
-      </View>
+      </ScrollView>
       <TouchableOpacity style={style.btn}>
         <Text style={style.btnTxt}>Send</Text>
       </TouchableOpacity>
@@ -67,14 +74,12 @@ const Rateus = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
-    paddingHorizontal: 10,
-    justifyContent: 'space-between',
+    marginVertical: screenSize.containerPaddingVertical,
   },
   section: {
-    width: '85%',
+    width: screenSize.wrapperWidth,
     alignSelf: 'center',
-    marginVertical: 20,
+    marginVertical: 10,
   },
   stars: {
     alignSelf: 'flex-end',
@@ -84,12 +89,13 @@ const style = StyleSheet.create({
     color: 'orange',
   },
   rateTxt: {
-    backgroundColor: themeColor.btnBgColor,
-    padding: 10,
-    borderRadius: 25,
+    backgroundColor: themeColor.userBtnBgColor,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
     paddingLeft: 20,
     fontSize: fontSize.txt,
     color: themeColor.bgCard,
+    width: screenSize.btnWidth,
   },
   rateInput: {
     backgroundColor: '#E9E9E9',
@@ -100,12 +106,14 @@ const style = StyleSheet.create({
     borderRadius: 20,
   },
   btn: {
-    padding: 8,
+    padding: screenSize.btnPadding,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.iconColor,
-    marginVertical: 20,
-    borderRadius: 20,
+    backgroundColor: themeColor.userBtnBgColor,
+    marginVertical: screenSize.btnMarginVertical,
+    borderRadius: screenSize.btnRadius,
+    width: screenSize.btnWidth,
+    alignSelf: 'center',
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

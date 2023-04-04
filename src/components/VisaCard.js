@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 
 const VisaCard = () => {
   return (
@@ -62,10 +62,8 @@ const VisaCard = () => {
 
 const style = StyleSheet.create({
   visaCard: {
-    width: '90%',
+    width: screenSize.wrapperWidth,
     alignSelf: 'center',
-    paddingHorizontal: 10,
-    marginVertical: 15,
   },
   linearColor: {
     height: 200,

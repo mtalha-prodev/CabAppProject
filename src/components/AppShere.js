@@ -1,12 +1,19 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 
 const AppShere = () => {
   return (
-    <View style={{flex: 1, paddingVertical: 10}}>
-      <View style={{width: '85%', alignSelf: 'center', marginVertical: 20}}>
-        <Text style={{fontSize: fontSize.title, color: themeColor.iconColor}}>
+    <View style={{flex: 1}}>
+      <View
+        style={{
+          width: screenSize.wrapperWidth,
+          alignSelf: 'center',
+          marginVertical: 10,
+          alignSelf: 'center',
+        }}>
+        <Text
+          style={{fontSize: fontSize.title, color: themeColor.userBtnBgColor}}>
           Invite to Friends Easy Auto Paper
         </Text>
         <Image
@@ -18,35 +25,46 @@ const AppShere = () => {
           style={{
             fontSize: fontSize.normalTitle,
             color: themeColor.titleColor,
-            marginVertical: 10,
           }}>
           Share your friends by using these
         </Text>
         <View style={style.socialMedia}>
-          <Image
-            source={require('../assets/img/whatsapp.png')}
-            style={style.socialIcon}
-          />
-          <Image
-            source={require('../assets/img/facebook.png')}
-            style={style.socialIcon}
-          />
-          <Image
-            source={require('../assets/img/youtube.png')}
-            style={style.socialIcon}
-          />
-          <Image
-            source={require('../assets/img/twitter.png')}
-            style={style.socialIcon}
-          />
-          <Image
-            source={require('../assets/img/install.png')}
-            style={style.socialIcon}
-          />
-          <Image
-            source={require('../assets/img/twitter.png')}
-            style={style.socialIcon}
-          />
+          <View style={style.iconBg}>
+            <Image
+              source={require('../assets/img/whatsapp.png')}
+              style={style.socialIcon}
+            />
+          </View>
+          <View style={style.iconBg}>
+            <Image
+              source={require('../assets/img/facebook.png')}
+              style={style.socialIcon}
+            />
+          </View>
+          <View style={style.iconBg}>
+            <Image
+              source={require('../assets/img/youtube.png')}
+              style={style.socialIcon}
+            />
+          </View>
+          <View style={style.iconBg}>
+            <Image
+              source={require('../assets/img/twitter.png')}
+              style={style.socialIcon}
+            />
+          </View>
+          <View style={style.iconBg}>
+            <Image
+              source={require('../assets/img/install.png')}
+              style={style.socialIcon}
+            />
+          </View>
+          <View style={style.iconBg}>
+            <Image
+              source={require('../assets/img/twitter.png')}
+              style={style.socialIcon}
+            />
+          </View>
         </View>
       </View>
     </View>
@@ -54,21 +72,25 @@ const AppShere = () => {
 };
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 20,
-    paddingHorizontal: 10,
-  },
   socialMedia: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginVertical: 20,
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    width: screenSize.wrapperWidth,
+  },
+  iconBg: {
+    backgroundColor: themeColor.bgCard,
+    margin: 10,
+    padding: 10,
+    borderRadius: 15,
+    elevation: 4,
   },
 
   socialIcon: {
     width: 60,
     height: 60,
-    margin: 12,
   },
 });
 

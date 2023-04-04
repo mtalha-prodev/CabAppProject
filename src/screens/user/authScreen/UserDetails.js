@@ -108,7 +108,7 @@ const style = StyleSheet.create({
   },
   label: {
     fontSize: fontSize.btnTxt,
-    color: themeColor.btnBgColorTwo,
+    color: themeColor.titleColor,
     fontWeight: 'bold',
   },
   inputText: {

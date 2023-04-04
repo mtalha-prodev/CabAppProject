@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 
 const Voucher = () => {
   return (
@@ -37,12 +37,12 @@ const Voucher = () => {
 
 const style = StyleSheet.create({
   container: {
-    width: '90%',
+    width: screenSize.wrapperWidth,
     alignSelf: 'center',
     marginVertical: 10,
     backgroundColor: themeColor.bgCard,
-    elevation: 4,
-    borderRadius: 20,
+    elevation: 3,
+    borderRadius: 15,
     paddingVertical: 10,
   },
   voucherBody: {

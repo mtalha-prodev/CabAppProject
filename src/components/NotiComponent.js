@@ -1,6 +1,6 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 
 const NotiComponent = ({title, msg}) => {
   return (
@@ -20,7 +20,11 @@ const style = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: themeColor.bgCard,
     elevation: 3,
-    padding: 25,
+    width: screenSize.wrapperWidth,
+    alignSelf: 'center',
+    marginBottom: screenSize.btnMarginVertical,
+    paddingHorizontal: screenSize.btnPadding,
+    borderRadius: 15,
   },
   title: {
     fontSize: fontSize.normalTitle,
@@ -30,6 +34,7 @@ const style = StyleSheet.create({
     color: themeColor.txtColor,
     fontSize: fontSize.txt,
     marginVertical: 10,
+    textAlign: 'justify',
   },
 });
 

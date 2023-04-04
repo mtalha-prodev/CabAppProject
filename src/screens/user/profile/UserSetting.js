@@ -1,8 +1,6 @@
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
-import {useNavigation} from '@react-navigation/native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {screenSize} from '../../../constant';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import Setting from '../../../components/Setting';
 
@@ -11,8 +9,10 @@ const UserSetting = () => {
     <View style={style.container}>
       {/* header */}
       <UserProfileHeader title="Setting" />
-      {/* profile pic  */}
-      <Setting />
+      <ScrollView>
+        {/* profile pic  */}
+        <Setting />
+      </ScrollView>
     </View>
   );
 };
@@ -20,7 +20,7 @@ const UserSetting = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
+    marginVertical: screenSize.containerPaddingVertical,
   },
 });
 

@@ -93,7 +93,7 @@ const ChatScreen = () => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{position: 'absolute', left: 25, top: 25, zIndex: 999}}>
+      <View style={{position: 'absolute', top: 15, zIndex: 999}}>
         <BackButton />
       </View>
       <GiftedChat

@@ -1,8 +1,7 @@
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import Map from '../../components/Map';
-import {fontSize, themeColor} from '../../constant';
-import PriceCard from '../../components/PriceCard';
+import {fontSize, screenSize, themeColor} from '../../constant';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../components/BackButton';
 
@@ -11,7 +10,7 @@ const ConfirmRaide = () => {
 
   return (
     <View style={style.container}>
-      <View style={{position: 'absolute', left: 25, top: 25, zIndex: 999}}>
+      <View style={{position: 'absolute', top: 10, zIndex: 999}}>
         <BackButton />
       </View>
       <View style={{flex: 2}}>
@@ -28,7 +27,7 @@ const ConfirmRaide = () => {
 
         <View
           style={{
-            width: '80%',
+            width: screenSize.wrapperWidth,
             padding: 10,
           }}>
           <View
@@ -53,21 +52,23 @@ const ConfirmRaide = () => {
             style={{
               width: 180,
               height: 120,
-              marginVertical: 20,
+              marginVertical: 10,
               alignSelf: 'center',
             }}
           />
         </View>
 
+        {/* chat with btn */}
+
         <TouchableOpacity
           style={{
-            backgroundColor: themeColor.btnBgColorTwo,
-            width: '80%',
+            backgroundColor: themeColor.userBtnBgColor,
+            width: screenSize.btnWidth,
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 10,
-            borderRadius: 20,
-            marginBottom: 15,
+            padding: screenSize.btnPadding,
+            borderRadius: screenSize.btnRadius,
+            marginVertical: screenSize.btnMarginVertical,
           }}
           onPress={() => navigation.navigate('ChatScreen')}>
           <Text
@@ -90,7 +91,6 @@ const style = StyleSheet.create({
   },
   text: {
     fontSize: fontSize.normalTitle,
-
     color: themeColor.titleColor,
   },
 });

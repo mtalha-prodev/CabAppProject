@@ -7,11 +7,12 @@ import {
   Dimensions,
 } from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
+import {ScrollView} from 'react-native-virtualized-view';
 
 const {width} = Dimensions.get('screen');
 const Card = ({title, icon, onPress}) => {
@@ -24,7 +25,7 @@ const Card = ({title, icon, onPress}) => {
         width: '100%',
         backgroundColor: themeColor.bgCard,
         elevation: 3,
-        marginVertical: 10,
+        marginVertical: 8,
         padding: 15,
         paddingHorizontal: 25,
       }}>
@@ -36,7 +37,7 @@ const Card = ({title, icon, onPress}) => {
         }}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Ionicons
-            style={{fontSize: 32, color: themeColor.iconColor}}
+            style={{fontSize: 32, color: themeColor.userIconColor}}
             name={icon}
           />
           <Text
@@ -51,7 +52,7 @@ const Card = ({title, icon, onPress}) => {
         <Ionicons
           style={{
             fontSize: 32,
-            color: themeColor.iconColor,
+            color: themeColor.userIconColor,
             alignSelf: 'flex-end',
           }}
           name={'chevron-forward-outline'}
@@ -65,62 +66,73 @@ const UserProfile = () => {
   const navigation = useNavigation();
   return (
     <View style={style.container}>
-      <BackButton />
       <View
         style={{justifyContent: 'center', alignItems: 'center', width: width}}>
         <View style={style.header}>
-          <Text
+          <BackButton />
+          <View
             style={{
-              color: themeColor.txtColor,
-              fontSize: fontSize.normalTitle,
+              flexDirection: 'row',
+              alignItems: 'center',
               marginRight: 15,
             }}>
-            Jone Sparow
-          </Text>
-          <TouchableOpacity
-            style={{padding: 5}}
-            onPress={() => navigation.navigate('UserEditAccount')}>
-            <Image
-              source={require('../../../assets/img/profile.jpg')}
-              style={{width: 50, height: 50, borderRadius: 50}}
-            />
-          </TouchableOpacity>
+            <Text
+              style={{
+                color: themeColor.txtColor,
+                fontSize: fontSize.btnTxt,
+                fontWeight: fontSize.bold,
+                marginRight: 10,
+              }}>
+              Jone Sparow
+            </Text>
+            <TouchableOpacity
+              style={{padding: 5}}
+              onPress={() => navigation.navigate('UserEditAccount')}>
+              <Image
+                source={require('../../../assets/img/profile.jpg')}
+                style={{width: 50, height: 50, borderRadius: 50}}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={style.cart}>
-          <TouchableOpacity
-            style={style.btn}
-            onPress={() => navigation.navigate('UserHelp')}>
-            <Ionicons style={style.fontIcon} name={'help-buoy-outline'} />
-            <Text style={style.text}>Help</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={style.btn}
-            onPress={() => navigation.navigate('UserWallet')}>
-            <Ionicons style={style.fontIcon} name={'wallet-outline'} />
-            <Text style={style.text}>Wallet</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={style.btn}
-            onPress={() => navigation.navigate('UserTrips')}>
-            <Ionicons style={style.fontIcon} name={'timer-outline'} />
-            <Text style={style.text}>Trips</Text>
-          </TouchableOpacity>
-        </View>
-        <Card
-          title="Notification"
-          onPress="UserNotification"
-          icon="notifications-outline"
-        />
-        <Card title="Setting" icon="settings-outline" onPress="UserSetting" />
-        <Card title="Contact us" icon="call-outline" onPress="UserContact" />
-        <Card title="Rate us app" icon="star-half-outline" onPress="RateUs" />
-        <Card title="Emergence Call" onPress="Emergence" icon="call" />
-        <Card
-          title="Share app"
-          icon="share-social-outline"
-          onPress="SheraApp"
-        />
-        <Card title="Logout" icon="log-out-outline" onPress="Logout" />
+
+        <ScrollView style={{margineVertical: 15}}>
+          <View style={style.cart}>
+            <TouchableOpacity
+              style={style.btn}
+              onPress={() => navigation.navigate('UserHelp')}>
+              <Ionicons style={style.fontIcon} name={'help-buoy-outline'} />
+              <Text style={style.text}>Help</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={style.btn}
+              onPress={() => navigation.navigate('UserWallet')}>
+              <Ionicons style={style.fontIcon} name={'wallet-outline'} />
+              <Text style={style.text}>Wallet</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={style.btn}
+              onPress={() => navigation.navigate('UserTrips')}>
+              <Ionicons style={style.fontIcon} name={'timer-outline'} />
+              <Text style={style.text}>Trips</Text>
+            </TouchableOpacity>
+          </View>
+          <Card
+            title="Notification"
+            onPress="UserNotification"
+            icon="notifications-outline"
+          />
+          <Card title="Setting" icon="settings-outline" onPress="UserSetting" />
+          <Card title="Contact us" icon="call-outline" onPress="UserContact" />
+          <Card title="Rate us app" icon="star-half-outline" onPress="RateUs" />
+          <Card title="Emergence Call" onPress="Emergence" icon="call" />
+          <Card
+            title="Share app"
+            icon="share-social-outline"
+            onPress="SheraApp"
+          />
+          <Card title="Logout" icon="log-out-outline" onPress="Logout" />
+        </ScrollView>
       </View>
     </View>
   );
@@ -129,21 +141,20 @@ const UserProfile = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-
     justifyContent: 'center',
+    marginVertical: screenSize.containerPaddingVertical,
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    width: '80%',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    alignSelf: 'center',
+    width: '100%',
   },
   cart: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '100%',
-    marginVertical: 20,
+    marginVertical: 10,
   },
   btn: {
     backgroundColor: themeColor.bgCard,
@@ -157,7 +168,7 @@ const style = StyleSheet.create({
   },
   fontIcon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.userIconColor,
   },
   text: {
     color: themeColor.txtColor,

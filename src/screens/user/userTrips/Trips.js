@@ -23,7 +23,7 @@ const style = StyleSheet.create({
     paddingVertical: 15,
   },
   scrollStyle: {
-    marginVertical: 10,
+    // marginVertical: 10,
   },
 });
 

@@ -1,7 +1,11 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
-import {fontSize, themeColor} from '../../../constant';
-import BackButton from '../../../components/BackButton';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import VisaCard from '../../../components/VisaCard';
 import {useNavigation} from '@react-navigation/native';
 import UserProfileHeader from '../../../components/UserProfileHeader';
@@ -13,34 +17,42 @@ const PaymentDetails = () => {
     <View style={style.container}>
       {/* profile header component */}
       <UserProfileHeader title="Payment" />
+      <ScrollView>
+        {/* linear gradient */}
+        <View style={{flex: 1, justifyContent: 'space-between'}}>
+          <VisaCard />
 
-      {/* linear gradient */}
-      <VisaCard />
-
-      {/* Card details */}
-      <View style={style.cardBody}>
-        <Text style={style.text}>Card Holder Name</Text>
-        <Text style={style.text}>Card Number</Text>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <Text style={style.text}>Expiry MM/YY</Text>
-          <Text
-            style={[
-              style.text,
-              {
-                borderBottomWidth: 1,
-                width: '50%',
-                borderColor: themeColor.txtColor,
-              },
-            ]}>
-            CVC
-          </Text>
+          {/* Card details */}
+          <View style={style.cardBody}>
+            <Text style={style.text}>Card Holder Name</Text>
+            <Text style={style.text}>Card Number</Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginVertical: 10,
+              }}>
+              <Text style={style.text}>Expiry MM/YY</Text>
+              <Text
+                style={[
+                  style.text,
+                  {
+                    borderBottomWidth: 1,
+                    width: '50%',
+                    borderColor: themeColor.txtColor,
+                  },
+                ]}>
+                CVC
+              </Text>
+            </View>
+          </View>
+          <TouchableOpacity
+            style={style.btn}
+            onPress={() => navigation.navigate('PaymentEdit')}>
+            <Text style={style.btnTxt}>Done</Text>
+          </TouchableOpacity>
         </View>
-      </View>
-      <TouchableOpacity
-        style={style.btn}
-        onPress={() => navigation.navigate('PaymentEdit')}>
-        <Text style={style.btnTxt}>Done</Text>
-      </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 };
@@ -48,26 +60,29 @@ const PaymentDetails = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
+    marginVertical: screenSize.containerPaddingVertical,
   },
   cardBody: {
     flex: 1,
-    width: '85%',
+    width: screenSize.wrapperWidth,
     alignSelf: 'center',
-    padding: 20,
     justifyContent: 'space-around',
+    paddingVertical: 20,
   },
 
-  text: {fontSize: fontSize.txt, color: themeColor.txtColor},
+  text: {
+    fontSize: fontSize.txt,
+    color: themeColor.txtColor,
+    marginVertical: screenSize.btnMarginVertical,
+  },
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    padding: 8,
-    borderRadius: 20,
+    backgroundColor: themeColor.userBtnBgColor,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
     justifyContent: 'center',
     alignItems: 'center',
-    width: '85%',
+    width: screenSize.btnWidth,
     alignSelf: 'center',
-    marginBottom: 20,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

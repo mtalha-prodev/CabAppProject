@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import Voucher from './Voucher';
-import {fontSize, themeColor} from '../constant';
+import {fontSize, screenSize, themeColor} from '../constant';
 
 const Helps = () => {
   return (
@@ -9,8 +9,8 @@ const Helps = () => {
       <Text
         style={{
           marginLeft: 30,
-          marginVertical: 20,
-          color: themeColor.iconColor,
+          marginVertical: 10,
+          color: themeColor.userIconColor,
           fontSize: fontSize.normalTitle,
         }}>
         Your Recent Trips
@@ -20,15 +20,18 @@ const Helps = () => {
       <View
         style={{
           elevation: 3,
-          width: '90%',
+          width: screenSize.wrapperWidth,
           alignSelf: 'center',
           padding: 10,
           paddingVertical: 20,
           backgroundColor: themeColor.bgCard,
-          borderRadius: 20,
+          borderRadius: 15,
         }}>
         <Text
-          style={{fontSize: fontSize.normalTitle, color: themeColor.iconColor}}>
+          style={{
+            fontSize: fontSize.normalTitle,
+            color: themeColor.userIconColor,
+          }}>
           1914 translation by H. Rackham
         </Text>
         <Text
@@ -36,6 +39,7 @@ const Helps = () => {
             fontSize: fontSize.btnTxt,
             marginVertical: 10,
             color: themeColor.txtColor,
+            textAlign: 'justify',
           }}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae

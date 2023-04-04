@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import {ScrollView} from 'react-native-virtualized-view';
 // map
 import MapView, {Marker} from 'react-native-maps';
-import MapViewDirections from 'react-native-maps-directions';
 
 import React, {useRef, useState} from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 
 const {width} = Dimensions.get('screen');
@@ -37,178 +37,181 @@ const UserMainScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={style.container}>
-      {/* top */}
-      <View style={{width: '100%', alignItems: 'flex-end'}}>
-        <View
-          style={{
-            marginRight: 5,
-            padding: 10,
-            width: '50%',
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('UserProfile')}
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              width: '100%',
-              justifyContent: 'flex-end',
-              paddingHorizontal: 10,
-            }}>
-            <Text
-              style={{
-                marginRight: 10,
-                fontSize: 20,
-                fontWeight: fontSize.bold,
-                color: themeColor.txtColor,
-              }}>
-              Jone Sparow
-            </Text>
-            <Image
-              source={require('../../../assets/img/profile.jpg')}
-              style={{width: 55, height: 55, borderRadius: 50}}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={{width: '100%'}}>
-          <Image
-            source={require('../../../assets/img/taxi.jpg')}
-            style={{width: width, height: 250}}
-          />
+    <ScrollView keyboardShouldPersistTaps="handled" style={style.scroll}>
+      <View style={style.container}>
+        {/* top */}
+        <View style={{width: width, alignItems: 'flex-end'}}>
           <View
-            style={[
-              StyleSheet.absoluteFill,
-              {
-                justifyContent: 'center',
-                width: width - 250,
-                marginLeft: 20,
-              },
-            ]}>
-            <Text
-              style={{
-                fontSize: fontSize.title,
-                color: themeColor.bgCard,
-              }}>
-              Make your life much easier
-            </Text>
-            <Text
-              style={{
-                fontSize: 18,
-                color: themeColor.bgColor,
-                marginVertical: 15,
-              }}>
-              Order now & get 50% off of your first ride
-            </Text>
+            style={{
+              marginRight: 5,
+              padding: 10,
+            }}>
             <TouchableOpacity
+              onPress={() => navigation.navigate('UserProfile')}
               style={{
-                backgroundColor: themeColor.btnBgColorTwo,
-                width: 100,
-                padding: 8,
-                justifyContent: 'center',
+                flexDirection: 'row',
                 alignItems: 'center',
-                borderRadius: 20,
-                marginTop: 10,
+                width: '100%',
+                justifyContent: 'flex-end',
+                paddingHorizontal: 10,
               }}>
               <Text
                 style={{
+                  marginRight: 10,
                   fontSize: fontSize.btnTxt,
-                  color: themeColor.btnTxtColor,
+                  fontWeight: fontSize.bold,
+                  color: themeColor.txtColor,
                 }}>
-                Order
+                Jone Sparow
               </Text>
+              <Image
+                source={require('../../../assets/img/profile.jpg')}
+                style={{width: 55, height: 55, borderRadius: 50}}
+              />
             </TouchableOpacity>
           </View>
+          <View style={{width: width}}>
+            <Image
+              source={require('../../../assets/img/taxi.jpg')}
+              style={{width: width, height: 250}}
+            />
+            <View
+              style={[
+                StyleSheet.absoluteFill,
+                {
+                  justifyContent: 'space-around',
+                  width: screenSize.wrapperWidth,
+                  marginLeft: 20,
+                },
+              ]}>
+              <View>
+                <Text
+                  style={{
+                    fontSize: fontSize.normalTitle,
+                    color: themeColor.bgCard,
+                  }}>
+                  Make your life much easier
+                </Text>
+                <Text
+                  style={{
+                    fontSize: fontSize.btnTxt,
+                    color: themeColor.bgColor,
+                    marginTop: screenSize.btnMarginVertical,
+                  }}>
+                  Order now & get 50% off of your first ride
+                </Text>
+              </View>
+              <TouchableOpacity style={style.orderBtn}>
+                <Text
+                  style={{
+                    fontSize: fontSize.btnTxt,
+                    color: themeColor.btnTxtColor,
+                  }}>
+                  Order
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
-      </View>
-      {/* center side */}
-      <View
-        style={{
-          width: width,
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '80%',
-        }}>
-        <Text
-          style={{
-            fontSize: fontSize.title,
-            marginVertical: 10,
-            alignSelf: 'flex-start',
-            color: themeColor.titleColor,
-          }}>
-          Select E-Rickshaw
-        </Text>
+        {/* center side */}
         <View
           style={{
-            flexDirection: 'row',
-            backgroundColor: '#DCDCDC',
-            height: 150,
-            alignItems: 'center',
-            padding: 20,
-            borderRadius: 30,
-          }}>
-          <View style={{justifyContent: 'center'}}>
-            <Text
-              style={{
-                fontSize: fontSize.title,
-                fontWeight: fontSize.bold,
-                color: themeColor.titleColor,
-              }}>
-              Ride
-            </Text>
-            <Text style={{fontSize: fontSize.txt, color: 'gray'}}>
-              Book E-Rickshaw on the go
-            </Text>
-          </View>
-          <Image
-            source={require('../../../assets/img/car.png')}
-            style={{height: 110, width: 130, borderRadius: 20, marginLeft: 10}}
-          />
-        </View>
-        <TouchableOpacity
-          style={{
-            backgroundColor: '#DCDCDC',
-            width: width - 60,
-            height: 60,
-            marginVertical: 15,
+            width: screenSize.wrapperWidth,
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 20,
-          }}
-          onPress={() => navigation.navigate('SearchLocation')}>
+          }}>
           <Text
             style={{
-              fontSize: fontSize.btnTxt,
-              fontWeight: fontSize.bold,
+              fontSize: fontSize.title,
+              marginVertical: 10,
+              alignSelf: 'flex-start',
               color: themeColor.titleColor,
             }}>
-            Where to Go
+            Select E-Rickshaw
           </Text>
-        </TouchableOpacity>
-      </View>
-      {/* bottom  */}
+          <View
+            style={{
+              flexDirection: 'row',
+              backgroundColor: themeColor.bgCard,
+              height: 150,
+              alignItems: 'center',
+              padding: 5,
+              borderRadius: 20,
+              width: screenSize.wrapperWidth,
+              justifyContent: 'space-evenly',
+              elevation: 2,
+            }}>
+            <View style={{justifyContent: 'center'}}>
+              <Text
+                style={{
+                  fontSize: fontSize.title,
+                  fontWeight: fontSize.bold,
+                  color: themeColor.titleColor,
+                }}>
+                Ride
+              </Text>
+              <Text style={{fontSize: fontSize.txt, color: 'gray'}}>
+                Book E-Rickshaw on the go
+              </Text>
+            </View>
+            <Image
+              source={require('../../../assets/img/car.png')}
+              style={{
+                height: 110,
+                width: 130,
+                borderRadius: 20,
+                marginLeft: 10,
+              }}
+            />
+          </View>
+          <TouchableOpacity
+            style={{
+              backgroundColor: themeColor.userBtnBgColor,
+              width: screenSize.btnWidth,
+              marginVertical: screenSize.btnMarginVertical,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: screenSize.btnRadius,
+              padding: screenSize.btnPadding,
+              elevation: 3,
+            }}
+            onPress={() => navigation.navigate('SearchLocation')}>
+            <Text
+              style={{
+                fontSize: fontSize.btnTxt,
+                fontWeight: fontSize.bold,
+                color: themeColor.bgCard,
+              }}>
+              Where to Go
+            </Text>
+          </TouchableOpacity>
+        </View>
+        {/* bottom  */}
 
-      <View
-        style={{
-          flex: 1,
-          width: width - 60,
-        }}>
-        <Text
+        <View
           style={{
-            color: themeColor.titleColor,
-            fontSize: fontSize.title,
+            flex: 1,
+            width: screenSize.wrapperWidth,
+            height: 200,
           }}>
-          Around You
-        </Text>
-        <View style={{flex: 1}}>
+          <Text
+            style={{
+              color: themeColor.titleColor,
+              fontSize: fontSize.title,
+            }}>
+            Around You
+          </Text>
+
+          {/* <Map /> */}
           <MapView
-            style={StyleSheet.absoluteFill}
+            style={[StyleSheet.absoluteFill, {marginTop: 45}]}
             ref={mapRef}
             initialRegion={pickupCords}>
             <Marker coordinate={pickupCords} />
           </MapView>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -217,6 +220,19 @@ const style = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  scroll: {
+    flex: 1,
+    marginVertical: 10,
+  },
+  orderBtn: {
+    backgroundColor: themeColor.btnBgColorTwo,
+    width: 100,
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    marginTop: 10,
   },
 });
 

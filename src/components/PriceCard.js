@@ -1,6 +1,6 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
-import {themeColor} from '../constant';
+import {screenSize, themeColor} from '../constant';
 
 const PriceCard = ({vehicle, price, time}) => {
   return (
@@ -24,12 +24,14 @@ const PriceCard = ({vehicle, price, time}) => {
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    width: '100%',
+    width: screenSize.wrapperWidth,
     justifyContent: 'space-evenly',
     alignItems: 'center',
     backgroundColor: 'white',
     padding: 10,
-    elevation: 4,
+    elevation: 2,
+    marginVertical: 7,
+    borderRadius: 15,
   },
   img: {
     width: 80,

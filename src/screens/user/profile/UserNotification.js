@@ -2,6 +2,7 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import NotiComponent from '../../../components/NotiComponent';
+import {screenSize} from '../../../constant';
 
 const UserNotification = () => {
   return (
@@ -21,7 +22,7 @@ const UserNotification = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   scrollStyle: {
     marginVertical: 10,

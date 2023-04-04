@@ -1,7 +1,12 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
-import LinearGradient from 'react-native-linear-gradient';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import UserProfileHeader from '../../../components/UserProfileHeader';
@@ -12,7 +17,7 @@ const Card = ({title, name, icon, type, onPress}) => {
   return (
     <View style={style.card}>
       <Text style={style.title}>{title}</Text>
-      <View style={{marginVertical: 14}}>
+      <View style={{marginVertical: 10}}>
         <TouchableOpacity style={[style.cardBtn, {borderBottomWidth: 1}]}>
           <Ionicons
             style={[
@@ -28,7 +33,7 @@ const Card = ({title, name, icon, type, onPress}) => {
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'center',
-              width: '90%',
+              width: screenSize.wrapperWidth,
             }}>
             <Text style={style.txt}>{name}</Text>
             <Ionicons style={style.icon} name="chevron-forward-outline" />
@@ -51,26 +56,27 @@ const Wallet = () => {
     <View style={style.container}>
       {/* profile header component */}
       <UserProfileHeader title="wallet" />
+      <ScrollView>
+        {/* bg color */}
+        <AtmCard />
 
-      {/* bg color */}
-      <AtmCard />
+        {/* payment methods card */}
+        <Card
+          title="Payment Methods"
+          name="Cash"
+          icon="cash-outline"
+          type="Add Payment Methods"
+          onPress="PaymentMethod"
+        />
 
-      {/* payment methods card */}
-      <Card
-        title="Payment Methods"
-        name="Cash"
-        icon="cash-outline"
-        type="Add Payment Methods"
-        onPress="PaymentMethod"
-      />
-
-      {/* voucher card */}
-      <Card
-        title="Vouchers"
-        name="Vouchers"
-        icon="cash-outline"
-        type="Add you Voucher code"
-      />
+        {/* voucher card */}
+        <Card
+          title="Vouchers"
+          name="Vouchers"
+          icon="cash-outline"
+          type="Add you Voucher code"
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -78,26 +84,16 @@ const Wallet = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
-  },
-  linearColor: {
-    width: '85%',
-    height: 200,
-    alignSelf: 'center',
-    marginVertical: 20,
-    borderRadius: 20,
-    paddingHorizontal: 22,
-    paddingVertical: 15,
-    justifyContent: 'space-evenly',
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   card: {
-    width: '90%',
+    width: screenSize.wrapperWidth,
     backgroundColor: themeColor.bgCard,
     elevation: 3,
     alignSelf: 'center',
-    borderRadius: 20,
+    borderRadius: 15,
     paddingVertical: 15,
-    marginVertical: 15,
+    marginVertical: 10,
   },
   title: {
     color: themeColor.titleColor,
@@ -114,7 +110,7 @@ const style = StyleSheet.create({
   },
   icon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.userIconColor,
   },
   txt: {color: themeColor.txtColor, fontSize: fontSize.btnTxt},
 });

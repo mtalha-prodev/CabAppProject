@@ -9,7 +9,7 @@ import React from 'react';
 import AddressPickup from '../../components/AddressPickup';
 import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-virtualized-view';
-import {fontSize, themeColor} from '../../constant';
+import {fontSize, screenSize, themeColor} from '../../constant';
 import UserProfileHeader from '../../components/UserProfileHeader';
 
 const SearchLocation = () => {
@@ -42,21 +42,21 @@ const SearchLocation = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   search: {
     flex: 1,
     backgroundColor: 'white',
-    padding: 24,
+    padding: 20,
   },
   btn: {
-    width: '100%',
+    width: screenSize.btnWidth,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 25,
-    backgroundColor: themeColor.btnBgColorTwo,
+    backgroundColor: themeColor.userBtnBgColor,
     padding: 10,
-    borderRadius: 10,
+    borderRadius: screenSize.btnRadius,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

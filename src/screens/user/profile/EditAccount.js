@@ -1,15 +1,18 @@
-import {View} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import ProfileEdit from '../../../components/ProfileEdit';
+import {screenSize} from '../../../constant';
 
 const EditAccount = () => {
   return (
-    <View style={{flex: 1, paddingVertical: 20}}>
+    <View
+      style={{flex: 1, paddingVertical: screenSize.containerPaddingVertical}}>
       {/* profile header component */}
       <UserProfileHeader title="Edit Account" />
-
-      <ProfileEdit />
+      <ScrollView>
+        <ProfileEdit />
+      </ScrollView>
     </View>
   );
 };
