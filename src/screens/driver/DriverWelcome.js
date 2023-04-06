@@ -7,7 +7,11 @@ import {themeColor} from '../../constant';
 const DriverWelcome = () => {
   return (
     <View style={style.container}>
-      <Welcome title={driverContent.welcomeTitle} login="DriverPhone" />
+      <Welcome
+        title={driverContent.welcomeTitle}
+        login="DriverPhone"
+        btnColor={themeColor.driverBtnBgColor}
+      />
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import React, {useRef, useState} from 'react';
 import {GOOGLE_MAPS_APIKEY} from '../utils';
 import MapView, {Marker} from 'react-native-maps';

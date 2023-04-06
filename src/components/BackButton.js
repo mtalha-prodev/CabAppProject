@@ -4,11 +4,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {themeColor} from '../constant';
 import {useNavigation} from '@react-navigation/native';
 
-const BackButton = () => {
+const BackButton = ({iconColor}) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity style={style.btn} onPress={() => navigation.goBack()}>
-      <Ionicons style={style.icon} name="arrow-back-outline" />
+      <Ionicons
+        style={{
+          fontSize: 35,
+          color: iconColor,
+        }}
+        name="arrow-back-outline"
+      />
     </TouchableOpacity>
   );
 };
@@ -23,10 +29,6 @@ const style = StyleSheet.create({
     borderRadius: 50,
     elevation: 4,
     marginLeft: 15,
-  },
-  icon: {
-    fontSize: 35,
-    color: themeColor.userIconColor,
   },
 });
 

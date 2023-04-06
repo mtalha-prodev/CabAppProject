@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {StackActions, useNavigation} from '@react-navigation/native';
 import {screenSize, themeColor} from '../../constant';
 
-const {bgColor, bgColorOne, btnBgColor, btnBgColorTwo, btnTxtColor} =
+const {bgColor, bgColorOne, btnBgColor, driverBtnBgColor, btnTxtColor} =
   themeColor;
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
       <TouchableOpacity
         style={[
           style.btn,
-          {backgroundColor: btnBgColorTwo, borderColor: btnBgColor},
+          {backgroundColor: driverBtnBgColor, borderColor: btnBgColor},
         ]}
         onPress={() => navigation.navigate('DriverWelcome')}>
         <Text style={[{color: btnTxtColor}, style.btnTxt]}>Driver</Text>
@@ -30,7 +30,7 @@ const Home = () => {
         style={[
           {
             backgroundColor: themeColor.userBtnBgColor,
-            borderColor: btnBgColorTwo,
+            borderColor: driverBtnBgColor,
           },
           style.btn,
         ]}

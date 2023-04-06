@@ -1,18 +1,9 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import Login from '../../../components/Login';
 import Welcome from '../../../components/Welcome';
 import {useNavigation} from '@react-navigation/native';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {userContent} from '../../ComanScreens/UserContent';
-
-const {width} = Dimensions.get('screen');
 
 const UserLogin = () => {
   const googleLogin = () => {
@@ -40,15 +31,12 @@ const UserLogin = () => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => facebookLogin()}
-          style={[
-            style.btn,
-            {backgroundColor: themeColor.bgColorOne, marginVertical: 20},
-          ]}>
+          style={[style.btn, {backgroundColor: themeColor.bgColorOne}]}>
           <Text style={style.btnTxt}>Facebook</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => googleLogin()}
-          style={[style.btn, {backgroundColor: themeColor.btnBgColorTwo}]}>
+          style={[style.btn, {backgroundColor: themeColor.driverBtnBgColor}]}>
           <Text style={style.btnTxt}>Google</Text>
         </TouchableOpacity>
       </View>
@@ -68,6 +56,7 @@ const style = StyleSheet.create({
     width: screenSize.btnWidth,
     alignItems: 'center',
     borderRadius: screenSize.btnRadius,
+    marginVertical: screenSize.btnMarginVertical,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

@@ -8,7 +8,9 @@ export const themeColor = {
   bgColorTwo: '#ad7ffb',
   // button bg color
   userBtnBgColor: '#ad7ffb',
-  btnBgColorTwo: '#f594b7',
+  userBorderColor: '#ad7ffb',
+  driverBtnBgColor: '#f594b7',
+  driverBorderColor: '#f594b7',
   bgCard: '#EDEDED',
   // text color
   txtColor: 'gray',
@@ -16,6 +18,7 @@ export const themeColor = {
   btnTxtColor: '#fff',
   titleColor: '#000',
   // icon colors
+  driverIconColor: '#f594b7',
   userIconColor: '#ad7ffb',
   // iconColor: '#fff',
 };
@@ -30,14 +33,22 @@ export const fontSize = {
 export const screenSize = {
   containerPaddingHorizontal: 10,
   containerPaddingVertical: 15,
+  wrapperWidth: width - 40,
+  // input
   inputWidth: width - 40,
   inputPadding: 8,
   inputMarginVertical: 7,
+  // btn
   btnPadding: 7,
   btnMarginVertical: 10,
   btnWidth: width - 40,
   btnRadius: 50,
-  wrapperWidth: width - 40,
+  btnTopMargin: 60,
+
   imgRadius: 25,
+  // top margin
   topMargin: 25,
+  // title text
+  titleTopMargin: 20,
+  textMargin: 10,
 };

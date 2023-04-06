@@ -28,8 +28,8 @@ const UserPhone = () => {
 
   return (
     <View style={style.container}>
-      <BackButton />
-      <View style={{alignSelf: 'center', marginTop: 20, width: width - 40}}>
+      <BackButton iconColor={themeColor.userIconColor} />
+      <View style={style.wrapper}>
         <Text style={style.title}>{userContent.phoneTitle}</Text>
         <Text style={style.text}>{userContent.phoneTxt}</Text>
         <View>
@@ -59,7 +59,7 @@ const style = StyleSheet.create({
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 10,
+    marginTop: screenSize.titleTopMargin,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
   },
@@ -84,12 +84,16 @@ const style = StyleSheet.create({
     alignItems: 'center',
     padding: screenSize.btnPadding,
     borderRadius: screenSize.btnRadius,
-    marginTop: 60,
+    marginTop: screenSize.btnTopMargin,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,
     fontWeight: fontSize.bold,
     color: themeColor.btnTxtColor,
+  },
+  wrapper: {
+    alignSelf: 'center',
+    width: screenSize.wrapperWidth,
   },
 });
 

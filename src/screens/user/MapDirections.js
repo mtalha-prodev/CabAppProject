@@ -12,7 +12,7 @@ const MapDirections = () => {
   return (
     <View style={{flex: 1}}>
       <View style={{position: 'absolute', top: 10, zIndex: 999}}>
-        <BackButton />
+        <BackButton iconColor={themeColor.userIconColor} />
       </View>
       <View style={{flex: 2}}>
         <Map />

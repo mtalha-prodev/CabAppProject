@@ -4,7 +4,6 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import React from 'react';
 
@@ -13,7 +12,6 @@ import {fontSize, screenSize, themeColor} from '../../../constant';
 import {userContent} from '../../ComanScreens/UserContent';
 import BackButton from '../../../components/BackButton';
 
-const {width} = Dimensions.get('screen');
 const UserPassword = () => {
   const navigation = useNavigation();
 
@@ -25,8 +23,8 @@ const UserPassword = () => {
 
   return (
     <View style={style.container}>
-      <BackButton />
-      <View style={{alignSelf: 'center'}}>
+      <BackButton iconColor={themeColor.userIconColor} />
+      <View style={{alignSelf: 'center', width: screenSize.wrapperWidth}}>
         <Text style={style.title}>{userContent.phonePass}</Text>
         <Text style={style.text}>{userContent.phonePassTxt}</Text>
         <View>
@@ -53,13 +51,13 @@ const style = StyleSheet.create({
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 10,
+    marginTop: screenSize.titleTopMargin,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
   },
   text: {
     fontSize: fontSize.txt,
-    marginBottom: 10,
+    marginBottom: screenSize.textMargin,
     alignSelf: 'flex-start',
     color: themeColor.txtColor,
   },
@@ -79,7 +77,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     padding: screenSize.btnPadding,
     borderRadius: screenSize.btnRadius,
-    marginTop: 60,
+    marginTop: screenSize.btnTopMargin,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

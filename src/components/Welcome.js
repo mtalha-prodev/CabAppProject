@@ -14,7 +14,7 @@ import {userContent} from '../screens/ComanScreens/UserContent';
 import BackButton from './BackButton';
 
 const {width} = Dimensions.get('screen');
-const Welcome = ({title, text, login}) => {
+const Welcome = ({title, text, login, btnColor}) => {
   const navigation = useNavigation();
 
   return (
@@ -23,13 +23,9 @@ const Welcome = ({title, text, login}) => {
         backgroundColor={themeColor.bgCard}
         barStyle={'dark-content'}
       />
-      {/* <View style={{marginVertical: 10}}>
-        <BackButton />
-      </View> */}
       <View
         style={{
           flex: 3,
-          // justifyContent: 'space-between',
           alignItems: 'center',
         }}>
         <Image
@@ -44,13 +40,13 @@ const Welcome = ({title, text, login}) => {
       {login && (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <TouchableOpacity
-            style={style.btn}
+            style={[style.btn, {backgroundColor: btnColor}]}
             onPress={() => navigation.navigate(login)}>
             <Text style={style.btnTxt}>{userContent.welcomeBtn}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Text
-              style={{color: themeColor.bgColorTwo, fontSize: fontSize.txt}}>
+              style={{color: themeColor.titleColor, fontSize: fontSize.txt}}>
               {userContent.welcomeOption}
             </Text>
           </TouchableOpacity>
@@ -76,7 +72,6 @@ const style = StyleSheet.create({
     fontSize: fontSize.title,
     color: themeColor.titleColor,
     marginTop: screenSize.topMargin,
-    marginVertical: 6,
   },
   text: {
     fontSize: fontSize.txt,
@@ -85,7 +80,6 @@ const style = StyleSheet.create({
   btn: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.userBtnBgColor,
     width: screenSize.btnWidth,
     padding: screenSize.btnPadding,
     borderRadius: screenSize.btnRadius,

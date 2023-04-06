@@ -12,7 +12,7 @@ const UserProfileHeader = ({title}) => {
         marginBottom: 15,
         elevation: 2,
       }}>
-      <BackButton />
+      <BackButton iconColor={themeColor.userIconColor} />
       <Text
         style={{
           fontSize: fontSize.normalTitle,

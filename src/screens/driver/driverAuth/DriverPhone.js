@@ -3,16 +3,13 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {driverContent} from '../../ComanScreens/DriverContent';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import BackButton from '../../../components/BackButton';
-
-const {width} = Dimensions.get('screen');
 
 const DriverPhone = () => {
   const [number, setNumber] = useState('');
@@ -27,7 +24,7 @@ const DriverPhone = () => {
 
   return (
     <View style={style.container}>
-      <BackButton />
+      <BackButton iconColor={themeColor.driverBtnBgColor} />
       <View style={{alignSelf: 'center'}}>
         <Text style={style.title}>{driverContent.phoneTitle}</Text>
         <Text style={style.text}>{driverContent.phoneTxt}</Text>
@@ -54,37 +51,35 @@ const DriverPhone = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 25,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 20,
+    marginTop: screenSize.titleTopMargin,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
-    marginLeft: 20,
   },
   text: {
     fontSize: fontSize.txt,
-    marginBottom: 10,
+    marginBottom: screenSize.textMargin,
     alignSelf: 'flex-start',
-    marginLeft: 20,
     color: themeColor.txtColor,
   },
   inputText: {
     borderBottomWidth: 3,
-    marginVertical: 30,
-    width: width - 40,
+    marginVertical: screenSize.inputMarginVertical,
+    width: screenSize.inputWidth,
     fontSize: fontSize.txt,
-    borderBottomColor: themeColor.bgColor,
+    borderBottomColor: themeColor.driverBorderColor,
   },
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    width: width - 40,
+    backgroundColor: themeColor.driverBtnBgColor,
+    width: screenSize.btnWidth,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
-    borderRadius: 20,
-    marginTop: 30,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
+    marginTop: screenSize.btnTopMargin,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

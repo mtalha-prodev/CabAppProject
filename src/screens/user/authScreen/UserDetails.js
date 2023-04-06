@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
 import {StackActions, useNavigation} from '@react-navigation/native';
@@ -12,7 +13,6 @@ import {userContent} from '../../ComanScreens/UserContent';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import BackButton from '../../../components/BackButton';
 
-const {width} = Dimensions.get('screen');
 const UserDetails = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -29,58 +29,60 @@ const UserDetails = () => {
 
   return (
     <View style={style.container}>
-      <View>
-        <BackButton />
-        <View style={{width: screenSize.wrapperWidth, alignSelf: 'center'}}>
-          <Text style={style.title}>{userContent.detailTitle}</Text>
-          <Text style={style.text}>{userContent.detailTxt}</Text>
-          <View style={style.inputForm}>
-            <Text style={style.label}>User Name</Text>
-            <TextInput
-              value={name}
-              onChangeText={val => setName(val)}
-              placeholder="Enter Name ..."
-              style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
-            />
-          </View>
-          <View style={style.inputForm}>
-            <Text style={style.label}>Confirm E-mail</Text>
-            <TextInput
-              value={email}
-              onChangeText={val => setEmail(val)}
-              placeholder="Enter E-mail ..."
-              style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
-            />
-          </View>
-          <View style={style.inputForm}>
-            <Text style={style.label}>Password</Text>
-            <TextInput
-              value={password}
-              onChangeText={val => setPassword(val)}
-              placeholder="Enter Password ..."
-              style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
-            />
-          </View>
-          <View style={style.inputForm}>
-            <Text style={style.label}>Confirm Password</Text>
-            <TextInput
-              value={confirmPass}
-              onChangeText={val => setConfirmPass(val)}
-              placeholder="Enter Password ..."
-              style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
-            />
+      <BackButton iconColor={themeColor.userIconColor} />
+      <ScrollView>
+        <View>
+          <View style={{width: screenSize.wrapperWidth, alignSelf: 'center'}}>
+            <Text style={style.title}>{userContent.detailTitle}</Text>
+            <Text style={style.text}>{userContent.detailTxt}</Text>
+            <View style={style.inputForm}>
+              <Text style={style.label}>User Name</Text>
+              <TextInput
+                value={name}
+                onChangeText={val => setName(val)}
+                placeholder="Enter Name ..."
+                style={style.inputText}
+                placeholderTextColor={themeColor.txtColor}
+              />
+            </View>
+            <View style={style.inputForm}>
+              <Text style={style.label}>Confirm E-mail</Text>
+              <TextInput
+                value={email}
+                onChangeText={val => setEmail(val)}
+                placeholder="Enter E-mail ..."
+                style={style.inputText}
+                placeholderTextColor={themeColor.txtColor}
+              />
+            </View>
+            <View style={style.inputForm}>
+              <Text style={style.label}>Password</Text>
+              <TextInput
+                value={password}
+                onChangeText={val => setPassword(val)}
+                placeholder="Enter Password ..."
+                style={style.inputText}
+                placeholderTextColor={themeColor.txtColor}
+              />
+            </View>
+            <View style={style.inputForm}>
+              <Text style={style.label}>Confirm Password</Text>
+              <TextInput
+                value={confirmPass}
+                onChangeText={val => setConfirmPass(val)}
+                placeholder="Enter Password ..."
+                style={style.inputText}
+                placeholderTextColor={themeColor.txtColor}
+              />
+            </View>
           </View>
         </View>
-      </View>
-      <View>
-        <TouchableOpacity style={style.btn} onPress={() => handleDetails()}>
-          <Text style={style.btnTxt}>Next</Text>
-        </TouchableOpacity>
-      </View>
+        <View>
+          <TouchableOpacity style={style.btn} onPress={() => handleDetails()}>
+            <Text style={style.btnTxt}>Next</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -93,13 +95,13 @@ const style = StyleSheet.create({
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 10,
+    marginTop: screenSize.titleTopMargin,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
   },
   text: {
     fontSize: fontSize.txt,
-    marginBottom: 10,
+    marginBottom: screenSize.textMargin,
     alignSelf: 'flex-start',
     color: themeColor.txtColor,
   },
@@ -126,8 +128,8 @@ const style = StyleSheet.create({
     alignItems: 'center',
     padding: screenSize.btnPadding,
     borderRadius: screenSize.btnRadius,
-    // marginTop: 80,
     alignSelf: 'center',
+    marginTop: screenSize.btnTopMargin,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

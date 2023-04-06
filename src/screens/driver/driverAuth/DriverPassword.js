@@ -3,16 +3,14 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Dimensions,
   TextInput,
 } from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
 
-const {width} = Dimensions.get('screen');
 const DriverPassword = () => {
   const navigation = useNavigation();
 
@@ -24,7 +22,7 @@ const DriverPassword = () => {
 
   return (
     <View style={style.container}>
-      <BackButton />
+      <BackButton iconColor={themeColor.driverIconColor} />
       <View style={{alignSelf: 'center'}}>
         <Text style={style.title}>{driverContent.phonePass}</Text>
         <Text style={style.text}>{driverContent.phonePassTxt}</Text>
@@ -48,39 +46,35 @@ const DriverPassword = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    paddingVertical: 25,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 20,
+    marginTop: screenSize.titleTopMargin,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
-    marginLeft: 20,
   },
   text: {
     fontSize: fontSize.txt,
-    marginBottom: 10,
+    marginBottom: screenSize.textMargin,
     alignSelf: 'flex-start',
-    marginLeft: 20,
     color: themeColor.txtColor,
   },
   inputText: {
     borderBottomWidth: 3,
-    marginTop: 30,
-    width: width - 30,
+    marginVertical: screenSize.inputMarginVertical,
+    width: screenSize.inputWidth,
     fontSize: fontSize.txt,
-    borderBottomColor: themeColor.bgColor,
-    marginBottom: 10,
+    borderBottomColor: themeColor.driverIconColor,
   },
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    width: width - 30,
+    backgroundColor: themeColor.driverBtnBgColor,
+    width: screenSize.btnWidth,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
-    borderRadius: 20,
-    marginTop: 40,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
+    marginTop: screenSize.btnTopMargin,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

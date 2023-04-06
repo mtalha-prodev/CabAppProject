@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {driverContent} from '../../ComanScreens/DriverContent';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 
 const SetAll = () => {
@@ -22,13 +22,14 @@ const SetAll = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 30,
-    width: '90%',
+    marginVertical: screenSize.containerPaddingVertical,
+    width: screenSize.wrapperWidth,
     alignSelf: 'center',
   },
   title: {
     fontSize: fontSize.title,
     color: themeColor.titleColor,
+    textAlign: 'justify',
   },
   text: {
     color: themeColor.txtColor,
@@ -36,12 +37,12 @@ const style = StyleSheet.create({
     marginVertical: 20,
   },
   btn: {
-    width: '100%',
-    padding: 8,
+    width: screenSize.btnWidth,
+    padding: screenSize.btnPadding,
     alignSelf: 'center',
-    backgroundColor: themeColor.btnBgColor,
-    borderRadius: 20,
-    marginTop: 40,
+    backgroundColor: themeColor.driverBtnBgColor,
+    borderRadius: screenSize.btnRadius,
+    marginTop: screenSize.btnTopMargin,
   },
   btnText: {
     fontSize: fontSize.btnTxt,

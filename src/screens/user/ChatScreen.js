@@ -4,6 +4,7 @@ import {Bubble, GiftedChat, InputToolbar} from 'react-native-gifted-chat';
 import {useRoute} from '@react-navigation/native';
 import firestore, {firebase} from '@react-native-firebase/firestore';
 import BackButton from '../../components/BackButton';
+import {themeColor} from '../../constant';
 
 const ChatScreen = () => {
   // const route = useRoute();
@@ -94,7 +95,7 @@ const ChatScreen = () => {
   return (
     <View style={{flex: 1}}>
       <View style={{position: 'absolute', top: 15, zIndex: 999}}>
-        <BackButton />
+        <BackButton iconColor={themeColor.userIconColor} />
       </View>
       <GiftedChat
         messages={messages}

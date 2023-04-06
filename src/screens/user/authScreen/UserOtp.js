@@ -2,7 +2,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Dimensions,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
@@ -12,7 +11,6 @@ import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
 import BackButton from '../../../components/BackButton';
 
-const {width} = Dimensions.get('screen');
 const UserOtp = () => {
   const navigation = useNavigation();
 
@@ -24,8 +22,8 @@ const UserOtp = () => {
 
   return (
     <View style={style.container}>
-      <BackButton />
-      <View style={{alignSelf: 'center'}}>
+      <BackButton iconColor={themeColor.userIconColor} />
+      <View style={{alignSelf: 'center', width: screenSize.wrapperWidth}}>
         <Text style={style.title}>{userContent.phoneOtpTitle}</Text>
         <Text style={style.text}>{userContent.phoneOtpTxt}</Text>
         <View>
@@ -66,7 +64,7 @@ const style = StyleSheet.create({
   },
   title: {
     fontSize: fontSize.title,
-    marginVertical: 10,
+    marginTop: screenSize.titleTopMargin,
     color: themeColor.titleColor,
     alignSelf: 'flex-start',
   },
@@ -92,7 +90,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     padding: screenSize.btnPadding,
     borderRadius: screenSize.btnRadius,
-    marginTop: 60,
+    marginTop: screenSize.btnTopMargin,
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

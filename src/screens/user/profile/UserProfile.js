@@ -69,7 +69,7 @@ const UserProfile = () => {
       <View
         style={{justifyContent: 'center', alignItems: 'center', width: width}}>
         <View style={style.header}>
-          <BackButton />
+          <BackButton iconColor={themeColor.userIconColor} />
           <View
             style={{
               flexDirection: 'row',
@@ -159,7 +159,7 @@ const style = StyleSheet.create({
   btn: {
     backgroundColor: themeColor.bgCard,
     padding: 20,
-    width: 80,
+    width: '28%',
     height: 75,
     justifyContent: 'center',
     alignItems: 'center',
