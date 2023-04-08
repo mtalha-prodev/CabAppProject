@@ -20,7 +20,7 @@ export const themeColor = {
   // icon colors
   driverIconColor: '#f594b7',
   userIconColor: '#ad7ffb',
-  // iconColor: '#fff',
+  white: '#fff',
 };
 export const fontSize = {
   title: 24,

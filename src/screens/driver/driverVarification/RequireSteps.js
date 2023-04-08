@@ -6,7 +6,7 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import BackButton from '../../../components/BackButton';
 import {useNavigation} from '@react-navigation/native';
@@ -15,7 +15,7 @@ const RequireSteps = () => {
   const navigation = useNavigation();
   return (
     <View style={style.container}>
-      <BackButton />
+      <BackButton iconColor={themeColor.driverIconColor} />
       <View style={{marginLeft: 20}}>
         <Text style={style.title}>Welcome Davis</Text>
         <Text style={style.normalTxt}>Required Steps</Text>
@@ -24,7 +24,7 @@ const RequireSteps = () => {
         </Text>
       </View>
 
-      <ScrollView style={{paddingBottom: 20}}>
+      <ScrollView style={{paddingBottom: 10}}>
         <CardButton
           name={'Terms and Condition'}
           fieldName={'Get Started'}
@@ -98,18 +98,17 @@ const CardButton = ({name, fieldName, onPress}) => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 25,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   title: {
     fontSize: fontSize.title,
     color: themeColor.titleColor,
-    marginTop: 15,
+    marginTop: screenSize.titleTopMargin,
   },
   normalTxt: {
     fontSize: fontSize.txt,
     color: themeColor.titleColor,
     fontWeight: fontSize.bold,
-    marginVertical: 10,
   },
   text: {
     fontSize: fontSize.txt,
@@ -118,28 +117,29 @@ const style = StyleSheet.create({
   },
 
   btn: {
-    paddingVertical: 15,
+    paddingVertical: 12,
     paddingHorizontal: 20,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 5,
-    borderWidth: 1,
+    marginVertical: 7,
     borderColor: themeColor.btnTxtColor,
+    elevation: 1,
   },
   icon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.driverIconColor,
   },
   btnNext: {
-    width: '90%',
-    padding: 10,
+    width: screenSize.btnWidth,
+    padding: screenSize.btnPadding,
     alignSelf: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.btnBgColor,
-    borderRadius: 20,
+    backgroundColor: themeColor.driverBtnBgColor,
+    borderRadius: screenSize.btnRadius,
     marginVertical: 20,
+    fontWeight: fontSize.bold,
   },
   btnText: {
     color: themeColor.bgCard,

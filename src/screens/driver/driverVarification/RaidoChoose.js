@@ -1,36 +1,19 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-} from 'react-native';
-import React from 'react';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
 import {driverContent} from '../../ComanScreens/DriverContent';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 
-const {width} = Dimensions.get('screen');
-
-const Card = () => {
+const Card = ({setSelected, value, color, textColor}) => {
   return (
     <TouchableOpacity
-      style={{
-        flexDirection: 'row',
-        width: width - 60,
-        alignItems: 'center',
-        backgroundColor: themeColor.bgCard,
-        paddingVertical: 15,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        marginVertical: 20,
-      }}>
+      style={[style.cardBtn, {backgroundColor: color}]}
+      onPress={() => setSelected(value)}>
       <Image
         source={require('../../../assets/img/car.png')}
         style={{width: 100, height: 100, marginRight: 20}}
       />
-      <View>
+      <View style={{flex: 1}}>
         <Text
           style={{
             color: themeColor.titleColor,
@@ -40,9 +23,8 @@ const Card = () => {
         </Text>
         <Text
           style={{
-            color: themeColor.txtColor,
+            color: textColor,
             fontSize: fontSize.txt,
-            width: width - 180,
           }}>
           {driverContent.chooseRaidtxt}
         </Text>
@@ -53,25 +35,39 @@ const Card = () => {
 
 const RaidoChoose = () => {
   const navigation = useNavigation();
+  const [selected, setSelected] = useState(0);
+
+  console.log(selected);
 
   return (
     <View style={style.container}>
-      <View
-        style={{
-          alignSelf: 'center',
-          borderBottomWidth: 1,
-          borderBottomColor: themeColor.btnBgColorTwo,
-        }}>
+      <View>
         <Text
           style={{
             color: themeColor.titleColor,
-            fontSize: fontSize.title,
+            fontSize: fontSize.normalTitle,
             marginVertical: 20,
           }}>
           {driverContent.chooseVehicleTitle}
         </Text>
-        <Card />
-        <Card />
+        <Card
+          value={0}
+          color={
+            selected === 0 ? themeColor.driverBtnBgColor : themeColor.bgCard
+          }
+          textColor={selected !== 0 ? themeColor.txtColor : themeColor.bgCard}
+          setSelected={setSelected}
+          selected={selected}
+        />
+        <Card
+          value={1}
+          color={
+            selected === 1 ? themeColor.driverBtnBgColor : themeColor.bgCard
+          }
+          textColor={selected !== 1 ? themeColor.txtColor : themeColor.bgCard}
+          setSelected={setSelected}
+          selected={selected}
+        />
       </View>
       <TouchableOpacity
         style={style.btn}
@@ -85,23 +81,36 @@ const RaidoChoose = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    width: width - 50,
-    paddingVertical: 25,
-    alignSelf: 'center',
-    paddingHorizontal: 20,
+    width: screenSize.wrapperWidth,
+    paddingVertical: screenSize.containerPaddingVertical,
     justifyContent: 'space-between',
+    alignSelf: 'center',
   },
   btn: {
-    width: width - 50,
-    padding: 8,
+    width: screenSize.btnWidth,
+    padding: screenSize.btnPadding,
     alignSelf: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.btnBgColor,
-    borderRadius: 20,
+    backgroundColor: themeColor.driverBtnBgColor,
+    borderRadius: screenSize.btnRadius,
   },
   btnTxt: {
     color: themeColor.bgCard,
     fontSize: fontSize.btnTxt,
+    fontWeight: fontSize.bold,
+  },
+
+  // card
+  cardBtn: {
+    flexDirection: 'row',
+    width: screenSize.btnWidth,
+    alignItems: 'center',
+    backgroundColor: themeColor.bgCard,
+    paddingVertical: screenSize.btnPadding,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginVertical: screenSize.btnMarginVertical,
+    elevation: 3,
   },
 });
 

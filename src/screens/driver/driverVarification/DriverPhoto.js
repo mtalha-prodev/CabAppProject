@@ -1,11 +1,21 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Alert, StyleSheet} from 'react-native';
 import React from 'react';
 import TakePhoto from '../../../components/driverComponents/TakePhoto';
 import {driverContent} from '../../ComanScreens/DriverContent';
+import {screenSize} from '../../../constant';
 
 const DriverPhoto = () => {
-  const handlePhoto = () => {
-    console.log('handlePhoto');
+  const handlePhoto = async () => {
+    try {
+      const res = await DocumentPicker.pickSingle({
+        type: [DocumentPicker.types.images],
+        copyTo: 'cachesDirectory',
+      });
+      // console.log(res);
+      Alert.alert('Driver Pic', 'Image Upload Successfuly!');
+    } catch (error) {
+      Alert.alert('Aler', 'Please Select a Image!');
+    }
   };
   return (
     <View style={style.container}>
@@ -21,6 +31,7 @@ const DriverPhoto = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
 });
 

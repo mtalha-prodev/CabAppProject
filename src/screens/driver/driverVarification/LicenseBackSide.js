@@ -1,16 +1,26 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Alert, StyleSheet} from 'react-native';
 import React from 'react';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import TakePhoto from '../../../components/driverComponents/TakePhoto';
+import {screenSize} from '../../../constant';
 
 const LicenseBackSide = () => {
-  const handlePhoto = () => {
-    console.log('back photo');
+  const handlePhoto = async () => {
+    try {
+      const res = await DocumentPicker.pickSingle({
+        type: [DocumentPicker.types.images],
+        copyTo: 'cachesDirectory',
+      });
+      // console.log(res);
+      Alert.alert('Driver License', 'Image Upload Successfuly!');
+    } catch (error) {
+      Alert.alert('Aler', 'Please Select a Image!');
+    }
   };
   return (
     <View style={style.container}>
       <TakePhoto
-        title={driverContent.licenseTitle}
+        title={driverContent.licenseBackTitle}
         text={driverContent.licenseTxt}
         handlePhoto={handlePhoto}
       />
@@ -21,6 +31,7 @@ const LicenseBackSide = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
 });
 

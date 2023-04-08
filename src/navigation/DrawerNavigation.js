@@ -29,7 +29,7 @@ const DrawerNavigation = () => {
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: themeColor.btnBgColorTwo,
+        drawerActiveBackgroundColor: themeColor.driverBtnBgColor,
         drawerActiveTintColor: '#fff',
         drawerInactiveTintColor: themeColor.txtColor,
         drawerLabelStyle: {
@@ -112,17 +112,22 @@ const CustomDrawer = props => {
     <View style={style.container}>
       <DrawerContentScrollView
         {...props}
-        contentContainerStyle={{backgroundColor: themeColor.bgCard}}>
+        contentContainerStyle={{
+          // backgroundColor: themeColor.driverBtnBgColor,
+          borderRadius: 20,
+        }}>
         {/* profile  */}
         <TouchableOpacity
           style={{
             padding: 20,
             height: 200,
             justifyContent: 'center',
-            elevation: 0.5,
-            margin: 0,
+            alignItems: 'center',
+            margin: -4,
+            backgroundColor: themeColor.driverBtnBgColor,
+            borderRadius: 60,
           }}
-          onPress={() => navigation.navigate('UserEditAccount')}>
+          onPress={() => navigation.navigate('DriverEditAccount')}>
           <View
             style={{
               flexDirection: 'row',
@@ -141,12 +146,10 @@ const CustomDrawer = props => {
                 }}>
                 OKALA
               </Text>
-              <Text
-                style={{fontSize: fontSize.txt, color: themeColor.txtColor}}>
+              <Text style={{fontSize: fontSize.txt, color: themeColor.white}}>
                 4.94.1234
               </Text>
-              <Text
-                style={{fontSize: fontSize.txt, color: themeColor.txtColor}}>
+              <Text style={{fontSize: fontSize.txt, color: themeColor.white}}>
                 ABCD-1818
               </Text>
             </View>
@@ -186,13 +189,15 @@ const style = StyleSheet.create({
   },
   btn: {flexDirection: 'row', alignItems: 'center', marginVertical: 10},
   icon: {
-    color: themeColor.btnBgColorTwo,
+    color: themeColor.driverIconColor,
     fontSize: 25,
+    fontWeight: fontSize.bold,
   },
   text: {
     fontSize: fontSize.txt,
     color: themeColor.titleColor,
     marginLeft: 10,
+    fontWeight: fontSize.bold,
   },
 });
 

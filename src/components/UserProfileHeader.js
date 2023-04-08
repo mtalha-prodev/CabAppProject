@@ -3,7 +3,7 @@ import React from 'react';
 import BackButton from './BackButton';
 import {fontSize, themeColor} from '../constant';
 
-const UserProfileHeader = ({title}) => {
+const UserProfileHeader = ({title, iconColor}) => {
   return (
     <View
       style={{
@@ -12,7 +12,7 @@ const UserProfileHeader = ({title}) => {
         marginBottom: 15,
         elevation: 2,
       }}>
-      <BackButton iconColor={themeColor.userIconColor} />
+      <BackButton iconColor={iconColor} />
       <Text
         style={{
           fontSize: fontSize.normalTitle,

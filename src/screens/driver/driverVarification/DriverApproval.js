@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {driverContent} from '../../ComanScreens/DriverContent';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 
@@ -48,13 +48,14 @@ const DriverApproval = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 30,
-    paddingHorizontal: 30,
+    paddingVertical: screenSize.containerPaddingVertical,
     justifyContent: 'space-between',
+    width: screenSize.wrapperWidth,
+    alignSelf: 'center',
   },
   content: {
     height: 200,
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: themeColor.bgCard,
     elevation: 3,
     marginVertical: 20,
@@ -69,17 +70,18 @@ const style = StyleSheet.create({
     fontSize: fontSize.txt,
   },
   icon: {
-    color: themeColor.iconColor,
+    color: themeColor.driverIconColor,
     fontSize: 50,
     marginVertical: 25,
   },
 
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    padding: 10,
-    borderRadius: 25,
+    backgroundColor: themeColor.driverBtnBgColor,
+    padding: screenSize.btnPadding,
+    borderRadius: screenSize.btnRadius,
     justifyContent: 'center',
     alignItems: 'center',
+    width: screenSize.btnWidth,
   },
   btnTxt: {
     color: themeColor.bgCard,

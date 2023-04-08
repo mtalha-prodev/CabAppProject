@@ -2,9 +2,7 @@ import {
   View,
   Text,
   StyleSheet,
-  Touchable,
   TouchableOpacity,
-  Dimensions,
   Image,
   ScrollView,
   TextInput,
@@ -12,13 +10,12 @@ import {
 import React from 'react';
 import BackButton from '../BackButton';
 import {driverContent} from '../../screens/ComanScreens/DriverContent';
-import {fontSize, themeColor} from '../../constant';
+import {fontSize, screenSize, themeColor} from '../../constant';
 
-const {width} = Dimensions.get('screen');
 const CnicPhoto = ({title, text, handlePhoto, vehicleForm}) => {
   return (
     <View style={style.container}>
-      <BackButton />
+      <BackButton iconColor={themeColor.driverIconColor} />
       <ScrollView style={{flex: 1, marginVertical: 20}}>
         <View style={style.content}>
           <View>
@@ -60,12 +57,11 @@ const CnicPhoto = ({title, text, handlePhoto, vehicleForm}) => {
             <Text style={{color: themeColor.txtColor, marginVertical: 20}}>
               {driverContent.cardTxt}
             </Text>
-
-            <TouchableOpacity style={style.btn} onPress={() => handlePhoto()}>
-              <Text style={style.btnTxt}>Take Photo</Text>
-            </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity style={style.btn} onPress={() => handlePhoto()}>
+          <Text style={style.btnTxt}>Take Photo</Text>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
@@ -74,47 +70,50 @@ const CnicPhoto = ({title, text, handlePhoto, vehicleForm}) => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
   },
   content: {
     flex: 1,
     justifyContent: 'space-between',
-    width: width - 60,
+    width: screenSize.wrapperWidth,
     alignSelf: 'center',
-    marginTop: 20,
   },
 
   input: {
-    paddingVertical: 13,
+    paddingVertical: screenSize.inputPadding,
     color: themeColor.txtColor,
     fontSize: fontSize.txt,
     paddingHorizontal: 10,
-    marginVertical: 5,
+    marginVertical: screenSize.inputMarginVertical,
     borderBottomWidth: 2,
-    borderBottomColor: themeColor.btnBgColor,
+    borderBottomColor: themeColor.driverBorderColor,
   },
 
-  img: {height: 230, width: '100%', borderRadius: 25},
+  img: {height: 230, width: '100%', borderRadius: 15},
   title: {
     color: themeColor.titleColor,
-    fontSize: fontSize.title,
+    fontSize: fontSize.normalTitle,
   },
   text: {
     color: themeColor.txtColor,
     fontSize: fontSize.txt,
     textAlign: 'justify',
-    marginVertical: 15,
+    marginVertical: 10,
   },
   btn: {
-    backgroundColor: themeColor.btnBgColor,
-    padding: 8,
+    backgroundColor: themeColor.driverBtnBgColor,
+    padding: screenSize.btnPadding,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
-    elevation: 4,
+    borderRadius: screenSize.btnRadius,
+    elevation: 2,
+    marginVertical: screenSize.btnMarginVertical,
+    width: screenSize.btnWidth,
+    alignSelf: 'center',
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,
+    color: themeColor.bgCard,
+    fontWeight: fontSize.bold,
   },
 });
 

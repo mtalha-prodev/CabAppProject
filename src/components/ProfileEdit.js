@@ -3,7 +3,7 @@ import React from 'react';
 import {fontSize, themeColor} from '../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const UserEdit = ({name, fieldName}) => {
+const UserEdit = ({name, fieldName, iconColor}) => {
   return (
     <TouchableOpacity style={style.btn}>
       <Text style={{color: themeColor.txtColor}}>{fieldName}</Text>
@@ -22,13 +22,16 @@ const UserEdit = ({name, fieldName}) => {
           }}>
           {name}
         </Text>
-        <Ionicons style={style.icon} name="chevron-forward-outline" />
+        <Ionicons
+          style={[style.icon, {color: iconColor}]}
+          name="chevron-forward-outline"
+        />
       </View>
     </TouchableOpacity>
   );
 };
 
-const ProfileEdit = () => {
+const ProfileEdit = ({iconColor}) => {
   return (
     <View style={style.container}>
       <View style={{height: 250}}>
@@ -42,7 +45,7 @@ const ProfileEdit = () => {
         <TouchableOpacity
           style={[style.cameraIcon, {top: 15, right: 15, zIndex: 999}]}>
           <Ionicons
-            style={{fontSize: 30, color: themeColor.userIconColor}}
+            style={{fontSize: 30, color: iconColor}}
             name="camera-outline"
           />
         </TouchableOpacity>
@@ -68,7 +71,7 @@ const ProfileEdit = () => {
               },
             ]}>
             <Ionicons
-              style={{fontSize: 30, color: themeColor.userIconColor}}
+              style={{fontSize: 30, color: iconColor}}
               name="camera-outline"
             />
           </TouchableOpacity>
@@ -76,11 +79,23 @@ const ProfileEdit = () => {
       </View>
 
       <View style={{marginTop: 60}}>
-        <UserEdit name="Daval Max" fieldName="first name" />
-        <UserEdit name="Max" fieldName="surname" />
-        <UserEdit name="talha@gmail.com" fieldName="email" />
-        <UserEdit name="03XXXXXXXXX" fieldName="mobile" />
-        <UserEdit name="***********" fieldName="password" />
+        <UserEdit
+          name="Daval Max"
+          fieldName="first name"
+          iconColor={iconColor}
+        />
+        <UserEdit name="Max" iconColor={iconColor} fieldName="surname" />
+        <UserEdit
+          name="talha@gmail.com"
+          fieldName="email"
+          iconColor={iconColor}
+        />
+        <UserEdit name="03XXXXXXXXX" fieldName="mobile" iconColor={iconColor} />
+        <UserEdit
+          name="***********"
+          fieldName="password"
+          iconColor={iconColor}
+        />
       </View>
     </View>
   );
@@ -105,9 +120,7 @@ const style = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     width: '100%',
-    // elevation: 2,
-    borderWidth: 1,
-    borderColor: themeColor.btnTxtColor,
+    elevation: 1,
     marginVertical: 5,
   },
   icon: {
