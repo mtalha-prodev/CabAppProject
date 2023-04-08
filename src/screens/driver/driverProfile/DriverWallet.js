@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import AtmCard from '../../../components/AtmCard';
 import {useNavigation} from '@react-navigation/native';
@@ -10,8 +10,11 @@ const DriverWallet = () => {
   const navigation = useNavigation();
   return (
     <View style={{flex: 1, paddingVertical: 20}}>
-      <UserProfileHeader title={'Wallet'} />
-      <AtmCard />
+      <UserProfileHeader
+        iconColor={themeColor.driverIconColor}
+        title={'Wallet'}
+      />
+      <AtmCard iconColor={themeColor.driverIconColor} />
 
       <View style={style.card}>
         <Text
@@ -28,10 +31,10 @@ const DriverWallet = () => {
           <Ionicons name="cash-outline" style={style.icon} />
           <View
             style={{
+              flex: 1,
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              width: '90%',
             }}>
             <Text style={style.text}>credit or debit card </Text>
             <Ionicons name="chevron-forward-outline" style={style.icon} />
@@ -49,22 +52,22 @@ const style = StyleSheet.create({
 
   card: {
     alignSelf: 'center',
-    width: '85%',
+    width: screenSize.wrapperWidth,
     marginVertical: 30,
   },
   btn: {
-    width: '100%',
+    width: screenSize.btnWidth,
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderBottomWidth: 1,
     borderBottomColor: themeColor.txtColor,
-    marginVertical: 10,
+    marginVertical: screenSize.btnMarginVertical,
     flexDirection: 'row',
     alignItems: 'center',
   },
   icon: {
     fontSize: 30,
-    color: themeColor.iconColor,
+    color: themeColor.driverIconColor,
   },
   text: {
     color: themeColor.txtColor,

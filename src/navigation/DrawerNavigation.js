@@ -170,7 +170,7 @@ const CustomDrawer = props => {
         }}>
         <TouchableOpacity
           style={style.btn}
-          onPress={() => navigation.navigate('SheraApp')}>
+          onPress={() => navigation.navigate('DriverShareApp')}>
           <Ionicons name="share-social-outline" style={style.icon} />
           <Text style={style.text}>Tall a Friends</Text>
         </TouchableOpacity>

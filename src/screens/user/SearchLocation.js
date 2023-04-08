@@ -25,7 +25,10 @@ const SearchLocation = () => {
 
   return (
     <View style={style.container}>
-      <UserProfileHeader title="Pickup & Drop Location" />
+      <UserProfileHeader
+        iconColor={themeColor.userIconColor}
+        title="Pickup & Drop Location"
+      />
 
       <ScrollView keyboardShouldPersistTaps="handled" style={style.search}>
         <AddressPickup placeholderText={'Enter Pickup Location'} />
@@ -61,6 +64,7 @@ const style = StyleSheet.create({
   btnTxt: {
     fontSize: fontSize.btnTxt,
     fontWeight: fontSize.bold,
+    color: themeColor.white,
   },
 });
 

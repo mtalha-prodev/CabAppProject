@@ -2,7 +2,7 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {fontSize, screenSize, themeColor} from '../constant';
 
-const Voucher = () => {
+const Voucher = ({borderColor}) => {
   return (
     <View style={style.container}>
       <Image
@@ -15,19 +15,23 @@ const Voucher = () => {
           alignSelf: 'flex-end',
         }}
       />
-      <View style={style.voucherBody}>
+      <View style={[style.voucherBody, {borderBottomColor: borderColor}]}>
         <Text style={style.title}>Voucher</Text>
         <Text style={style.voucherTxt}>Karla Oskar</Text>
       </View>
-      <View style={style.voucherBody}>
+      <View style={[style.voucherBody, {borderBottomColor: borderColor}]}>
         <Text style={style.title}>Date</Text>
         <Text style={style.voucherTxt}>23-02-2023</Text>
       </View>
-      <View style={style.voucherBody}>
+      <View style={[style.voucherBody, {borderBottomColor: borderColor}]}>
         <Text style={style.title}>Amount</Text>
         <Text style={style.voucherTxt}>PKR 400</Text>
       </View>
-      <View style={[style.voucherBody, {borderBottomWidth: 0}]}>
+      <View
+        style={[
+          style.voucherBody,
+          {borderBottomWidth: 0, borderBottomColor: borderColor},
+        ]}>
         <Text style={style.title}>Type</Text>
         <Text style={style.voucherTxt}>RAIDO CASH</Text>
       </View>
@@ -42,15 +46,14 @@ const style = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: themeColor.bgCard,
     elevation: 3,
-    borderRadius: 15,
+    borderRadius: 10,
     paddingVertical: 10,
   },
   voucherBody: {
     justifyContent: 'space-between',
-    marginVertical: 5,
+    marginVertical: 3,
     borderBottomWidth: 1,
     paddingVertical: 3,
-    borderBottomColor: themeColor.txtColor,
   },
   title: {
     fontSize: fontSize.btnTxt,

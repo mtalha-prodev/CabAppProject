@@ -96,7 +96,7 @@ const UserProfile = () => {
           </View>
         </View>
 
-        <ScrollView style={{margineVertical: 15}}>
+        <ScrollView style={{margineVertical: 10}}>
           <View style={style.cart}>
             <TouchableOpacity
               style={style.btn}

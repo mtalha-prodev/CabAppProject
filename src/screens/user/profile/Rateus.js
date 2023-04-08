@@ -13,7 +13,7 @@ import {fontSize, screenSize, themeColor} from '../../../constant';
 const Rateus = () => {
   return (
     <View style={style.container}>
-      <UserProfileHeader title="Rate Us" />
+      <UserProfileHeader iconColor={themeColor.userIconColor} title="Rate Us" />
       <ScrollView>
         {/* user profile header */}
         {/*  section */}

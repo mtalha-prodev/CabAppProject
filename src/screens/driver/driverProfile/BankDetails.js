@@ -7,18 +7,18 @@ import {
 } from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 
 const Card = ({type, text}) => {
   return (
     <View
       style={{
-        paddingLeft: 30,
+        paddingLeft: 20,
         marginVertical: 10,
-        borderBottomWidth: 1,
-        borderTopWidth: 1,
+        borderBottomWidth: 0.01,
+        elevation: 1,
         padding: 10,
-        borderColor: themeColor.bgColor,
+        backgroundColor: themeColor.bgCard,
       }}>
       <Text style={style.txt}>{type}</Text>
       <Text style={style.text}>{text}</Text>
@@ -29,7 +29,10 @@ const Card = ({type, text}) => {
 const BankDetails = () => {
   return (
     <View style={style.container}>
-      <UserProfileHeader title={'Add Bank Account'} />
+      <UserProfileHeader
+        iconColor={themeColor.driverIconColor}
+        title={'Add Bank Account'}
+      />
       <Text style={style.title}>Add details</Text>
       <ScrollView>
         {/* bank detail */}
@@ -54,12 +57,15 @@ const BankDetails = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 25,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   title: {
     fontSize: fontSize.normalTitle,
     color: themeColor.titleColor,
-    marginLeft: 30,
+    marginVertical: screenSize.textMargin,
+    width: screenSize.wrapperWidth,
+    alignSelf: 'center',
+    fontWeight: fontSize.bold,
   },
   txt: {
     color: themeColor.txtColor,
@@ -70,11 +76,14 @@ const style = StyleSheet.create({
     fontSize: fontSize.btnTxt,
   },
   btn: {
-    padding: 8,
+    padding: screenSize.btnPadding,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.btnBgColorTwo,
-    marginVertical: 25,
+    backgroundColor: themeColor.driverBtnBgColor,
+    marginVertical: screenSize.btnMarginVertical,
+    width: screenSize.btnWidth,
+    borderRadius: screenSize.btnRadius,
+    alignSelf: 'center',
   },
   btnTxt: {
     fontSize: fontSize.btnTxt,

@@ -122,6 +122,7 @@ const style = StyleSheet.create({
     width: '100%',
     elevation: 1,
     marginVertical: 5,
+    borderBottomWidth: 0.01,
   },
   icon: {
     fontSize: 30,

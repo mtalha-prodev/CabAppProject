@@ -2,16 +2,17 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import Voucher from '../../../components/Voucher';
+import {themeColor} from '../../../constant';
 
 const Trips = () => {
   return (
     <View style={style.container}>
       {/* user profile header */}
-      <UserProfileHeader title="Trips" />
+      <UserProfileHeader iconColor={themeColor.userIconColor} title="Trips" />
       {/* voucher  */}
       <ScrollView style={style.scrollStyle}>
-        <Voucher />
-        <Voucher />
+        <Voucher borderColor={themeColor.userBorderColor} />
+        <Voucher borderColor={themeColor.userBorderColor} />
       </ScrollView>
     </View>
   );

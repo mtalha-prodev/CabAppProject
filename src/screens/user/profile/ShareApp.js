@@ -2,16 +2,19 @@ import {View, ScrollView} from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import AppShere from '../../../components/AppShere';
-import {screenSize} from '../../../constant';
+import {screenSize, themeColor} from '../../../constant';
 
 const ShareApp = () => {
   return (
     <View
       style={{flex: 1, marginVertical: screenSize.containerPaddingVertical}}>
       {/* user profile header  */}
-      <UserProfileHeader title="Invite Friends" />
+      <UserProfileHeader
+        iconColor={themeColor.userIconColor}
+        title="Invite Friends"
+      />
       <ScrollView>
-        <AppShere />
+        <AppShere iconColor={themeColor.userIconColor} />
       </ScrollView>
     </View>
   );

@@ -8,10 +8,10 @@ import Helps from '../../../components/Helps';
 const UserHelp = () => {
   return (
     <View style={style.container}>
-      <UserProfileHeader title="Help" />
+      <UserProfileHeader iconColor={themeColor.userIconColor} title="Help" />
       <ScrollView style={{marginVertical: 10}}>
         {/* Voucher */}
-        <Helps />
+        <Helps borderColor={themeColor.userBorderColor} />
       </ScrollView>
     </View>
   );

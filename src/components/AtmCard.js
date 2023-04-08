@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {fontSize, screenSize, themeColor} from '../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const AtmCard = () => {
+const AtmCard = ({iconColor}) => {
   return (
     <View>
       <LinearGradient
@@ -17,7 +17,7 @@ const AtmCard = () => {
         end={{x: 1, y: 1}}
         locations={[0.02, 0.6, 1]}
         style={style.linearColor}>
-        <Text style={{fontSize: fontSize.btnTxt, color: themeColor.bgCard}}>
+        <Text style={{fontSize: fontSize.normalTitle, color: themeColor.white}}>
           Raido Cash
         </Text>
         <View
@@ -26,27 +26,18 @@ const AtmCard = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <Text style={{fontSize: 35, color: themeColor.bgCard}}>RS 0.00</Text>
+          <Text style={{fontSize: 35, color: themeColor.white}}>RS 0.00</Text>
           <Ionicons
-            style={{fontSize: 35, color: themeColor.userIconColor}}
+            style={{fontSize: 35, color: iconColor}}
             name="chevron-forward-outline"
           />
         </View>
         <Text style={{fontSize: fontSize.btnTxt, color: themeColor.bgCard}}>
           Auto-refill is off
         </Text>
-        <TouchableOpacity
-          style={{
-            width: 120,
-            padding: 4,
-            backgroundColor: themeColor.bgCard,
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            borderRadius: 30,
-          }}>
+        <TouchableOpacity style={style.btn}>
           <Ionicons
-            style={{fontSize: 30, color: themeColor.userIconColor}}
+            style={{fontSize: 30, color: iconColor}}
             name="add-outline"
           />
           <Text style={{color: themeColor.txtColor}}>Add Founds</Text>
@@ -79,6 +70,15 @@ const style = StyleSheet.create({
     color: themeColor.titleColor,
     fontSize: fontSize.btnTxt,
     marginLeft: 20,
+  },
+  btn: {
+    width: 120,
+    padding: 4,
+    backgroundColor: themeColor.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderRadius: 30,
   },
   cardBtn: {
     flexDirection: 'row',

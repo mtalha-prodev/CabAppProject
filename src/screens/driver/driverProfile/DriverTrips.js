@@ -1,16 +1,19 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import Voucher from '../../../components/Voucher';
-import BackButton from '../../../components/BackButton';
 import UserProfileHeader from '../../../components/UserProfileHeader';
+import {screenSize, themeColor} from '../../../constant';
 
 const DriverTrips = () => {
   return (
     <View style={style.container}>
-      <UserProfileHeader title={'Trips'} />
+      <UserProfileHeader
+        iconColor={themeColor.driverIconColor}
+        title={'Trips'}
+      />
       <ScrollView>
-        <Voucher />
-        <Voucher />
+        <Voucher borderColor={themeColor.driverBorderColor} />
+        <Voucher borderColor={themeColor.driverBorderColor} />
       </ScrollView>
     </View>
   );
@@ -19,7 +22,7 @@ const DriverTrips = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
 });
 

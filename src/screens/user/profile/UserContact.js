@@ -9,7 +9,10 @@ const UserContact = () => {
   return (
     <View style={style.container}>
       {/* header */}
-      <UserProfileHeader title="Contact Us" />
+      <UserProfileHeader
+        iconColor={themeColor.userIconColor}
+        title="Contact Us"
+      />
       <ScrollView>
         {/* contact section */}
         <View style={style.wrapper}>

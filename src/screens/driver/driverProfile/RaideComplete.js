@@ -1,6 +1,6 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const RaideComplete = () => {
@@ -52,7 +52,7 @@ const RaideComplete = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
+    paddingVertical: screenSize.containerPaddingVertical,
     justifyContent: 'space-between',
   },
   title: {

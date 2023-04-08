@@ -52,6 +52,7 @@ import {
 } from './driverScreens';
 import DrawerNavigation from './DrawerNavigation';
 import AccountEdit from '../screens/driver/driverProfile/AccountEdit';
+import DriverShareApp from '../screens/driver/driverProfile/DriverShareApp';
 
 const Stack = createNativeStackNavigator();
 
@@ -111,6 +112,8 @@ const Navigation = () => {
         <Stack.Screen name="DriverProfile" component={DrawerNavigation} />
         <Stack.Screen name="DriverBank" component={BankDetails} />
         <Stack.Screen name="DriverEditAccount" component={AccountEdit} />
+
+        <Stack.Screen name="DriverShareApp" component={DriverShareApp} />
       </Stack.Navigator>
     </NavigationContainer>
   );

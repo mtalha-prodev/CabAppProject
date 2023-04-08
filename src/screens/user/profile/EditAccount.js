@@ -9,7 +9,7 @@ const EditAccount = () => {
     <View
       style={{flex: 1, paddingVertical: screenSize.containerPaddingVertical}}>
       {/* profile header component */}
-      <UserProfileHeader title="Profile" />
+      <UserProfileHeader iconColor={themeColor.userIconColor} title="Profile" />
       <ScrollView>
         <ProfileEdit iconColor={themeColor.userIconColor} />
       </ScrollView>

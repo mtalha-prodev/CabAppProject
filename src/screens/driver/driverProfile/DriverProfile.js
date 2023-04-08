@@ -1,7 +1,7 @@
 import {View, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Map from '../../../components/Map';
-import {fontSize, themeColor} from '../../../constant';
+import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 
@@ -15,7 +15,6 @@ const DriverProfile = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginTop: 20,
         }}>
         {/* drawer burger */}
         <TouchableOpacity
@@ -28,7 +27,8 @@ const DriverProfile = () => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity style={style.btn}>
+        <TouchableOpacity
+          style={[style.btn, {backgroundColor: themeColor.driverBtnBgColor}]}>
           <Ionicons name={'close'} style={[style.icon, {marginRight: 10}]} />
           <Text style={style.btnText}>Online</Text>
         </TouchableOpacity>
@@ -38,7 +38,7 @@ const DriverProfile = () => {
         style={[
           style.btn,
           {
-            backgroundColor: themeColor.btnBgColorTwo,
+            backgroundColor: themeColor.bgColorOne,
           },
         ]}>
         <Text style={style.btnText}>Add Distination</Text>
@@ -52,27 +52,28 @@ const DriverProfile = () => {
 const style = {
   container: {
     flex: 1,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   menu: {
     backgroundColor: 'orange',
-    marginLeft: 30,
+    marginLeft: 15,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 8,
     paddingVertical: 6,
-    borderRadius: 50,
+    borderRadius: screenSize.btnRadius,
   },
   btn: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingVertical: 3,
-    backgroundColor: themeColor.btnBgColor,
+    backgroundColor: themeColor.driverBtnBgColor,
     borderRadius: 25,
     flexDirection: 'row',
     alignSelf: 'flex-end',
-    marginTop: 30,
-    marginRight: 35,
+    marginTop: 10,
+    marginRight: 20,
     zIndex: 99,
   },
   btnText: {

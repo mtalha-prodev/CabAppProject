@@ -226,12 +226,12 @@ const style = StyleSheet.create({
     marginVertical: 10,
   },
   orderBtn: {
-    backgroundColor: themeColor.btnBgColorTwo,
+    backgroundColor: themeColor.userBtnBgColor,
     width: 100,
     padding: 8,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: screenSize.btnRadius,
     marginTop: 10,
   },
 });

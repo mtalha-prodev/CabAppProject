@@ -2,18 +2,18 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {fontSize, screenSize, themeColor} from '../constant';
 
-const AppShere = () => {
+const AppShere = ({iconColor}) => {
   return (
     <View style={{flex: 1}}>
       <View
         style={{
+          flex: 1,
           width: screenSize.wrapperWidth,
           alignSelf: 'center',
           marginVertical: 10,
           alignSelf: 'center',
         }}>
-        <Text
-          style={{fontSize: fontSize.title, color: themeColor.userBtnBgColor}}>
+        <Text style={{fontSize: fontSize.title, color: iconColor}}>
           Invite to Friends Easy Auto Paper
         </Text>
         <Image

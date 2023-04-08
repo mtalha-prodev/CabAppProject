@@ -14,7 +14,7 @@ const PaymentEdit = () => {
   return (
     <View style={style.container}>
       {/* profile header component */}
-      <UserProfileHeader title="Payment" />
+      <UserProfileHeader iconColor={themeColor.userIconColor} title="Payment" />
 
       <ScrollView>
         {/* linear gradient */}

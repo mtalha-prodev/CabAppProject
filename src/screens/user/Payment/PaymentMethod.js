@@ -11,7 +11,10 @@ const PaymentMethod = () => {
   return (
     <View style={style.container}>
       {/* profile header component */}
-      <UserProfileHeader title="Add Payment Methods" />
+      <UserProfileHeader
+        iconColor={themeColor.userIconColor}
+        title="Add Payment Methods"
+      />
       {/*  */}
 
       <View style={style.card}>
@@ -45,7 +48,7 @@ const PaymentMethod = () => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
+    paddingVertical: screenSize.containerPaddingVertical,
   },
   card: {
     alignSelf: 'center',
@@ -53,7 +56,7 @@ const style = StyleSheet.create({
     marginVertical: 10,
   },
   btn: {
-    width: '100%',
+    width: screenSize.btnWidth,
     paddingVertical: 15,
     borderBottomWidth: 1,
     borderBottomColor: themeColor.txtColor,

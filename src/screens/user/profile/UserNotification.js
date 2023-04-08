@@ -2,12 +2,15 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import UserProfileHeader from '../../../components/UserProfileHeader';
 import NotiComponent from '../../../components/NotiComponent';
-import {screenSize} from '../../../constant';
+import {screenSize, themeColor} from '../../../constant';
 
 const UserNotification = () => {
   return (
     <View style={style.container}>
-      <UserProfileHeader title="Notification" />
+      <UserProfileHeader
+        iconColor={themeColor.userIconColor}
+        title="Notification"
+      />
       {/* notification */}
       <ScrollView style={style.scrollStyle}>
         <NotiComponent title="Want our Exciting Features" msg="" />

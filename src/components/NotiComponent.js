@@ -17,14 +17,13 @@ const NotiComponent = ({title, msg}) => {
 
 const style = StyleSheet.create({
   container: {
-    paddingVertical: 10,
+    padding: 15,
     backgroundColor: themeColor.bgCard,
-    elevation: 3,
+    elevation: 2,
     width: screenSize.wrapperWidth,
     alignSelf: 'center',
     marginBottom: screenSize.btnMarginVertical,
-    paddingHorizontal: screenSize.btnPadding,
-    borderRadius: 15,
+    borderRadius: 10,
   },
   title: {
     fontSize: fontSize.normalTitle,

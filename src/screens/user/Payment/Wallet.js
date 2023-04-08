@@ -55,10 +55,10 @@ const Wallet = () => {
   return (
     <View style={style.container}>
       {/* profile header component */}
-      <UserProfileHeader title="wallet" />
+      <UserProfileHeader iconColor={themeColor.userIconColor} title="wallet" />
       <ScrollView>
         {/* bg color */}
-        <AtmCard />
+        <AtmCard iconColor={themeColor.userIconColor} />
 
         {/* payment methods card */}
         <Card
@@ -91,7 +91,7 @@ const style = StyleSheet.create({
     backgroundColor: themeColor.bgCard,
     elevation: 3,
     alignSelf: 'center',
-    borderRadius: 15,
+    borderRadius: 10,
     paddingVertical: 15,
     marginVertical: 10,
   },

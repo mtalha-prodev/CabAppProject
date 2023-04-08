@@ -3,34 +3,34 @@ import React from 'react';
 import Voucher from './Voucher';
 import {fontSize, screenSize, themeColor} from '../constant';
 
-const Helps = () => {
+const Helps = ({borderColor}) => {
   return (
-    <View style={{flex: 1}}>
+    <View
+      style={{flex: 1, width: screenSize.wrapperWidth, alignSelf: 'center'}}>
       <Text
         style={{
-          marginLeft: 30,
           marginVertical: 10,
-          color: themeColor.userIconColor,
+          color: borderColor,
           fontSize: fontSize.normalTitle,
         }}>
         Your Recent Trips
       </Text>
-      <Voucher />
+      <Voucher borderColor={borderColor} />
 
       <View
         style={{
-          elevation: 3,
           width: screenSize.wrapperWidth,
-          alignSelf: 'center',
-          padding: 10,
+          padding: 15,
           paddingVertical: 20,
           backgroundColor: themeColor.bgCard,
-          borderRadius: 15,
+          borderRadius: 10,
+          borderBottomWidth: 0.1,
+          elevation: 2,
         }}>
         <Text
           style={{
             fontSize: fontSize.normalTitle,
-            color: themeColor.userIconColor,
+            color: borderColor,
           }}>
           1914 translation by H. Rackham
         </Text>
