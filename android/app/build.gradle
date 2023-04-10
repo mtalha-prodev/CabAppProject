@@ -1,6 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
-
+// new
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 
 import com.android.build.OutputFile
@@ -164,7 +164,7 @@ dependencies {
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
 
-    // 
+    // new
     implementation project(':react-native-vector-icons')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
