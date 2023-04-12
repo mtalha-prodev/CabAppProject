@@ -38,7 +38,7 @@ const DrawerNavigation = () => {
         },
       }}>
       <Drawer.Screen
-        name="Profile"
+        name="Home"
         component={DriverProfile}
         options={{
           drawerIcon: ({color}) => (
@@ -125,7 +125,6 @@ const CustomDrawer = props => {
             alignItems: 'center',
             margin: -4,
             backgroundColor: themeColor.driverBtnBgColor,
-            borderRadius: 60,
           }}
           onPress={() => navigation.navigate('DriverEditAccount')}>
           <View
