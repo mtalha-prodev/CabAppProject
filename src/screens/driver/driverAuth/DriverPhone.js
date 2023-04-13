@@ -34,7 +34,7 @@ const DriverPhone = () => {
             onChangeText={val => setNumber(val)}
             placeholder="Enter Mobile Number ..."
             style={style.inputText}
-            placeholderTextColor={themeColor.txtColor}
+            placeholderTextColor={themeColor.inputTextColor}
             keyboardType={'number-pad'}
           />
         </View>

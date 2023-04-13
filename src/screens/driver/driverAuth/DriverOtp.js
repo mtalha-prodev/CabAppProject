@@ -5,13 +5,15 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
 
 const DriverOtp = () => {
+  const [times, setTimes] = useState(30);
+
   const navigation = useNavigation();
 
   const handleOtp = () => {
@@ -19,6 +21,10 @@ const DriverOtp = () => {
       navigation.navigate('DriverPassword');
     } catch (error) {}
   };
+
+  // setInterval(() => {
+  //   setTimes(times);
+  // }, 1000);
 
   return (
     <View style={style.container}>
@@ -34,8 +40,10 @@ const DriverOtp = () => {
             placeholderTextColor={themeColor.txtColor}
           />
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={{fontSize: 16}}>Please don't share your code </Text>
-            <Text style={{fontSize: 16, fontWeight: '800'}}>{'00:30'}</Text>
+            <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
+              Please don't share your code
+            </Text>
+            <Text style={{fontSize: 16, fontWeight: '800'}}>00:{times}</Text>
           </View>
         </View>
         <View>
