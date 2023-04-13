@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, ImageBackground, Image} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {
   DrawerContentScrollView,
@@ -18,8 +18,6 @@ import {fontSize, themeColor} from '../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
-import AccountEdit from '../screens/driver/driverProfile/AccountEdit';
-import RaideComplete from '../screens/driver/driverProfile/RaideComplete';
 
 const Drawer = createDrawerNavigator();
 
@@ -38,7 +36,7 @@ const DrawerNavigation = () => {
         },
       }}>
       <Drawer.Screen
-        name="Profile"
+        name="Home"
         component={DriverProfile}
         options={{
           drawerIcon: ({color}) => (
@@ -125,7 +123,6 @@ const CustomDrawer = props => {
             alignItems: 'center',
             margin: -4,
             backgroundColor: themeColor.driverBtnBgColor,
-            borderRadius: 60,
           }}
           onPress={() => navigation.navigate('DriverEditAccount')}>
           <View

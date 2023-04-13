@@ -41,7 +41,7 @@ const DriverDetails = () => {
               onChangeText={val => setName(val)}
               placeholder="Enter Name ..."
               style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
+              placeholderTextColor={themeColor.inputTextColor}
             />
           </View>
           <View style={style.inputForm}>
@@ -51,7 +51,7 @@ const DriverDetails = () => {
               onChangeText={val => setEmail(val)}
               placeholder="Enter E-mail ..."
               style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
+              placeholderTextColor={themeColor.inputTextColor}
             />
           </View>
           <View style={style.inputForm}>
@@ -61,7 +61,8 @@ const DriverDetails = () => {
               onChangeText={val => setPassword(val)}
               placeholder="Enter Password ..."
               style={style.inputText}
-              placeholderTextColor={themeColor.txtColor}
+              placeholderTextColor={themeColor.inputTextColor}
+              secureTextEntry={true}
             />
           </View>
           <View style={style.inputForm}>
@@ -70,7 +71,7 @@ const DriverDetails = () => {
               value={referralCode}
               onChangeText={val => setReferralCode(val)}
               placeholder="Enter Your referral code ..."
-              placeholderTextColor={themeColor.txtColor}
+              placeholderTextColor={themeColor.inputTextColor}
               style={style.inputText}
             />
           </View>
@@ -80,7 +81,7 @@ const DriverDetails = () => {
               value={city}
               onChangeText={val => setCity(val)}
               placeholder="Enter your City ..."
-              placeholderTextColor={themeColor.txtColor}
+              placeholderTextColor={themeColor.inputTextColor}
               style={style.inputText}
             />
           </View>

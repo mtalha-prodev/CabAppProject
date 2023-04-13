@@ -30,7 +30,8 @@ const DriverPassword = () => {
           <TextInput
             placeholder="Enter Password ..."
             style={style.inputText}
-            placeholderTextColor={themeColor.txtColor}
+            placeholderTextColor={themeColor.inputTextColor}
+            secureTextEntry={true}
           />
         </View>
         <View>
