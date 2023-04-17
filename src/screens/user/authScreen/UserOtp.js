@@ -32,6 +32,7 @@ const UserOtp = () => {
             style={style.inputText}
             keyboardType={'number-pad'}
             placeholderTextColor={themeColor.txtColor}
+            secureTextEntry={true}
           />
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={{fontSize: 16, color: themeColor.txtColor}}>

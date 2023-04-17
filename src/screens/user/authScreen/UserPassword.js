@@ -32,6 +32,7 @@ const UserPassword = () => {
             placeholder="Enter Password ..."
             style={style.inputText}
             placeholderTextColor={themeColor.txtColor}
+            secureTextEntry={true}
           />
         </View>
         <View>
