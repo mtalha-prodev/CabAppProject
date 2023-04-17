@@ -11,7 +11,7 @@ const LicenseFrontSide = () => {
         type: [DocumentPicker.types.images],
         copyTo: 'cachesDirectory',
       });
-      // console.log(res);
+      console.log(res);
       Alert.alert('Driver License', 'Image Upload Successfuly!');
     } catch (error) {
       Alert.alert('Aler', 'Please Select a Image!');

@@ -86,7 +86,7 @@ const Card = ({title, text, icon}) => {
         borderRadius: 10,
       }}>
       <Ionicons name={icon} style={style.icon} />
-      <View>
+      <View style={{flex: 1}}>
         <Text style={{color: themeColor.txtColor}}>{text}</Text>
         <Text style={{color: themeColor.txtColor}}>{title}</Text>
       </View>
