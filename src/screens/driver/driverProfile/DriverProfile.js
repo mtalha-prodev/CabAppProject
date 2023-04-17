@@ -4,6 +4,7 @@ import Map from '../../../components/Map';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
+import AcceptRaideModal from '../../../components/driverComponents/AcceptRaideModal';
 
 const DriverProfile = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -57,51 +58,10 @@ const DriverProfile = () => {
 
       {/* modal */}
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={style.centeredView}>
-          <View
-            style={{
-              backgroundColor: themeColor.driverBorderColor,
-              height: 50,
-              width: '100%',
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderTopRightRadius: 20,
-              borderTopLeftRadius: 20,
-            }}>
-            <Text>Text</Text>
-          </View>
-          <View style={style.modalView}>
-            <View>
-              <Image
-                source={{
-                  uri: 'https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202',
-                }}
-                style={{width: 100, height: 100}}
-              />
-            </View>
-            <TouchableOpacity
-              style={{
-                width: screenSize.btnWidth,
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: themeColor.driverBtnBgColor,
-                padding: screenSize.btnPadding,
-                borderRadius: screenSize.btnRadius,
-                marginTop: 10,
-              }}
-              onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={{color: themeColor.white}}>Continouse</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
+      <AcceptRaideModal
+        setModalVisible={setModalVisible}
+        modalVisible={modalVisible}
+      />
     </View>
   );
 };
@@ -140,29 +100,7 @@ const style = {
     fontSize: 22,
   },
   //
-  centeredView: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // marginTop: 22,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'white',
-  },
-  modalView: {
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-    marginVertical: 10,
-  },
+
   button: {
     borderRadius: 20,
     padding: 10,

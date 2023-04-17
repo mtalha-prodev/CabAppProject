@@ -84,7 +84,7 @@ const style = StyleSheet.create({
     padding: 7,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: themeColor.btnBgColorTwo,
+    backgroundColor: themeColor.driverBtnBgColor,
     width: '90%',
     alignSelf: 'center',
     marginBottom: 20,

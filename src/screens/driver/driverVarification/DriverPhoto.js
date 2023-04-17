@@ -11,8 +11,8 @@ const DriverPhoto = () => {
         type: [DocumentPicker.types.images],
         copyTo: 'cachesDirectory',
       });
-      // console.log(res);
-      Alert.alert('Driver Pic', 'Image Upload Successfuly!');
+      console.log(res);
+      Alert.alert('Front Side CNIC', 'Image Upload Successfuly!');
     } catch (error) {
       Alert.alert('Aler', 'Please Select a Image!');
     }

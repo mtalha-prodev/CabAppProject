@@ -125,6 +125,7 @@ const style = StyleSheet.create({
     width: screenSize.inputWidth,
     fontSize: fontSize.txt,
     borderBottomColor: themeColor.driverBorderColor,
+    color: themeColor.txtColor,
   },
   btn: {
     backgroundColor: themeColor.driverBtnBgColor,

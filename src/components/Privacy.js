@@ -1,4 +1,11 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import React from 'react';
 import {fontSize, screenSize, themeColor} from '../constant';
 
@@ -48,8 +55,8 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     width: screenSize.wrapperWidth,
-    alignItems: 'center',
     alignSelf: 'center',
+    justifyContent: 'space-between',
   },
   title: {
     color: themeColor.titleColor,
@@ -60,6 +67,20 @@ const style = StyleSheet.create({
     color: themeColor.txtColor,
     fontSize: fontSize.txt,
     textAlign: 'justify',
+  },
+  btn: {
+    padding: screenSize.btnPadding,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: themeColor.driverBtnBgColor,
+    width: screenSize.btnWidth,
+    alignSelf: 'center',
+    marginBottom: 20,
+    borderRadius: screenSize.btnRadius,
+  },
+  btnText: {
+    fontSize: fontSize.btnTxt,
+    color: themeColor.bgCard,
   },
 });
 
