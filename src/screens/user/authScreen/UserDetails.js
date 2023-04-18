@@ -63,6 +63,7 @@ const UserDetails = () => {
                 placeholder="Enter Password ..."
                 style={style.inputText}
                 placeholderTextColor={themeColor.txtColor}
+                secureTextEntry={true}
               />
             </View>
             <View style={style.inputForm}>
@@ -73,6 +74,7 @@ const UserDetails = () => {
                 placeholder="Enter Password ..."
                 style={style.inputText}
                 placeholderTextColor={themeColor.txtColor}
+                secureTextEntry={true}
               />
             </View>
           </View>
