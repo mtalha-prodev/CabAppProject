@@ -4,21 +4,26 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
+  Alert,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import BackButton from '../../../components/BackButton';
+import PhoneInput from 'react-native-phone-number-input';
 
 const DriverPhone = () => {
   const [number, setNumber] = useState('');
+  const [formattedValue, setFormattedValue] = useState('');
+
   const navigation = useNavigation();
 
-  // sed number and otp
+  // send number for otp
   const handleNumber = async () => {
     try {
-      navigation.navigate('DriverOtp');
+      // navigation.navigate('DriverOtp');
+      Alert.alert(number, formattedValue);
     } catch (error) {}
   };
 
@@ -28,15 +33,36 @@ const DriverPhone = () => {
       <View style={{alignSelf: 'center'}}>
         <Text style={style.title}>{driverContent.phoneTitle}</Text>
         <Text style={style.text}>{driverContent.phoneTxt}</Text>
+        {/* phone number */}
+
         <View>
-          <TextInput
+          <PhoneInput
+            defaultValue={number}
+            defaultCode="PK"
+            layout="first"
+            autoFocus
+            onChangeFormattedText={text => {
+              setNumber(text);
+            }}
+            containerStyle={{
+              borderBottomWidth: 2,
+              borderBottomColor: themeColor.driverBorderColor,
+              width: screenSize.inputWidth,
+              backgroundColor: themeColor.driverBorderColor,
+              height: 60,
+              marginTop: 10,
+            }}
+            textContainerStyle={{paddingVertical: 0}}
+          />
+
+          {/* <TextInput
             value={number}
             onChangeText={val => setNumber(val)}
             placeholder="Enter Mobile Number ..."
             style={style.inputText}
             placeholderTextColor={themeColor.inputTextColor}
             keyboardType={'number-pad'}
-          />
+          /> */}
         </View>
         <View>
           <TouchableOpacity style={style.btn} onPress={() => handleNumber()}>

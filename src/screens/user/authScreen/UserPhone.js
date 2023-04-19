@@ -12,6 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import BackButton from '../../../components/BackButton';
+import PhoneInput from 'react-native-phone-number-input';
 
 const {width} = Dimensions.get('screen');
 
@@ -32,14 +33,24 @@ const UserPhone = () => {
       <View style={style.wrapper}>
         <Text style={style.title}>{userContent.phoneTitle}</Text>
         <Text style={style.text}>{userContent.phoneTxt}</Text>
+        {/* phone number country code */}
         <View>
-          <TextInput
-            value={number}
-            onChangeText={val => setNumber(val)}
-            placeholder="Enter Mobile Number ..."
-            style={style.inputText}
-            keyboardType={'number-pad'}
-            placeholderTextColor={themeColor.txtColor}
+          <PhoneInput
+            defaultValue={number}
+            defaultCode="PK"
+            layout="first"
+            autoFocus
+            onChangeFormattedText={text => {
+              setNumber(text);
+            }}
+            containerStyle={{
+              borderBottomWidth: 2,
+              borderBottomColor: themeColor.userBorderColor,
+              width: screenSize.inputWidth,
+              height: 60,
+              marginTop: 10,
+            }}
+            textContainerStyle={{paddingVertical: 0}}
           />
         </View>
         <View>
