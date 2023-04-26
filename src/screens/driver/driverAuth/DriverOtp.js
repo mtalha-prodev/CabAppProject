@@ -4,27 +4,31 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
+import CountDown from 'react-native-countdown-component';
 
 const DriverOtp = () => {
-  const [times, setTimes] = useState(30);
+  const [otp, setOtp] = useState('');
 
   const navigation = useNavigation();
 
   const handleOtp = () => {
     try {
-      navigation.navigate('DriverPassword');
-    } catch (error) {}
+      if (otp.length < 4) {
+        Alert.alert('OTP', 'Please Enter Varification Code!');
+      } else {
+        navigation.navigate('DriverPassword');
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
-
-  // setInterval(() => {
-  //   setTimes(times);
-  // }, 1000);
 
   return (
     <View style={style.container}>
@@ -38,12 +42,36 @@ const DriverOtp = () => {
             style={style.inputText}
             keyboardType={'number-pad'}
             placeholderTextColor={themeColor.txtColor}
+            value={otp}
+            onChangeText={text => setOtp(text)}
           />
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: themeColor.inputTextColor,
+                marginTop: 10,
+                marginLeft: 10,
+              }}>
               Please don't share your code
             </Text>
-            <Text style={{fontSize: 16, fontWeight: '800'}}>00:{times}</Text>
+
+            <View>
+              <CountDown
+                until={30}
+                size={16}
+                onFinish={() => alert('Resend otp code!')}
+                digitStyle={{
+                  backgroundColor: 'transparent',
+                  padding: 0,
+                  margin: 0,
+                }}
+                digitTxtStyle={{color: themeColor.titleColor, margin: 0}}
+                timeToShow={['M', 'S']}
+                timeLabels={{m: null, s: null}}
+                showSeparator
+              />
+            </View>
           </View>
         </View>
         <View>

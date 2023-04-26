@@ -15,16 +15,21 @@ import PhoneInput from 'react-native-phone-number-input';
 
 const DriverPhone = () => {
   const [number, setNumber] = useState('');
-  const [formattedValue, setFormattedValue] = useState('');
 
   const navigation = useNavigation();
 
   // send number for otp
   const handleNumber = async () => {
     try {
-      // navigation.navigate('DriverOtp');
-      Alert.alert(number, formattedValue);
-    } catch (error) {}
+      if (number.length <= 9) {
+        Alert.alert('Alert Phone', 'Please Add an Correct Number!');
+      } else {
+        Alert.alert(number);
+        navigation.navigate('DriverOtp');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -40,7 +45,7 @@ const DriverPhone = () => {
             defaultValue={number}
             defaultCode="PK"
             layout="first"
-            autoFocus
+            // autoFocus
             onChangeFormattedText={text => {
               setNumber(text);
             }}
@@ -54,15 +59,6 @@ const DriverPhone = () => {
             }}
             textContainerStyle={{paddingVertical: 0}}
           />
-
-          {/* <TextInput
-            value={number}
-            onChangeText={val => setNumber(val)}
-            placeholder="Enter Mobile Number ..."
-            style={style.inputText}
-            placeholderTextColor={themeColor.inputTextColor}
-            keyboardType={'number-pad'}
-          /> */}
         </View>
         <View>
           <TouchableOpacity style={style.btn} onPress={() => handleNumber()}>
