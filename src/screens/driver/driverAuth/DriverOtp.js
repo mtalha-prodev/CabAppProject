@@ -11,16 +11,17 @@ import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
-import CountDown from 'react-native-countdown-component';
+// import CountDown from 'react-native-countdown-component';
 
 const DriverOtp = () => {
   const [otp, setOtp] = useState('');
+  const [otpCode, setOtpCode] = useState(30);
 
   const navigation = useNavigation();
 
   const handleOtp = () => {
     try {
-      if (otp.length < 4) {
+      if (otp.length < 6) {
         Alert.alert('OTP', 'Please Enter Varification Code!');
       } else {
         navigation.navigate('DriverPassword');
@@ -29,6 +30,16 @@ const DriverOtp = () => {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    const unsub = setInterval(() => {
+      setOtpCode(otpCode - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(unsub);
+    };
+  }, []);
 
   return (
     <View style={style.container}>
@@ -57,7 +68,8 @@ const DriverOtp = () => {
             </Text>
 
             <View>
-              <CountDown
+              <Text>{otpCode}</Text>
+              {/* <CountDown
                 until={30}
                 size={16}
                 onFinish={() => alert('Resend otp code!')}
@@ -70,7 +82,7 @@ const DriverOtp = () => {
                 timeToShow={['M', 'S']}
                 timeLabels={{m: null, s: null}}
                 showSeparator
-              />
+              /> */}
             </View>
           </View>
         </View>
