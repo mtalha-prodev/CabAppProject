@@ -21,7 +21,6 @@ const DriverPhone = () => {
   // send number for otp
   const handleNumber = async () => {
     try {
-<<<<<<< HEAD
       if (number.length <= 9) {
         Alert.alert('Alert Phone', 'Please Add an Correct Number!');
       } else {
@@ -31,11 +30,9 @@ const DriverPhone = () => {
     } catch (error) {
       console.log(error);
     }
-=======
-      Alert.alert(number, formattedValue);
-      navigation.navigate('DriverOtp');
-    } catch (error) {}
->>>>>>> a0a6753f776e2c8348aaec28f4ca3dd34de44a3c
+
+    Alert.alert(number, formattedValue);
+    navigation.navigate('DriverOtp');
   };
 
   return (
