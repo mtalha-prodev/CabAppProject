@@ -4,15 +4,23 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from 'react-native';
 import React, {useEffect, useState, useRef} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
+// import CountDown from 'react-native-countdown-component';
 
 const DriverOtp = () => {
+<<<<<<< HEAD
+  const [otp, setOtp] = useState('');
+  const [otpCode, setOtpCode] = useState(30);
+
+=======
   const [times, setTimes] = useState(60);
+>>>>>>> a0a6753f776e2c8348aaec28f4ca3dd34de44a3c
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -31,9 +39,19 @@ const DriverOtp = () => {
 
   const handleOtp = () => {
     try {
+<<<<<<< HEAD
+      if (otp.length < 6) {
+        Alert.alert('OTP', 'Please Enter Varification Code!');
+      } else {
+        navigation.navigate('DriverPassword');
+      }
+    } catch (error) {
+      console.log(error.message);
+=======
       navigation.navigate('DriverPassword');
     } catch (error) {
       console.log(error);
+>>>>>>> a0a6753f776e2c8348aaec28f4ca3dd34de44a3c
     }
   };
   // useEffect(() => {
@@ -41,12 +59,24 @@ const DriverOtp = () => {
   //     setTimes(times - 1);
   //   }, 1000);
 
+<<<<<<< HEAD
+  useEffect(() => {
+    const unsub = setInterval(() => {
+      setOtpCode(otpCode - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(unsub);
+    };
+  }, []);
+=======
   //   return () => {
   //     setTimes(() => {
   //       clearInterval();
   //     }, 600000);
   //   };
   // }, []);
+>>>>>>> a0a6753f776e2c8348aaec28f4ca3dd34de44a3c
 
   return (
     <View style={style.container}>
@@ -55,6 +85,16 @@ const DriverOtp = () => {
         <Text style={style.title}>{driverContent.phoneOtpTitle}</Text>
         <Text style={style.text}>{driverContent.phoneOtpTxt}</Text>
         <View>
+<<<<<<< HEAD
+          <TextInput
+            placeholder="Enter Mobile Number ..."
+            style={style.inputText}
+            keyboardType={'number-pad'}
+            placeholderTextColor={themeColor.txtColor}
+            value={otp}
+            onChangeText={text => setOtp(text)}
+          />
+=======
           <View
             style={{
               width: screenSize.inputWidth,
@@ -194,10 +234,37 @@ const DriverOtp = () => {
             />
           </View>
 
+>>>>>>> a0a6753f776e2c8348aaec28f4ca3dd34de44a3c
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
+            <Text
+              style={{
+                fontSize: 16,
+                color: themeColor.inputTextColor,
+                marginTop: 10,
+                marginLeft: 10,
+              }}>
               Please don't share your code
             </Text>
+<<<<<<< HEAD
+
+            <View>
+              <Text>{otpCode}</Text>
+              {/* <CountDown
+                until={30}
+                size={16}
+                onFinish={() => alert('Resend otp code!')}
+                digitStyle={{
+                  backgroundColor: 'transparent',
+                  padding: 0,
+                  margin: 0,
+                }}
+                digitTxtStyle={{color: themeColor.titleColor, margin: 0}}
+                timeToShow={['M', 'S']}
+                timeLabels={{m: null, s: null}}
+                showSeparator
+              /> */}
+            </View>
+=======
             <Text
               style={{
                 fontSize: 16,
@@ -206,6 +273,7 @@ const DriverOtp = () => {
               }}>
               00:{times}
             </Text>
+>>>>>>> a0a6753f776e2c8348aaec28f4ca3dd34de44a3c
           </View>
         </View>
         <View>
