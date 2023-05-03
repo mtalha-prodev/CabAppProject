@@ -22,8 +22,8 @@ const DriverPhone = () => {
   // send number for otp
   const handleNumber = async () => {
     try {
-      // navigation.navigate('DriverOtp');
       Alert.alert(number, formattedValue);
+      navigation.navigate('DriverOtp');
     } catch (error) {}
   };
 
