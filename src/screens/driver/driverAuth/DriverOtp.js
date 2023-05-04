@@ -77,15 +77,6 @@ const DriverOtp = () => {
         <Text style={style.title}>{driverContent.phoneOtpTitle}</Text>
         <Text style={style.text}>{driverContent.phoneOtpTxt}</Text>
         <View>
-          <TextInput
-            placeholder="Enter Mobile Number ..."
-            style={style.inputText}
-            keyboardType={'number-pad'}
-            placeholderTextColor={themeColor.txtColor}
-            value={otp}
-            onChangeText={text => setOtp(text)}
-          />
-
           <View
             style={{
               width: screenSize.inputWidth,
