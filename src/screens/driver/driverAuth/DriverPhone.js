@@ -1,12 +1,5 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  TextInput,
-  Alert,
-} from 'react-native';
-import React, {useRef, useState} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet, Alert} from 'react-native';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {fontSize, screenSize, themeColor} from '../../../constant';

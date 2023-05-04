@@ -14,10 +14,8 @@ import BackButton from '../../../components/BackButton';
 // import CountDown from 'react-native-countdown-component';
 
 const DriverOtp = () => {
-
   const [resend, setResend] = useState(false);
   const [otpCode, setOtpCode] = useState(60);
-
 
   const navigation = useNavigation();
 
@@ -37,26 +35,21 @@ const DriverOtp = () => {
 
   const handleOtp = () => {
     try {
-
       if (!inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6) {
-
         Alert.alert('OTP', 'Please Enter Varification Code!');
       } else {
         navigation.navigate('DriverPassword');
       }
     } catch (error) {
       console.log(error.message);
-
       navigation.navigate('DriverPassword');
     }
   };
-
 
   const otpResend = () => {
     setOtpCode(60);
     setResend(false);
   };
-
 
   useEffect(() => {
     const clear = setInterval(() => {
@@ -71,9 +64,7 @@ const DriverOtp = () => {
     return () => {
       clearInterval(clear);
     };
-
   }, [otpCode]);
-
 
   return (
     <View style={style.container}>
@@ -221,14 +212,12 @@ const DriverOtp = () => {
             />
           </View>
 
-
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-
             <Text
               style={{
                 fontSize: 16,
@@ -238,7 +227,6 @@ const DriverOtp = () => {
               }}>
               Please don't share your code
             </Text>
-
 
             {resend ? (
               <TouchableOpacity
@@ -263,7 +251,6 @@ const DriverOtp = () => {
                 00:{otpCode}
               </Text>
             )}
-
           </View>
         </View>
         <View>
