@@ -14,10 +14,8 @@ import BackButton from '../../../components/BackButton';
 // import CountDown from 'react-native-countdown-component';
 
 const DriverOtp = () => {
-  const [otp, setOtp] = useState('');
-  const [otpCode, setOtpCode] = useState(30);
-
-  const [times, setTimes] = useState(60);
+  const [resend, setResend] = useState(false);
+  const [otpCode, setOtpCode] = useState(60);
 
   const navigation = useNavigation();
 
@@ -37,7 +35,7 @@ const DriverOtp = () => {
 
   const handleOtp = () => {
     try {
-      if (!inp1 && !inp2 && !inp3 && !inp4 && !inp5 && !inp6) {
+      if (!inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6) {
         Alert.alert('OTP', 'Please Enter Varification Code!');
       } else {
         navigation.navigate('DriverPassword');
@@ -48,15 +46,25 @@ const DriverOtp = () => {
     }
   };
 
+  const otpResend = () => {
+    setOtpCode(60);
+    setResend(false);
+  };
+
   useEffect(() => {
-    const unsub = setInterval(() => {
-      setOtpCode(otpCode - 1);
+    const clear = setInterval(() => {
+      if (otpCode === 0) {
+        clearInterval(clear);
+        setResend(true);
+      } else {
+        setOtpCode(otpCode - 1);
+      }
     }, 1000);
 
     return () => {
-      clearInterval(unsub);
+      clearInterval(clear);
     };
-  }, []);
+  }, [otpCode]);
 
   return (
     <View style={style.container}>
@@ -204,7 +212,12 @@ const DriverOtp = () => {
             />
           </View>
 
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
             <Text
               style={{
                 fontSize: 16,
@@ -215,44 +228,41 @@ const DriverOtp = () => {
               Please don't share your code
             </Text>
 
-            <View>
-              <Text>{otpCode}</Text>
-              {/* <CountDown
-                until={30}
-                size={16}
-                onFinish={() => alert('Resend otp code!')}
-                digitStyle={{
-                  backgroundColor: 'transparent',
-                  padding: 0,
-                  margin: 0,
-                }}
-                digitTxtStyle={{color: themeColor.titleColor, margin: 0}}
-                timeToShow={['M', 'S']}
-                timeLabels={{m: null, s: null}}
-                showSeparator
-              /> */}
-            </View>
-
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '800',
-                color: themeColor.txtColor,
-              }}>
-              00:{times}
-            </Text>
+            {resend ? (
+              <TouchableOpacity
+                onPress={() => otpResend()}
+                style={{padding: 10}}>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontSize: fontSize.btnTxt,
+                    color: themeColor.driverBtnBgColor,
+                  }}>
+                  Resend OTP
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '800',
+                  color: themeColor.txtColor,
+                }}>
+                00:{otpCode}
+              </Text>
+            )}
           </View>
         </View>
         <View>
           <TouchableOpacity
             disabled={
-              !inp1 && !inp2 && !inp3 && !inp4 && !inp5 && !inp6 ? true : false
+              !inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6 ? true : false
             }
             style={[
               style.btn,
               {
                 backgroundColor:
-                  !inp1 && !inp2 && !inp3 && !inp4 && !inp5 && !inp6
+                  !inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6
                     ? 'gray'
                     : themeColor.driverBtnBgColor,
               },
