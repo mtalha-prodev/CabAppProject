@@ -224,7 +224,7 @@ const DriverOtp = () => {
                   style={{
                     fontSize: 16,
                     fontWeight: '800',
-                    color: themeColor.driverIconColor,
+                    color: themeColor.userIconColor,
                   }}>
                   Resend Code
                 </Text>
