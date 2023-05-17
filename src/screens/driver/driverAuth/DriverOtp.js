@@ -12,7 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
 
 const DriverOtp = () => {
-  const [times, setTimes] = useState(60);
+  const [otpCode, setOtpCode] = useState(60);
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -204,7 +204,7 @@ const DriverOtp = () => {
                 fontWeight: '800',
                 color: themeColor.txtColor,
               }}>
-              00:{times}
+              00:{otpCode}
             </Text>
           </View>
         </View>
