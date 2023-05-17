@@ -4,23 +4,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  Alert,
 } from 'react-native';
 import React, {useEffect, useState, useRef} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
-// import CountDown from 'react-native-countdown-component';
 
 const DriverOtp = () => {
-<<<<<<< HEAD
   const [otpCode, setOtpCode] = useState(60);
-=======
-  const [resend, setResend] = useState(false);
-  const [otpCode, setOtpCode] = useState(60);
-
->>>>>>> 95583f384f7fb1c41c6079d7994f8c8498bd06cb
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -39,36 +31,22 @@ const DriverOtp = () => {
 
   const handleOtp = () => {
     try {
-      if (!inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6) {
-        Alert.alert('OTP', 'Please Enter Varification Code!');
-      } else {
-        navigation.navigate('DriverPassword');
-      }
-    } catch (error) {
-      console.log(error.message);
       navigation.navigate('DriverPassword');
+    } catch (error) {
+      console.log(error);
     }
   };
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setTimes(times - 1);
+  //   }, 1000);
 
-  const otpResend = () => {
-    setOtpCode(60);
-    setResend(false);
-  };
-
-  useEffect(() => {
-    const clear = setInterval(() => {
-      if (otpCode === 0) {
-        clearInterval(clear);
-        setResend(true);
-      } else {
-        setOtpCode(otpCode - 1);
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(clear);
-    };
-  }, [otpCode]);
+  //   return () => {
+  //     setTimes(() => {
+  //       clearInterval();
+  //     }, 600000);
+  //   };
+  // }, []);
 
   return (
     <View style={style.container}>
@@ -216,66 +194,22 @@ const DriverOtp = () => {
             />
           </View>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
+              Please don't share your code
+            </Text>
             <Text
               style={{
                 fontSize: 16,
-                color: themeColor.inputTextColor,
-                marginTop: 10,
-                marginLeft: 10,
+                fontWeight: '800',
+                color: themeColor.txtColor,
               }}>
-<<<<<<< HEAD
               00:{otpCode}
-=======
-              Please don't share your code
->>>>>>> 95583f384f7fb1c41c6079d7994f8c8498bd06cb
             </Text>
-
-            {resend ? (
-              <TouchableOpacity
-                onPress={() => otpResend()}
-                style={{padding: 10}}>
-                <Text
-                  style={{
-                    color: 'black',
-                    fontSize: fontSize.btnTxt,
-                    color: themeColor.driverBtnBgColor,
-                  }}>
-                  Resend OTP
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '800',
-                  color: themeColor.txtColor,
-                }}>
-                00:{otpCode}
-              </Text>
-            )}
           </View>
         </View>
         <View>
-          <TouchableOpacity
-            disabled={
-              !inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6 ? true : false
-            }
-            style={[
-              style.btn,
-              {
-                backgroundColor:
-                  !inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6
-                    ? 'gray'
-                    : themeColor.driverBtnBgColor,
-              },
-            ]}
-            onPress={() => handleOtp()}>
+          <TouchableOpacity style={style.btn} onPress={() => handleOtp()}>
             <Text style={style.btnTxt}>Next</Text>
           </TouchableOpacity>
         </View>
