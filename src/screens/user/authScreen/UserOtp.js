@@ -5,7 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
@@ -13,7 +13,6 @@ import BackButton from '../../../components/BackButton';
 
 const UserOtp = () => {
   const [times, setTimes] = useState(60);
-  const [timeOut, setTimeOut] = useState(false);
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -35,26 +34,6 @@ const UserOtp = () => {
       navigation.navigate('UserPassword');
     } catch (error) {}
   };
-
-  const resendCode = () => {
-    setTimeOut(false);
-    setTimes(60);
-  };
-
-  useEffect(() => {
-    const intervel = setInterval(() => {
-      if (times === 0) {
-        clearInterval(intervel);
-        setTimeOut(true);
-      } else {
-        setTimes(times - 1);
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(intervel);
-    };
-  }, [times]);
 
   return (
     <View style={style.container}>
@@ -206,27 +185,15 @@ const UserOtp = () => {
             <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
               Please don't share your code
             </Text>
-            {!timeOut ? (
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '800',
-                  color: themeColor.txtColor,
-                }}>
-                00:{times}
-              </Text>
-            ) : (
-              <TouchableOpacity onPress={() => resendCode()}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: '800',
-                    color: themeColor.driverIconColor,
-                  }}>
-                  Resend Code
-                </Text>
-              </TouchableOpacity>
-            )}
+
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '800',
+                color: themeColor.txtColor,
+              }}>
+              00:{times}
+            </Text>
           </View>
         </View>
 
