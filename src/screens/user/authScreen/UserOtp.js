@@ -12,7 +12,7 @@ import {userContent} from '../../ComanScreens/UserContent';
 import BackButton from '../../../components/BackButton';
 
 const UserOtp = () => {
-  const [times, setTimes] = useState(60);
+  const [otpCode, setOtpCode] = useState(60);
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -194,7 +194,7 @@ const UserOtp = () => {
                 fontWeight: '800',
                 color: themeColor.txtColor,
               }}>
-              00:{times}
+              00:{otpCode}
             </Text>
           </View>
         </View>
