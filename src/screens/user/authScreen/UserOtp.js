@@ -42,6 +42,7 @@ const UserOtp = () => {
         <Text style={style.title}>{userContent.phoneOtpTitle}</Text>
         <Text style={style.text}>{userContent.phoneOtpTxt}</Text>
         <View>
+
           <View
             style={{
               width: screenSize.inputWidth,
@@ -180,6 +181,7 @@ const UserOtp = () => {
               }}
             />
           </View>
+
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>

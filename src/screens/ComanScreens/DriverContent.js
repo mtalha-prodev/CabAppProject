@@ -16,7 +16,8 @@ export const driverContent = {
   phoneOtpTime: "Please don't share your code",
   btnNext: 'Next',
   phonePass: 'Enter your Password',
-  phonePassTxt: 'Your password must be 8 digit',
+  phonePassTxt:
+    'Your password must be 8 digit, One Upercase, One Lowercase, One Number, One Symbol',
   btnSignin: 'Singn In',
 
   // user Details
