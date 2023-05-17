@@ -1,7 +1,15 @@
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Alert,
+} from 'react-native';
 import React from 'react';
 import {fontSize, themeColor} from '../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import DocumentPicker from 'react-native-document-picker';
 
 const UserEdit = ({name, fieldName, iconColor}) => {
   return (
@@ -32,9 +40,36 @@ const UserEdit = ({name, fieldName, iconColor}) => {
 };
 
 const ProfileEdit = ({iconColor}) => {
+  // cover image
+  const coverImage = async () => {
+    try {
+      const res = await DocumentPicker.pickSingle({
+        type: [DocumentPicker.types.images],
+        copyTo: 'cachesDirectory',
+      });
+      Alert.alert('Alert', 'Cover image upload successful');
+    } catch (error) {
+      Alert.alert('Alert', 'Image not upload! ');
+    }
+  };
+  // profile image
+  const profileImage = async () => {
+    try {
+      const res = await DocumentPicker.pickSingle({
+        type: [DocumentPicker.types.images],
+        copyTo: 'cachesDirectory',
+      });
+      Alert.alert('Alert', 'Profile image upload successful');
+    } catch (error) {
+      Alert.alert('Alert', 'Image not upload! ');
+    }
+  };
+
   return (
     <View style={style.container}>
+      {/* user image */}
       <View style={{height: 250}}>
+        {/* cover image */}
         <Image
           source={require('../assets/img/bgimg.jpg')}
           style={{
@@ -43,12 +78,15 @@ const ProfileEdit = ({iconColor}) => {
           }}
         />
         <TouchableOpacity
-          style={[style.cameraIcon, {top: 15, right: 15, zIndex: 999}]}>
+          style={[style.cameraIcon, {top: 15, right: 15, zIndex: 999}]}
+          onPress={() => coverImage()}>
           <Ionicons
             style={{fontSize: 30, color: iconColor}}
             name="camera-outline"
           />
         </TouchableOpacity>
+
+        {/* user profile image */}
         <View style={[StyleSheet.absoluteFill, {justifyContent: 'flex-end'}]}>
           <Image
             source={require('../assets/img/profile.jpg')}
@@ -69,7 +107,8 @@ const ProfileEdit = ({iconColor}) => {
                 left: '40%',
                 elevation: 3,
               },
-            ]}>
+            ]}
+            onPress={() => profileImage()}>
             <Ionicons
               style={{fontSize: 30, color: iconColor}}
               name="camera-outline"
@@ -78,6 +117,7 @@ const ProfileEdit = ({iconColor}) => {
         </View>
       </View>
 
+      {/* user details */}
       <View style={{marginTop: 60}}>
         <UserEdit
           name="Daval Max"

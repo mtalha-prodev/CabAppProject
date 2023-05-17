@@ -3,6 +3,7 @@ import React from 'react';
 import TakePhoto from '../../../components/driverComponents/TakePhoto';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {screenSize} from '../../../constant';
+import DocumentPicker from 'react-native-document-picker';
 
 const DriverPhoto = () => {
   const handlePhoto = async () => {
@@ -11,9 +12,10 @@ const DriverPhoto = () => {
         type: [DocumentPicker.types.images],
         copyTo: 'cachesDirectory',
       });
-      console.log(res);
+      // console.log(res);
       Alert.alert('Front Side CNIC', 'Image Upload Successfuly!');
     } catch (error) {
+      // console.log(error);
       Alert.alert('Aler', 'Please Select a Image!');
     }
   };
