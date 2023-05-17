@@ -12,13 +12,35 @@ import {fontSize, screenSize, themeColor} from '../../../constant';
 import {userContent} from '../../ComanScreens/UserContent';
 import BackButton from '../../../components/BackButton';
 
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+
 const UserPassword = () => {
   const navigation = useNavigation();
 
-  const handlePassword = () => {
+  const validSchema = Yup.object().shape({
+    password: Yup.string()
+      .min(8)
+      .required('password must be at least 8 characters long'),
+  });
+  const initialState = {
+    password: '',
+  };
+
+  const {handleChange, handleSubmit, handleBlur, values, errors, touched} =
+    useFormik({
+      initialValues: initialState,
+      validationSchema: validSchema,
+      onSubmit: value => handlePassword(value),
+    });
+
+  const handlePassword = value => {
     try {
+      console.log(value);
       navigation.navigate('UserDetails');
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -33,10 +55,20 @@ const UserPassword = () => {
             style={style.inputText}
             placeholderTextColor={themeColor.txtColor}
             secureTextEntry={true}
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            error={errors.password}
+            touched={touched.password}
+            onSubmitEditing={() => handleSubmit()}
           />
+          {touched.password && errors.password ? (
+            <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+              {errors.password}
+            </Text>
+          ) : null}
         </View>
         <View>
-          <TouchableOpacity style={style.btn} onPress={() => handlePassword()}>
+          <TouchableOpacity style={style.btn} onPress={() => handleSubmit()}>
             <Text style={style.btnTxt}>Sign In</Text>
           </TouchableOpacity>
         </View>

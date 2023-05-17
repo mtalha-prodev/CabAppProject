@@ -253,6 +253,7 @@ const DriverOtp = () => {
             )}
           </View>
         </View>
+
         <View>
           <TouchableOpacity
             disabled={

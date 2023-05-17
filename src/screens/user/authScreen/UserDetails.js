@@ -12,19 +12,46 @@ import {StackActions, useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import BackButton from '../../../components/BackButton';
+import * as Yup from 'yup';
+import {useFormik} from 'formik';
 
 const UserDetails = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPass, setConfirmPass] = useState('');
-
   const navigation = useNavigation();
 
-  const handleDetails = () => {
+  const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  };
+
+  const validSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3)
+      .required('Name must be at least 3 characters long'),
+    email: Yup.string().email().required('Enter valid email address'),
+    password: Yup.string()
+      .min(8)
+      .required('Password must be at least 8 characters long'),
+    confirmPassword: Yup.string()
+      .required()
+      .oneOf([Yup.ref('password'), null], 'Password must match'),
+  });
+
+  const {handleSubmit, handleChange, handleBlur, errors, touched, values} =
+    useFormik({
+      initialValues: initialState,
+      validationSchema: validSchema,
+      onSubmit: value => handleDetails(value),
+    });
+
+  const handleDetails = value => {
     try {
+      console.log(value);
       navigation.dispatch(StackActions.replace('UserMainScreen'));
-    } catch (error) {}
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -38,49 +65,81 @@ const UserDetails = () => {
             <View style={style.inputForm}>
               <Text style={style.label}>User Name</Text>
               <TextInput
-                value={name}
-                onChangeText={val => setName(val)}
                 placeholder="Enter Name ..."
                 style={style.inputText}
                 placeholderTextColor={themeColor.txtColor}
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+                touched={touched.name}
+                error={errors.name}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.name && errors.name ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.name}
+                </Text>
+              ) : null}
             </View>
             <View style={style.inputForm}>
               <Text style={style.label}>Confirm E-mail</Text>
               <TextInput
-                value={email}
-                onChangeText={val => setEmail(val)}
                 placeholder="Enter E-mail ..."
                 style={style.inputText}
                 placeholderTextColor={themeColor.txtColor}
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                touched={touched.email}
+                error={errors.email}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.email && errors.email ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.email}
+                </Text>
+              ) : null}
             </View>
             <View style={style.inputForm}>
               <Text style={style.label}>Password</Text>
               <TextInput
-                value={password}
-                onChangeText={val => setPassword(val)}
                 placeholder="Enter Password ..."
                 style={style.inputText}
                 placeholderTextColor={themeColor.txtColor}
                 secureTextEntry={true}
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                touched={touched.password}
+                error={errors.password}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.password && errors.password ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.password}
+                </Text>
+              ) : null}
             </View>
             <View style={style.inputForm}>
               <Text style={style.label}>Confirm Password</Text>
               <TextInput
-                value={confirmPass}
-                onChangeText={val => setConfirmPass(val)}
                 placeholder="Confirm Password ..."
                 style={style.inputText}
                 placeholderTextColor={themeColor.txtColor}
                 secureTextEntry={true}
+                onChangeText={handleChange('confirmPassword')}
+                onBlur={handleBlur('confirmPassword')}
+                touched={touched.confirmPassword}
+                error={errors.confirmPassword}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.confirmPassword && errors.confirmPassword ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.confirmPassword}
+                </Text>
+              ) : null}
             </View>
           </View>
         </View>
         <View>
-          <TouchableOpacity style={style.btn} onPress={() => handleDetails()}>
+          <TouchableOpacity style={style.btn} onPress={() => handleSubmit()}>
             <Text style={style.btnTxt}>Next</Text>
           </TouchableOpacity>
         </View>
