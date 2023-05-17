@@ -3,6 +3,7 @@ import React from 'react';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import TakePhoto from '../../../components/driverComponents/TakePhoto';
 import {screenSize} from '../../../constant';
+import DocumentPicker from 'react-native-document-picker';
 
 const VechicleDocuments = () => {
   const handlePhoto = async () => {

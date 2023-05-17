@@ -12,7 +12,7 @@ const FrontCnic = () => {
         type: [DocumentPicker.types.images],
         copyTo: 'cachesDirectory',
       });
-      console.log(res);
+      // console.log(res);
       Alert.alert('Front Side CNIC', 'Image Upload Successfuly!');
     } catch (error) {
       Alert.alert('Aler', 'Please Select a Image!');

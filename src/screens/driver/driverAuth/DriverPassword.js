@@ -5,19 +5,40 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
 import BackButton from '../../../components/BackButton';
 
+// use validataion
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+
 const DriverPassword = () => {
+  const {handleChange, handleSubmit, handleBlur, values, errors, touched} =
+    useFormik({
+      initialValues: {
+        password: '',
+      },
+      validationSchema: Yup.object().shape({
+        password: Yup.string()
+          .min(8)
+          .max(15)
+          .required('Please enter must be at least 8 characters long'),
+      }),
+      onSubmit: value => handlePassword(value),
+    });
+
   const navigation = useNavigation();
 
-  const handlePassword = () => {
+  const handlePassword = async value => {
     try {
+      console.log(value);
       navigation.navigate('DriverDetails');
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -32,10 +53,20 @@ const DriverPassword = () => {
             style={style.inputText}
             placeholderTextColor={themeColor.inputTextColor}
             secureTextEntry={true}
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            touched={touched.password}
+            error={values.password}
+            onSubmitEditing={() => handleSubmit()}
           />
+          {touched.password && errors.password ? (
+            <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+              {errors.password}
+            </Text>
+          ) : null}
         </View>
         <View>
-          <TouchableOpacity style={style.btn} onPress={() => handlePassword()}>
+          <TouchableOpacity style={style.btn} onPress={handleSubmit}>
             <Text style={style.btnTxt}>Sign In</Text>
           </TouchableOpacity>
         </View>
@@ -48,6 +79,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: screenSize.containerPaddingVertical,
+    paddingHorizontal: screenSize.containerPaddingHorizontal,
   },
   title: {
     fontSize: fontSize.title,
