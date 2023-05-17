@@ -32,7 +32,7 @@ const DriverOtp = () => {
   const ref4 = useRef();
   const ref5 = useRef();
   const ref6 = useRef();
-
+  // validate
   const handleOtp = () => {
     try {
       if (!inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6) {
