@@ -5,20 +5,56 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
 import BackButton from '../../../components/BackButton';
 
 const UserOtp = () => {
+  const [times, setTimes] = useState(60);
+  const [timeOut, setTimeOut] = useState(false);
   const navigation = useNavigation();
+
+  const [inp1, setInp1] = useState('');
+  const [inp2, setInp2] = useState('');
+  const [inp3, setInp3] = useState('');
+  const [inp4, setInp4] = useState('');
+  const [inp5, setInp5] = useState('');
+  const [inp6, setInp6] = useState('');
+
+  const ref1 = useRef();
+  const ref2 = useRef();
+  const ref3 = useRef();
+  const ref4 = useRef();
+  const ref5 = useRef();
+  const ref6 = useRef();
 
   const handleOtp = () => {
     try {
       navigation.navigate('UserPassword');
     } catch (error) {}
   };
+
+  const resendCode = () => {
+    setTimeOut(false);
+    setTimes(60);
+  };
+
+  useEffect(() => {
+    const intervel = setInterval(() => {
+      if (times === 0) {
+        clearInterval(intervel);
+        setTimeOut(true);
+      } else {
+        setTimes(times - 1);
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(intervel);
+    };
+  }, [times]);
 
   return (
     <View style={style.container}>
@@ -27,26 +63,173 @@ const UserOtp = () => {
         <Text style={style.title}>{userContent.phoneOtpTitle}</Text>
         <Text style={style.text}>{userContent.phoneOtpTxt}</Text>
         <View>
-          <TextInput
-            placeholder="Enter OTP Code ..."
-            style={style.inputText}
-            keyboardType={'number-pad'}
-            placeholderTextColor={themeColor.txtColor}
-          />
+          <View
+            style={{
+              width: screenSize.inputWidth,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginBottom: 15,
+            }}>
+            <TextInput
+              ref={ref1}
+              style={[
+                style.inputText,
+                {
+                  borderColor:
+                    inp1.length >= 1 ? themeColor.userBorderColor : 'gray',
+                },
+              ]}
+              keyboardType={'number-pad'}
+              placeholderTextColor={themeColor.txtColor}
+              maxLength={1}
+              value={inp1}
+              onChangeText={text => {
+                setInp1(text);
+                if (text.length >= 1) {
+                  ref2.current.focus();
+                }
+              }}
+            />
+            <TextInput
+              ref={ref2}
+              style={[
+                style.inputText,
+                {
+                  borderColor:
+                    inp2.length >= 1 ? themeColor.userBorderColor : 'gray',
+                },
+              ]}
+              keyboardType={'number-pad'}
+              placeholderTextColor={themeColor.txtColor}
+              maxLength={1}
+              value={inp2}
+              onChangeText={text => {
+                setInp2(text);
+                if (text.length >= 1) {
+                  ref3.current.focus();
+                } else if (text.length < 1) {
+                  ref1.current.focus();
+                }
+              }}
+            />
+            <TextInput
+              ref={ref3}
+              style={[
+                style.inputText,
+                {
+                  borderColor:
+                    inp3.length >= 1 ? themeColor.userBorderColor : 'gray',
+                },
+              ]}
+              keyboardType={'number-pad'}
+              placeholderTextColor={themeColor.txtColor}
+              maxLength={1}
+              value={inp3}
+              onChangeText={text => {
+                setInp3(text);
+                if (text.length >= 1) {
+                  ref4.current.focus();
+                } else if (text.length < 1) {
+                  ref2.current.focus();
+                }
+              }}
+            />
+            <TextInput
+              ref={ref4}
+              style={[
+                style.inputText,
+                {
+                  borderColor:
+                    inp4.length >= 1 ? themeColor.userBorderColor : 'gray',
+                },
+              ]}
+              keyboardType={'number-pad'}
+              placeholderTextColor={themeColor.txtColor}
+              maxLength={1}
+              value={inp4}
+              onChangeText={text => {
+                setInp4(text);
+                if (text.length >= 1) {
+                  ref5.current.focus();
+                } else if (text.length < 1) {
+                  ref3.current.focus();
+                }
+              }}
+            />
+            <TextInput
+              ref={ref5}
+              style={[
+                style.inputText,
+                {
+                  borderColor:
+                    inp5.length >= 1 ? themeColor.userBorderColor : 'gray',
+                },
+              ]}
+              keyboardType={'number-pad'}
+              placeholderTextColor={themeColor.txtColor}
+              maxLength={1}
+              value={inp5}
+              onChangeText={text => {
+                setInp5(text);
+                if (text.length >= 1) {
+                  ref6.current.focus();
+                } else if (text.length < 1) {
+                  ref4.current.focus();
+                }
+              }}
+            />
+            <TextInput
+              ref={ref6}
+              style={[
+                style.inputText,
+                {
+                  borderColor:
+                    inp6.length >= 1 ? themeColor.userBorderColor : 'gray',
+                },
+              ]}
+              keyboardType={'number-pad'}
+              placeholderTextColor={themeColor.txtColor}
+              maxLength={1}
+              value={inp6}
+              onChangeText={text => {
+                setInp6(text);
+                if (text.length >= 1) {
+                  ref6.current.focus();
+                } else if (text.length < 1) {
+                  ref5.current.focus();
+                }
+              }}
+            />
+          </View>
+
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text style={{fontSize: 16, color: themeColor.txtColor}}>
-              Please don't share your code{' '}
+            <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
+              Please don't share your code
             </Text>
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '800',
-                color: themeColor.txtColor,
-              }}>
-              {'00:30'}
-            </Text>
+            {!timeOut ? (
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '800',
+                  color: themeColor.txtColor,
+                }}>
+                00:{times}
+              </Text>
+            ) : (
+              <TouchableOpacity onPress={() => resendCode()}>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: '800',
+                    color: themeColor.driverIconColor,
+                  }}>
+                  Resend Code
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
+
         <View>
           <TouchableOpacity style={style.btn} onPress={() => handleOtp()}>
             <Text style={style.btnTxt}>Next</Text>
@@ -75,13 +258,14 @@ const style = StyleSheet.create({
     color: themeColor.txtColor,
   },
   inputText: {
-    borderBottomWidth: 3,
-    width: screenSize.inputWidth,
-    fontSize: fontSize.txt,
-    borderBottomColor: themeColor.bgColor,
+    borderWidth: 1,
+    marginTop: screenSize.inputMarginVertical,
+    width: 50,
+    height: 50,
     color: themeColor.txtColor,
-    padding: screenSize.inputPadding,
-    marginVertical: screenSize.inputMarginVertical,
+    fontSize: fontSize.normalTitle,
+    borderRadius: 10,
+    textAlign: 'center',
   },
   btn: {
     backgroundColor: themeColor.userBtnBgColor,
