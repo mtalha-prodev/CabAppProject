@@ -28,7 +28,7 @@ const DriverOtp = () => {
   const ref4 = useRef();
   const ref5 = useRef();
   const ref6 = useRef();
-
+  // validate
   const handleOtp = () => {
     try {
       navigation.navigate('DriverPassword');
