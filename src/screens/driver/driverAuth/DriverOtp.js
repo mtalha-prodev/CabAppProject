@@ -13,7 +13,6 @@ import BackButton from '../../../components/BackButton';
 
 const DriverOtp = () => {
   const [times, setTimes] = useState(60);
-  const [timeOut, setTimeOut] = useState(false);
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -37,26 +36,17 @@ const DriverOtp = () => {
       console.log(error);
     }
   };
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setTimes(times - 1);
+  //   }, 1000);
 
-  const resendCode = () => {
-    setTimeOut(false);
-    setTimes(60);
-  };
-
-  useEffect(() => {
-    const intervel = setInterval(() => {
-      if (times === 0) {
-        clearInterval(intervel);
-        setTimeOut(true);
-      } else {
-        setTimes(times - 1);
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(intervel);
-    };
-  }, [times]);
+  //   return () => {
+  //     setTimes(() => {
+  //       clearInterval();
+  //     }, 600000);
+  //   };
+  // }, []);
 
   return (
     <View style={style.container}>
@@ -64,7 +54,6 @@ const DriverOtp = () => {
       <View style={{alignSelf: 'center'}}>
         <Text style={style.title}>{driverContent.phoneOtpTitle}</Text>
         <Text style={style.text}>{driverContent.phoneOtpTxt}</Text>
-
         <View>
           <View
             style={{
@@ -209,30 +198,16 @@ const DriverOtp = () => {
             <Text style={{fontSize: 16, color: themeColor.inputTextColor}}>
               Please don't share your code
             </Text>
-            {!timeOut ? (
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: '800',
-                  color: themeColor.txtColor,
-                }}>
-                00:{times}
-              </Text>
-            ) : (
-              <TouchableOpacity onPress={() => resendCode()}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: '800',
-                    color: themeColor.userIconColor,
-                  }}>
-                  Resend Code
-                </Text>
-              </TouchableOpacity>
-            )}
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '800',
+                color: themeColor.txtColor,
+              }}>
+              00:{times}
+            </Text>
           </View>
         </View>
-
         <View>
           <TouchableOpacity style={style.btn} onPress={() => handleOtp()}>
             <Text style={style.btnTxt}>Next</Text>
