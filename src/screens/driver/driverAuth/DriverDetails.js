@@ -40,12 +40,11 @@ const DriverDetails = () => {
     city: '',
   };
 
-  const {handleChange, handleSubmit, handleBlur, errors, values, touched} =
-    useFormik({
-      initialValues: initailState,
-      validationSchema: validSchema,
-      onSubmit: value => handleDetails(value),
-    });
+  const {handleChange, handleSubmit, handleBlur, errors, touched} = useFormik({
+    initialValues: initailState,
+    validationSchema: validSchema,
+    onSubmit: value => handleDetails(value),
+  });
 
   const navigation = useNavigation();
 

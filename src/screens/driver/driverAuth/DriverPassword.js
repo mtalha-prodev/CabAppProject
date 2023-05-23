@@ -56,7 +56,7 @@ const DriverPassword = () => {
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
             touched={touched.password}
-            error={values.password}
+            error={errors.password}
             onSubmitEditing={() => handleSubmit()}
           />
           {touched.password && errors.password ? (
