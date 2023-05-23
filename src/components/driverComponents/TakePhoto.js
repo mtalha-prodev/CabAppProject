@@ -11,8 +11,35 @@ import React from 'react';
 import BackButton from '../BackButton';
 import {driverContent} from '../../screens/ComanScreens/DriverContent';
 import {fontSize, screenSize, themeColor} from '../../constant';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
 
 const CnicPhoto = ({title, text, handlePhoto, vehicleForm}) => {
+  const initialState = {
+    vehicleName: '',
+    vehicleModel: '',
+    vehicleNumber: '',
+    vehicleModelYear: '',
+  };
+  const validation = Yup.object().shape({
+    vehicleName: Yup.string().min(4).required('Please enter vehicle name'),
+    vehicleModel: Yup.string().min(4).required('Please enter vehicle model'),
+    vehicleNumber: Yup.string().min(4).required('Please enter vehicle number'),
+    vehicleModelYear: Yup.string()
+      .min(4)
+      .required('Please enter vehicle model year'),
+  });
+
+  const {handleChange, handleBlur, handleSubmit, touched, errors} = useFormik({
+    initialValues: initialState,
+    validationSchema: validation,
+    onSubmit: value => handleForm(value),
+  });
+
+  const handleForm = value => {
+    console.log(value);
+  };
+
   return (
     <View style={style.container}>
       <BackButton iconColor={themeColor.driverIconColor} />
@@ -30,22 +57,62 @@ const CnicPhoto = ({title, text, handlePhoto, vehicleForm}) => {
                 style={style.input}
                 placeholderTextColor={themeColor.txtColor}
                 placeholder="Vehicle Name"
+                onChangeText={handleChange('vehicleName')}
+                onBlur={handleBlur('vehicleName')}
+                touched={touched.vehicleName}
+                error={errors.vehicleName}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.vehicleName && errors.vehicleName ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.vehicleName}
+                </Text>
+              ) : null}
               <TextInput
                 style={style.input}
                 placeholderTextColor={themeColor.txtColor}
                 placeholder="Vehicle Model"
+                onChangeText={handleChange('vehicleModel')}
+                onBlur={handleBlur('vehicleModel')}
+                touched={touched.vehicleModel}
+                error={errors.vehicleModel}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.vehicleModel && errors.vehicleModel ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.vehicleModel}
+                </Text>
+              ) : null}
               <TextInput
                 style={style.input}
                 placeholderTextColor={themeColor.txtColor}
                 placeholder="Vehicle Number"
+                onChangeText={handleChange('vehicleNumber')}
+                onBlur={handleBlur('vehicleNumber')}
+                touched={touched.vehicleNumber}
+                error={errors.vehicleNumber}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.vehicleNumber && errors.vehicleNumber ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.vehicleNumber}
+                </Text>
+              ) : null}
               <TextInput
                 style={style.input}
                 placeholderTextColor={themeColor.txtColor}
                 placeholder="Vehicle Model Year"
+                onChangeText={handleChange('vehicleModelYear')}
+                onBlur={handleBlur('vehicleModelYear')}
+                touched={touched.vehicleModelYear}
+                error={errors.vehicleModelYear}
+                onSubmitEditing={() => handleSubmit()}
               />
+              {touched.vehicleModelYear && errors.vehicleModelYear ? (
+                <Text style={{color: 'red', alignSelf: 'flex-end'}}>
+                  {errors.vehicleModelYear}
+                </Text>
+              ) : null}
             </View>
           )}
 
