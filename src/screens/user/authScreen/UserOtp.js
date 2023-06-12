@@ -5,7 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {useNavigation} from '@react-navigation/native';
 import {userContent} from '../../ComanScreens/UserContent';
@@ -13,6 +13,8 @@ import BackButton from '../../../components/BackButton';
 
 const UserOtp = () => {
   const [otpCode, setOtpCode] = useState(60);
+  const [resend, setResend] = useState(false);
+
   const navigation = useNavigation();
 
   const [inp1, setInp1] = useState('');
@@ -31,9 +33,35 @@ const UserOtp = () => {
 
   const handleOtp = () => {
     try {
-      navigation.navigate('UserPassword');
-    } catch (error) {}
+      if (!inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6) {
+        Alert.alert('OTP', 'Please Enter Varification Code!');
+      } else {
+        navigation.navigate('UserPassword');
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+
+  const otpResend = () => {
+    setOtpCode(60);
+    setResend(false);
+  };
+
+  useEffect(() => {
+    const clear = setInterval(() => {
+      if (otpCode === 0) {
+        clearInterval(clear);
+        setResend(true);
+      } else {
+        setOtpCode(otpCode - 1);
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(clear);
+    };
+  }, [otpCode]);
 
   return (
     <View style={style.container}>
@@ -186,19 +214,47 @@ const UserOtp = () => {
               Please don't share your code
             </Text>
 
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: '800',
-                color: themeColor.txtColor,
-              }}>
-              00:{otpCode}
-            </Text>
+            {resend ? (
+              <TouchableOpacity
+                onPress={() => otpResend()}
+                style={{padding: 10}}>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontSize: fontSize.btnTxt,
+                    color: themeColor.driverBtnBgColor,
+                  }}>
+                  Resend OTP
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '800',
+                  color: themeColor.txtColor,
+                }}>
+                00:{otpCode}
+              </Text>
+            )}
           </View>
         </View>
 
         <View>
-          <TouchableOpacity style={style.btn} onPress={() => handleOtp()}>
+          <TouchableOpacity
+            disabled={
+              !inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6 ? true : false
+            }
+            style={[
+              style.btn,
+              {
+                backgroundColor:
+                  !inp1 || !inp2 || !inp3 || !inp4 || !inp5 || !inp6
+                    ? 'gray'
+                    : themeColor.userBtnBgColor,
+              },
+            ]}
+            onPress={() => handleOtp()}>
             <Text style={style.btnTxt}>Next</Text>
           </TouchableOpacity>
         </View>

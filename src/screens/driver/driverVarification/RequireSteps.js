@@ -5,14 +5,48 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import BackButton from '../../../components/BackButton';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RequireSteps = () => {
+  const [cnicFront, setCnicFront] = useState(false);
+  const [cnicBack, setCnicBack] = useState(false);
+  const [photo, setPhoto] = useState(false);
+  const [licenseFront, setLicenseFront] = useState(false);
+  const [licenseBack, setlicenseBack] = useState(false);
+  const [vehicleDocument, setvehicleDocument] = useState(false);
+
   const navigation = useNavigation();
+
+  const getDriverData = async () => {
+    try {
+      const fCnic = await AsyncStorage.getItem('front-cnic');
+      const bCnic = await AsyncStorage.getItem('back-cnic');
+      const photo = await AsyncStorage.getItem('photo');
+      const fLicense = await AsyncStorage.getItem('license-front');
+      const bLicense = await AsyncStorage.getItem('license-back');
+      const vehicleDocument = await AsyncStorage.getItem('vehicle-document');
+
+      setCnicFront(JSON.parse(fCnic));
+      setCnicBack(JSON.parse(bCnic));
+      setPhoto(JSON.parse(photo));
+      setLicenseFront(JSON.parse(fLicense));
+      setlicenseBack(JSON.parse(bLicense));
+      setvehicleDocument(JSON.parse(vehicleDocument));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(cnicFront);
+
+  useEffect(() => {
+    getDriverData();
+  }, [getDriverData]);
+
   return (
     <View style={style.container}>
       <BackButton iconColor={themeColor.driverIconColor} />
@@ -34,31 +68,37 @@ const RequireSteps = () => {
           name={'CNIC Front Side '}
           fieldName={'Get Started'}
           onPress="FrontCnic"
+          cardState={cnicFront}
         />
         <CardButton
           name={'CNIC Back Side'}
           fieldName={'Get Started'}
           onPress="BackCnic"
+          cardState={cnicBack}
         />
         <CardButton
           name={'Partner Photo'}
           fieldName={'Get Started'}
           onPress="DriverPhoto"
+          cardState={photo}
         />
         <CardButton
           name={'Driving License Front Side'}
           fieldName={'Get Started'}
           onPress="LicenseFront"
+          cardState={licenseFront}
         />
         <CardButton
           name={'Driving License Back Side'}
           fieldName={'Get Started'}
           onPress="LicenseBack"
+          cardState={licenseBack}
         />
         <CardButton
           name={'Vehicle Registration Book/Card'}
           fieldName={'Get Started'}
           onPress="VehicleBook"
+          cardState={vehicleDocument}
         />
         <TouchableOpacity
           style={style.btnNext}
@@ -70,8 +110,15 @@ const RequireSteps = () => {
   );
 };
 
-const CardButton = ({name, fieldName, onPress}) => {
+const CardButton = ({name, fieldName, onPress, cardState}) => {
+  const [state, setState] = useState();
+
   const navigation = useNavigation();
+
+  useEffect(() => {
+    setState(cardState);
+  }, [state]);
+
   return (
     <TouchableOpacity
       style={style.btn}
@@ -90,7 +137,11 @@ const CardButton = ({name, fieldName, onPress}) => {
           <Text style={{color: themeColor.txtColor}}>{fieldName}</Text>
         </View>
       </View>
-      <Ionicons style={style.icon} name="chevron-forward-outline" />
+      {state ? (
+        <Ionicons style={style.icon} name="checkmark-done-outline" />
+      ) : (
+        <Ionicons style={style.icon} name="chevron-forward-outline" />
+      )}
     </TouchableOpacity>
   );
 };

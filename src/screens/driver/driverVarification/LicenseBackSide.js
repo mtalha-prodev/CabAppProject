@@ -4,6 +4,7 @@ import {driverContent} from '../../ComanScreens/DriverContent';
 import TakePhoto from '../../../components/driverComponents/TakePhoto';
 import {screenSize} from '../../../constant';
 import DocumentPicker from 'react-native-document-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LicenseBackSide = () => {
   const handlePhoto = async () => {
@@ -12,9 +13,14 @@ const LicenseBackSide = () => {
         type: [DocumentPicker.types.images],
         copyTo: 'cachesDirectory',
       });
+      if (res) {
+        // console.log(res);
+        await AsyncStorage.setItem('license-back', 'true');
+      }
       // console.log(res);
       Alert.alert('Driver License', 'Image Upload Successfuly!');
     } catch (error) {
+      await AsyncStorage.clearItem('license-front');
       Alert.alert('Aler', 'Please Select a Image!');
     }
   };

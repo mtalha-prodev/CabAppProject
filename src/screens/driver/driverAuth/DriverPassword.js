@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {fontSize, screenSize, themeColor} from '../../../constant';
 import {driverContent} from '../../ComanScreens/DriverContent';
 import {useNavigation} from '@react-navigation/native';
@@ -56,7 +56,7 @@ const DriverPassword = () => {
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
             touched={touched.password}
-            error={values.password}
+            error={errors.password}
             onSubmitEditing={() => handleSubmit()}
           />
           {touched.password && errors.password ? (
